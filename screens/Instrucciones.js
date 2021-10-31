@@ -1,38 +1,85 @@
 import * as React from "react";
 import TopBox from "../components/TopBox";
 import BottomImageWithExitButton from "../components/BottomImageWithExitButton";
-import { Center, Box, Text, VStack, Image } from "native-base";
+import { Center, Box, Text, VStack, HStack, Stack } from "native-base";
 
 const Instrucciones = () => {
   return (
     <Box w={"360px"} h={"640px"}>
       <TopBox />
-      <VStack alignItems="center">
-        <Center>
-          <Text
-            ml={"13.89%"}
-            mr={"13.89%"}
-            mt={"20.94%"}
-            mb={"65.62%"}
-            fontFamily="body"
-            fontWeight={500}
-            fontSize={24}
-            lineHeight={24}
-            display="flex"
-            alignItems="center"
-            textAlign="center"
-            letterSpacing={0.15}
-            color="rgba(0, 0, 0, 0.4)"
-          >
-            ¡Bienvenido a tu asistente de reciclado!
-          </Text>
-        </Center>
+      <VStack alignItems="center" w={"360px"}>
+        <VStack>
+          <HStack>
+            <Center ml={"10%"} mt={"2.5%"}>
+              <Text
+                color="#84D31E"
+                w={36}
+                h={24}
+                fontFamily="body"
+                fontWeight={500}
+                fontSize={36}
+                lineHeight={24}
+                display="flex"
+                alignItems="center"
+                letterSpacing={0.15}
+              >
+                1.
+              </Text>
+            </Center>
+            <Center ml={"85px"} mr={"35px"} mt={"35px"} position="absolute">
+              <Text
+                fontFamily="body"
+                fontWeight={500}
+                fontSize={20}
+                lineHeight={24}
+                display="flex"
+                alignItems="center"
+                letterSpacing={0.15}
+                color="rgba(0, 0, 0, 0.4)"
+              >
+                Escaneá el producto que querés reciclar
+              </Text>
+            </Center>
+          </HStack>
+          <HStack>
+            <Center ml={"10%"} mt={"2.5%"}>
+              <Text
+                color="#84D31E"
+                w={36}
+                h={24}
+                fontFamily="body"
+                fontWeight={500}
+                fontSize={36}
+                lineHeight={24}
+                display="flex"
+                alignItems="center"
+                letterSpacing={0.15}
+              >
+                2.
+              </Text>
+            </Center>
+            <Center w={"240px"} ml={"10px"} mt={"15px"} mr={"35px"}>
+              <Text
+                fontFamily="body"
+                fontWeight={500}
+                fontSize={20}
+                lineHeight={24}
+                display="flex"
+                alignItems="center"
+                letterSpacing={0.15}
+                color="rgba(0, 0, 0, 0.4)"
+              >
+                Seguí los pasos que te indique el asistente
+              </Text>
+            </Center>
+          </HStack>
+        </VStack>
         <Center
           pos="absolute"
           height={90}
           width={180}
           ml={"0%"}
-          mt={"-10%"}
+          mt={"10%"}
           borderRadius={"8px"}
           bgColor="#84D31E"
         >
