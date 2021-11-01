@@ -10,6 +10,7 @@ const TopBox = () => {
           w={"17.49px"}
           h={"12px"}
           source={require("../assets/icons/menu.png")}
+          alt=""
         />
       </Center>
       <Center w={"50%"}>
@@ -32,6 +33,7 @@ const TopBox = () => {
           w={"24px"}
           h={"24px"}
           source={require("../assets/icons/account_circle.png")}
+          alt=""
         />
       </Center>
     </HStack>

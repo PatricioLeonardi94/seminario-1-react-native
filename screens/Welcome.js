@@ -56,6 +56,7 @@ const Welcome = () => {
             h={349}
             opacity={0.8}
             source={require("../assets/images/bottom-bubbles.png")}
+            alt=""
           />
         </Center>
       </VStack>

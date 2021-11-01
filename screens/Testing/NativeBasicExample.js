@@ -56,6 +56,7 @@ const NativeBasicExample = () => {
             height={100}
             rounded="full"
             width={100}
+            alt=""
           />
         </HStack>
       </Box>

@@ -18,15 +18,18 @@ const LoadingScreen = () => {
         <Image
           style={styles.topWave}
           source={require("../assets/images/green-wave.png")}
+          alt=""
         />
         <Image
           style={styles.logo}
           source={require("../assets/images/logo.png")}
+          alt=""
         />
         <Text style={styles.text}>{constants.PROJECT_NAME}</Text>
         <Image
           style={styles.bottomWave}
           source={require("../assets/images/green-wave.png")}
+          alt=""
         />
       </View>
     </SafeAreaView>
