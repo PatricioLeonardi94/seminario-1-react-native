@@ -19,7 +19,7 @@ const ReciclingAssistantSteps = ({steps}) => {
             setFinalStep(true);
         }
         else{
-            setCurrentStep(steps[currentStep+1]);
+            setCurrentStep(steps[currentStep.stepNumber]);
         }
     }
 
