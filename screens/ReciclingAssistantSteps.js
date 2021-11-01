@@ -1,4 +1,6 @@
 import {useState} from 'react';
+import { Center } from "native-base";
+
 import ChoiceStepPage from '../components/steps/ChoiceStepPage';
 import DoubleStepPage from '../components/steps/DoubleStepPage';
 import ForkStepPage from '../components/steps/ForkStepPage';
