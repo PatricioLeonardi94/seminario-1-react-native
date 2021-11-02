@@ -1,4 +1,4 @@
-const FinalStepPage = () => {
+const FinalStepPage = ({step,handleNextStep,handleNegativeStep}) => {
 
 }
 

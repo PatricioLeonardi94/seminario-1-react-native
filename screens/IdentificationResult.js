@@ -8,16 +8,14 @@ import cartonSteps from './../assets/material-recicling-steps/carton.json';
 import ReciclingAssistantSteps from './ReciclingAssistantSteps';
 
 
-const IdentificationResult = () => {
-    const [material, setMaterial] = useState("");
-
+const IdentificationResult = ({material}) => {
     const getMaterialReciclingSteps = () => {
         switch (material.toUpperCase()){
             case "PLASTICO":
                 return <ReciclingAssistantSteps steps={plasticSteps} />
             case "VIDRIO":
                 return <ReciclingAssistantSteps steps={glassSteps} />
-            case "Pilas":
+            case "PILAS":
                 return <ReciclingAssistantSteps steps={pilasSteps} />
             case "PAPEL":
                 return <ReciclingAssistantSteps steps={paperSteps} />

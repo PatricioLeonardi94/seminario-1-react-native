@@ -1,4 +1,4 @@
-const ForkStepPage = () => {
+const ForkStepPage = ({step,handleNextStep,handleNegativeStep}) => {
 
 }
 

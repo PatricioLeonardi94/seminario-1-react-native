@@ -1,4 +1,4 @@
-const DoubleStepPage = () => {
+const DoubleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
 
 }
 

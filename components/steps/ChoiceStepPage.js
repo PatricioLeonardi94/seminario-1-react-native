@@ -1,4 +1,4 @@
-const ChoiceStepPage = () => {
+const ChoiceStepPage = ({step,handleNextStep,handleNegativeStep}) => {
 
 }
 

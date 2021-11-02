@@ -1,4 +1,4 @@
-const NegativeStepPage = () => {
+const NegativeStepPage = ({step,handleNextStep,handleNegativeStep}) => {
 
 }
 
