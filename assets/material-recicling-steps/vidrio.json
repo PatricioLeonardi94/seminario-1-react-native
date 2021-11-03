@@ -1,0 +1,16 @@
+[
+    {
+        "stepName":"Lavar",
+        "stepNumber": 1,
+        "stepType": 1,
+        "images": [],
+        "texts": ["Asegurate de lavar bien los envases, y que no queden restos de alimentos"]
+    },
+    {
+        "stepName":"Secar",
+        "stepNumber": 2,
+        "stepType": 1,
+        "images": [],
+        "texts": ["Asegurate de secar bien, para no estropear el reciclado"]
+    }
+]
