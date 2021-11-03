@@ -18,7 +18,7 @@ const NegativeStepPage = ({stepName,handleReturnToPrevious,nav}) => {
                         letterSpacing={0.15}
                         color="rgba(0, 0, 0, 0.4)"
                     >
-                        Si no pudiste hacer el paso "{stepName}""
+                        Si no pudiste hacer el paso "{stepName}"
                     </Text>
                 </Center>
                 <Center>

@@ -1,6 +1,6 @@
 import React from 'react';
 import TopBox from '../components/TopBox';
-import { Checkbox, Center, Box, Text, VStack, HStack, Stack, Button } from "native-base";
+import { Center, Box, Text, VStack} from "native-base";
 
 const MaterialToRecycle = ({navigation,material}) => {
     return (

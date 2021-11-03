@@ -1,16 +1,37 @@
 [
     {
-        "stepName":"Lavar",
+        "stepName":"Retirar Eqtiqueta",
         "stepNumber": 1,
+        "stepType": 1,
+        "images": [],
+        "texts": ["Asegurate de retirar restos de pegamento, adhesivos y/o etiquetas"]
+    },
+    {
+        "stepName":"Lavar",
+        "stepNumber": 2,
         "stepType": 1,
         "images": [],
         "texts": ["Asegurate de lavar bien los envases, y que no queden restos de alimentos"]
     },
     {
         "stepName":"Secar",
-        "stepNumber": 2,
+        "stepNumber": 3,
         "stepType": 1,
         "images": [],
         "texts": ["Asegurate de secar bien, para no estropear el reciclado"]
+    },
+    {
+        "stepName":"Comprimir",
+        "stepNumber": 4,
+        "stepType": 1,
+        "images": [],
+        "texts": ["Asegurate de secar bien, para no estropear el reciclado"]
+    },
+    {
+        "stepName":"Separar",
+        "stepNumber": 5,
+        "stepType": 2,
+        "images": [],
+        "texts": ["Coloca tu residuo en una bolsa verde","Arrojalo en un cesto verde de reciclables"]
     }
 ]

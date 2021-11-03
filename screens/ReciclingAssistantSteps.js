@@ -1,6 +1,6 @@
 import React from 'react';
 import {useState} from 'react';
-import { Center, Box } from "native-base";
+import { Box } from "native-base";
 
 import ChoiceStepPage from '../components/steps/ChoiceStepPage';
 import DoubleStepPage from '../components/steps/DoubleStepPage';
@@ -8,7 +8,6 @@ import ForkStepPage from '../components/steps/ForkStepPage';
 import NegativeStepPage from '../components/steps/NegativeStepPage';
 import SimpleStepPage from '../components/steps/SimpleStepPage';
 import FinalStepPage from '../components/steps/FinalStepPage';
-import TopBox from '../components/TopBox';
 
 const ReciclingAssistantSteps = ({nav,steps}) => {
     const [currentStep, setCurrentStep] = useState(steps[0])

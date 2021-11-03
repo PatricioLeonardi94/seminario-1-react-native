@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Box, Center, Container } from "native-base";
+import { Box, Center } from "native-base";
 import ReciclingAssistantSteps from './ReciclingAssistantSteps';
 import TopBox from '../components/TopBox';
 
@@ -10,23 +10,6 @@ import metalSteps from './../assets/material-recicling-steps/metal.json';
 import paperSteps from './../assets/material-recicling-steps/papel.json';
 import glassSteps from './../assets/material-recicling-steps/vidrio.json';
 import cartonSteps from './../assets/material-recicling-steps/carton.json';
-
-/*const plasticSteps = [
-    {
-        "stepName":"Lavar",
-        "stepNumber": 1,
-        "stepType": 1,
-        "images": [],
-        "texts": ["Asegurate de lavar bien los envases, y que no queden restos de alimentos"]
-    },
-    {
-        "stepName":"Secar",
-        "stepNumber": 2,
-        "stepType": 1,
-        "images": [],
-        "texts": ["Asegurate de secar bien, para no estropear el reciclado"]
-    }
-]*/
 
 const IdentificationResult = ({material,navigation}) => {
 
