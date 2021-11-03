@@ -1,5 +1,4 @@
 import React from 'react';
-import TopBox from '../TopBox';
 import { Center, Box, Text, VStack, HStack, Stack, Button } from "native-base";
 
 const SimpleStepPage = ({step,handleNextStep,handleNegativeStep}) => {

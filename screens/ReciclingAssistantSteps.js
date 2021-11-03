@@ -10,7 +10,7 @@ import SimpleStepPage from '../components/steps/SimpleStepPage';
 import FinalStepPage from '../components/steps/FinalStepPage';
 import TopBox from '../components/TopBox';
 
-const ReciclingAssistantSteps = ({steps}) => {
+const ReciclingAssistantSteps = ({nav,steps}) => {
     const [currentStep, setCurrentStep] = useState(steps[0])
     const [negativeStep, setNegativeStep] = useState(false);
     const [finalStep, setFinalStep] = useState(false);
@@ -46,9 +46,9 @@ const ReciclingAssistantSteps = ({steps}) => {
             {!finalStep ?
                 (!negativeStep ?
                     displayStep(currentStep.stepType) :
-                    <NegativeStepPage stepName={currentStep.stepName} handleReturnToPrevious={() => handleReturnToPrevious()}/>
+                    <NegativeStepPage stepName={currentStep.stepName} handleReturnToPrevious={() => handleReturnToPrevious()} nav={nav}/>
                 ) : 
-                <FinalStepPage />
+                <FinalStepPage nav={nav}/>
             }
         </Box>
     );

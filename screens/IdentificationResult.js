@@ -28,7 +28,7 @@ const plasticSteps = [
     }
 ]
 
-const IdentificationResult = ({material}) => {
+const IdentificationResult = ({material,navigation}) => {
 
     const getMaterialReciclingSteps = () => {
         switch (material.toUpperCase()){
@@ -49,7 +49,7 @@ const IdentificationResult = ({material}) => {
         <Box>
             <TopBox />
             <Center>
-                <ReciclingAssistantSteps steps={plasticSteps} />
+                <ReciclingAssistantSteps nav={navigation} steps={plasticSteps} />
             </Center>
         </Box>
         

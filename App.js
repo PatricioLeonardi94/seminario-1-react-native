@@ -15,7 +15,7 @@ export default function App() {
     <NavigationContainer>
       <NativeBaseProvider>
 
-        <Stack.Navigator initialRouteName="IdentificationResult">
+        <Stack.Navigator initialRouteName="Welcome">
           <Stack.Screen name="Welcome">
             {props => <Welcome {...props} />}
           </Stack.Screen>
