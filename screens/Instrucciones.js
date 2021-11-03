@@ -95,7 +95,7 @@ const Instrucciones = ({navigation}) => {
             textAlign="center"
             letterSpacing={0.16}
             onPress={() =>
-              navigation.navigate('IdentificationResult')
+              navigation.navigate('SelectMaterial')
             }
             bgColor="#84D31E"
           >

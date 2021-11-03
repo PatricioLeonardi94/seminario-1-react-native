@@ -1,12 +1,8 @@
 import React from 'react';
-import { Checkbox, Center, Box, Text, VStack, HStack, Stack, Button } from "native-base";
 import TopBox from '../components/TopBox';
+import { Checkbox, Center, Box, Text, VStack, HStack, Stack, Button } from "native-base";
 
-const SelectMaterial = ({material,setMaterial,navigation}) => {
-    const handleMaterialChange = (newMaterial) => {
-        setMaterial(newMaterial);
-    }
-
+const MaterialToRecycle = ({navigation,material}) => {
     return (
         <Box>
             <TopBox />
@@ -23,21 +19,38 @@ const SelectMaterial = ({material,setMaterial,navigation}) => {
                         letterSpacing={0.15}
                         color="rgba(0, 0, 0, 0.4)"
                     >
-                        Selecciona el material del que está hecho tu producto:
+                        El producto que deseas reciclar está hecho de:
                     </Text>
                 </Center>
                 <Center>
-                <Checkbox.Group
-                    onChange={handleMaterialChange}
-                    value={material}
-                    accessibilityLabel="Seleccione el material"
+                    <Text
+                        fontFamily="body"
+                        fontWeight={500}
+                        fontSize={24}
+                        lineHeight={24}
+                        display="flex"
+                        alignItems="center"
+                        textAlign="center"
+                        letterSpacing={0.15}
+                        color="#84D31E"
                     >
-                    <Checkbox value="plastico">Plástico</Checkbox>
-                    <Checkbox value="papel">Papel</Checkbox>
-                    <Checkbox value="vidrio">Vidrio</Checkbox>
-                    <Checkbox value="carton">Carton</Checkbox>
-                    <Checkbox value="metal">Metal</Checkbox>
-                </Checkbox.Group>
+                        {material}
+                    </Text>
+                </Center>
+                <Center>
+                    <Text
+                        fontFamily="body"
+                        fontWeight={500}
+                        fontSize={24}
+                        lineHeight={24}
+                        display="flex"
+                        alignItems="center"
+                        textAlign="center"
+                        letterSpacing={0.15}
+                        color="rgba(0, 0, 0, 0.4)"
+                    >
+                        Seguí los pasos a continuacion para reciclar tu prodcuto!
+                    </Text>
                 </Center>
                 <Center
                 height={"90px"}
@@ -57,9 +70,9 @@ const SelectMaterial = ({material,setMaterial,navigation}) => {
                         textAlign="center"
                         letterSpacing={0.16}
                         onPress={() =>
-                            navigation.navigate('MaterialToRecycle')}
+                            navigation.navigate('IdentificationResult')}
                     >
-                        CONFIRMAR
+                        RECICLAR
                     </Text>
                 </Center>
                 <Center>
@@ -70,4 +83,4 @@ const SelectMaterial = ({material,setMaterial,navigation}) => {
     );
 }
 
-export default SelectMaterial;
+export default MaterialToRecycle;
