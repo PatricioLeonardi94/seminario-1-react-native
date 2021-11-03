@@ -5,14 +5,10 @@ import { Center, Box, Text, VStack, HStack, Stack, Button } from "native-base";
 const SimpleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
     return (
         <Center>
-            <TopBox />
             <VStack alignItems="center">
                 <Center>
                     <Text
-                        ml={"13.89%"}
-                        mr={"13.89%"}
-                        mt={"20.94%"}
-                        mb={"65.62%"}
+                       
                         fontFamily="body"
                         fontWeight={500}
                         fontSize={24}
@@ -28,10 +24,6 @@ const SimpleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                 </Center>
                 <Center>
                     <Text
-                        ml={"13.89%"}
-                        mr={"13.89%"}
-                        mt={"20.94%"}
-                        mb={"65.62%"}
                         fontFamily="body"
                         fontWeight={500}
                         fontSize={24}
@@ -40,17 +32,13 @@ const SimpleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                         alignItems="center"
                         textAlign="center"
                         letterSpacing={0.15}
-                        color="rgba(0, 0, 0, 0.4)"
+                        color="#84D31E"
                     >
                         {step.stepName}
                     </Text>
                 </Center>
                 <Center>
                     <Text
-                        ml={"13.89%"}
-                        mr={"13.89%"}
-                        mt={"20.94%"}
-                        mb={"65.62%"}
                         fontFamily="body"
                         fontWeight={500}
                         fontSize={24}
@@ -65,16 +53,13 @@ const SimpleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                     </Text>
                 </Center>
                 <Center
-                pos="absolute"
-                height={90}
-                width={180}
+                height={"90px"}
+                width={"180px"}
                 ml={"0%"}
-                mt={"-10%"}
                 borderRadius={"8px"}
                 bgColor="#84D31E"
                 >
                     <Text
-                        pos="absolute"
                         color="white"
                         font="body"
                         fontWeight={500}
@@ -90,16 +75,13 @@ const SimpleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                     </Text>
                 </Center>
                 <Center
-                pos="absolute"
-                height={90}
-                width={180}
+                height={"90px"}
+                width={"180px"}
                 ml={"0%"}
-                mt={"-10%"}
                 borderRadius={"8px"}
                 bgColor="#grey"
                 >
                     <Text
-                        pos="absolute"
                         color="black"
                         font="body"
                         fontWeight={500}

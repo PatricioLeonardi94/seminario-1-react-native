@@ -1,10 +1,10 @@
 import * as React from "react";
 import TopBox from "../components/TopBox";
-import { Center, Image, Text, VStack } from "native-base";
+import { Box, Center, Image, Text, VStack } from "native-base";
 
 const Welcome = ({navigation}) => {
   return (
-    <Center>
+    <Box>
       <TopBox />
       <VStack alignItems="center">
         <Center>
@@ -63,7 +63,7 @@ const Welcome = ({navigation}) => {
           />
         </Center>
       </VStack>
-    </Center>
+    </Box>
   );
 };
 

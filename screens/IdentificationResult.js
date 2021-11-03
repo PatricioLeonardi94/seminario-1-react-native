@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Center, Container } from "native-base";
+import { Box, Center, Container } from "native-base";
 import ReciclingAssistantSteps from './ReciclingAssistantSteps';
 import TopBox from '../components/TopBox';
 /*
@@ -46,9 +46,13 @@ const IdentificationResult = ({material}) => {
     }
 
     return(
-        <Center>
-            <ReciclingAssistantSteps steps={plasticSteps} />
-        </Center>
+        <Box>
+            <TopBox />
+            <Center>
+                <ReciclingAssistantSteps steps={plasticSteps} />
+            </Center>
+        </Box>
+        
     );
 }
 

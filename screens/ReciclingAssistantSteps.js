@@ -1,6 +1,6 @@
 import React from 'react';
 import {useState} from 'react';
-import { Center } from "native-base";
+import { Center, Box } from "native-base";
 
 import ChoiceStepPage from '../components/steps/ChoiceStepPage';
 import DoubleStepPage from '../components/steps/DoubleStepPage';
@@ -42,8 +42,7 @@ const ReciclingAssistantSteps = ({steps}) => {
     }
 
     return(
-        <Center>
-            <TopBox />
+        <Box mt={"2%"}>
             {!finalStep ?
                 (!negativeStep ?
                     displayStep(currentStep.stepType) :
@@ -51,7 +50,7 @@ const ReciclingAssistantSteps = ({steps}) => {
                 ) : 
                 <FinalStepPage />
             }
-        </Center>
+        </Box>
     );
 }
 
