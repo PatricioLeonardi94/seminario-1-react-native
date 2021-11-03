@@ -6,7 +6,7 @@ const Welcome = () => {
   return (
     <Center>
       <TopBox />
-      <VStack alignItems="center" w={"360px"} h={"640px"}>
+      <VStack alignItems="center">
         <Center>
           <Text
             ml={"13.89%"}

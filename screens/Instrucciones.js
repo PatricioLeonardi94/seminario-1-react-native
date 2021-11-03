@@ -5,9 +5,9 @@ import { Center, Box, Text, VStack, HStack, Stack } from "native-base";
 
 const Instrucciones = () => {
   return (
-    <Box w={"360px"} h={"640px"}>
+    <Box>
       <TopBox />
-      <VStack alignItems="center" w={"360px"}>
+      <VStack alignItems="center" >
         <VStack>
           <HStack>
             <Center ml={"10%"} mt={"2.5%"}>
