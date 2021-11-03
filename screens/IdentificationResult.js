@@ -4,7 +4,6 @@ import { Box, Center } from "native-base";
 import ReciclingAssistantSteps from './ReciclingAssistantSteps';
 import TopBox from '../components/TopBox';
 
-
 import plasticSteps from './../assets/material-recicling-steps/plastico.json';
 import metalSteps from './../assets/material-recicling-steps/metal.json';
 import paperSteps from './../assets/material-recicling-steps/papel.json';

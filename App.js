@@ -33,7 +33,7 @@ export default function App() {
             {props => <MaterialToRecycle {...props} material={material} />}
           </Stack.Screen>
           <Stack.Screen name="IdentificationResult">
-            {props => <IdentificationResult {...props} material={"plastico"}  />}
+            {props => <IdentificationResult {...props} material={material}  />}
           </Stack.Screen>
         </Stack.Navigator>
         
