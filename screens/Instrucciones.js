@@ -3,7 +3,7 @@ import TopBox from "../components/TopBox";
 import BottomImageWithExitButton from "../components/BottomImageWithExitButton";
 import { Center, Box, Text, VStack, HStack, Stack } from "native-base";
 
-const Instrucciones = () => {
+const Instrucciones = ({navigation}) => {
   return (
     <Box>
       <TopBox />
@@ -94,6 +94,9 @@ const Instrucciones = () => {
             alignItems="center"
             textAlign="center"
             letterSpacing={0.16}
+            onPress={() =>
+              navigation.navigate('IdentificationResults', {name : 'IdentificationResults'})
+            }
           >
             ESCANEAR PRODUCTO
           </Text>

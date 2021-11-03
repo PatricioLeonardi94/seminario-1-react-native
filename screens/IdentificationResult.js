@@ -10,19 +10,36 @@ import glassSteps from './../assets/material-recicling-steps/vidrio.json';
 import cartonSteps from './../assets/material-recicling-steps/carton.json';
 */
 
+const plasticSteps = [
+    {
+        "stepName":"Lavar",
+        "stepNumber": 1,
+        "stepType": 1,
+        "images": [],
+        "texts": ["Asegurate de lavar bien los envases, y que no queden restos de alimentos"]
+    },
+    {
+        "stepName":"Secar",
+        "stepNumber": 2,
+        "stepType": 1,
+        "images": [],
+        "texts": ["Asegurate de secar bien, para no estropear el reciclado"]
+    }
+]
+
 const IdentificationResult = ({material}) => {
-    /*const getMaterialReciclingSteps = () => {
+    const getMaterialReciclingSteps = () => {
         switch (material.toUpperCase()){
             case "PLASTICO":
                 return <ReciclingAssistantSteps steps={plasticSteps} />
-            case "VIDRIO":
+            /*case "VIDRIO":
                 return <ReciclingAssistantSteps steps={glassSteps} />
             case "PAPEL":
                 return <ReciclingAssistantSteps steps={paperSteps} />
             case "CARTON":
                 return <ReciclingAssistantSteps steps={cartonSteps} />
             case "METAL":
-                return <ReciclingAssistantSteps steps={metalSteps} />
+                return <ReciclingAssistantSteps steps={metalSteps} />*/
         }
     }
 
@@ -30,7 +47,7 @@ const IdentificationResult = ({material}) => {
         <Center>
             {getMaterialReciclingSteps()}
         </Center>
-    )*/
+    )
     
 }
 

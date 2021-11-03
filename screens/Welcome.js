@@ -2,7 +2,7 @@ import * as React from "react";
 import TopBox from "../components/TopBox";
 import { Center, Image, Text, VStack } from "native-base";
 
-const Welcome = () => {
+const Welcome = ({navigation}) => {
   return (
     <Center>
       <TopBox />
@@ -46,6 +46,9 @@ const Welcome = () => {
             alignItems="center"
             textAlign="center"
             letterSpacing={0.16}
+            onPress={() =>
+              navigation.navigate('Instructions', {name : 'Instructions'})
+            }
           >
             EMPEZAR
           </Text>
