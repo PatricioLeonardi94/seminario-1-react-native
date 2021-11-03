@@ -34,7 +34,7 @@ const MaterialToRecycle = ({navigation,material}) => {
                         letterSpacing={0.15}
                         color="#84D31E"
                     >
-                        {material}
+                        {material.toUpperCase()}
                     </Text>
                 </Center>
                 <Center>

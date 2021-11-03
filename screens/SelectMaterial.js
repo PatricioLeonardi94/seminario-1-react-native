@@ -1,5 +1,5 @@
 import React from 'react';
-import { Checkbox, Center, Box, Text, VStack, HStack, Stack, Button } from "native-base";
+import { Radio, Center, Box, Text, VStack, HStack, Stack, Button } from "native-base";
 import TopBox from '../components/TopBox';
 
 const SelectMaterial = ({material,setMaterial,navigation}) => {
@@ -27,17 +27,17 @@ const SelectMaterial = ({material,setMaterial,navigation}) => {
                     </Text>
                 </Center>
                 <Center>
-                <Checkbox.Group
-                    onChange={handleMaterialChange}
-                    value={material}
-                    accessibilityLabel="Seleccione el material"
-                    >
-                    <Checkbox value="plastico">Plástico</Checkbox>
-                    <Checkbox value="papel">Papel</Checkbox>
-                    <Checkbox value="vidrio">Vidrio</Checkbox>
-                    <Checkbox value="carton">Carton</Checkbox>
-                    <Checkbox value="metal">Metal</Checkbox>
-                </Checkbox.Group>
+                    <Radio.Group
+                        accessibilityLabel="Material Selector"
+                        value={material}
+                        onChange={(newValue) => {handleMaterialChange(newValue)}}
+                        >
+                        <Radio value="plastico">Plástico</Radio>
+                        <Radio value="papel">Papel</Radio>
+                        <Radio value="vidrio">Vidrio</Radio>
+                        <Radio value="carton">Carton</Radio>
+                        <Radio value="metal">Metal</Radio>
+                    </Radio.Group>
                 </Center>
                 <Center
                 height={"90px"}
