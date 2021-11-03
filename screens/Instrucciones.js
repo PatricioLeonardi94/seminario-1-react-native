@@ -1,7 +1,7 @@
 import * as React from "react";
 import TopBox from "../components/TopBox";
 import BottomImageWithExitButton from "../components/BottomImageWithExitButton";
-import { Center, Box, Text, VStack, HStack, Stack } from "native-base";
+import { Center, Box, Text, VStack, HStack, Stack, Button } from "native-base";
 
 const Instrucciones = ({navigation}) => {
   return (
@@ -95,8 +95,9 @@ const Instrucciones = ({navigation}) => {
             textAlign="center"
             letterSpacing={0.16}
             onPress={() =>
-              navigation.navigate('IdentificationResults', {name : 'IdentificationResults'})
+              navigation.navigate('IdentificationResult')
             }
+            bgColor="#84D31E"
           >
             ESCANEAR PRODUCTO
           </Text>

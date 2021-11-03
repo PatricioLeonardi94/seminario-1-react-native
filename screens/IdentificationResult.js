@@ -1,8 +1,9 @@
-import {useState} from 'react';
-/*
-import { Center } from "native-base";
-import ReciclingAssistantSteps from './ReciclingAssistantSteps';
+import React from 'react';
 
+import { Center, Container } from "native-base";
+import ReciclingAssistantSteps from './ReciclingAssistantSteps';
+import TopBox from '../components/TopBox';
+/*
 import plasticSteps from './../assets/material-recicling-steps/plastico.json';
 import metalSteps from './../assets/material-recicling-steps/metal.json';
 import paperSteps from './../assets/material-recicling-steps/paper.json';
@@ -28,6 +29,7 @@ const plasticSteps = [
 ]
 
 const IdentificationResult = ({material}) => {
+
     const getMaterialReciclingSteps = () => {
         switch (material.toUpperCase()){
             case "PLASTICO":
@@ -45,10 +47,9 @@ const IdentificationResult = ({material}) => {
 
     return(
         <Center>
-            {getMaterialReciclingSteps()}
+            <ReciclingAssistantSteps steps={plasticSteps} />
         </Center>
-    )
-    
+    );
 }
 
 export default IdentificationResult;

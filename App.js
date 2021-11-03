@@ -12,15 +12,22 @@ const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <NativeBaseProvider>
-      <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Welcome" component={() => <Welcome />}/>
-          <Stack.Screen name="Instructions" component={() => <Instructions />} />
-          <Stack.Screen name="IdentificationResults" component={() => <IdentificationResult material={"plastico"} />} />
+    <NavigationContainer>
+      <NativeBaseProvider>
+
+        <Stack.Navigator initialRouteName="Welcome">
+          <Stack.Screen name="Welcome">
+            {props => <Welcome {...props} />}
+          </Stack.Screen>
+          <Stack.Screen name="Instrucciones">
+            {props => <Instrucciones {...props} />}
+          </Stack.Screen>
+          <Stack.Screen name="IdentificationResult">
+            {props => <IdentificationResult {...props} material={"plastico"}  />}
+          </Stack.Screen>
         </Stack.Navigator>
-        <Instrucciones />
-      </NavigationContainer>
-    </NativeBaseProvider>
+        
+      </NativeBaseProvider>
+    </NavigationContainer>
   );
 }

@@ -31,7 +31,7 @@ const Welcome = ({navigation}) => {
           height={90}
           width={180}
           ml={"0%"}
-          mt={"-10%"}
+          mt={"-30%"}
           borderRadius={"8px"}
           bgColor="#84D31E"
         >
@@ -47,7 +47,7 @@ const Welcome = ({navigation}) => {
             textAlign="center"
             letterSpacing={0.16}
             onPress={() =>
-              navigation.navigate('Instructions', {name : 'Instructions'})
+              navigation.navigate('Instrucciones')
             }
           >
             EMPEZAR

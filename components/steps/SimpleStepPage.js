@@ -1,3 +1,7 @@
+import React from 'react';
+import TopBox from '../TopBox';
+import { Center, Box, Text, VStack, HStack, Stack, Button } from "native-base";
+
 const SimpleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
     return (
         <Center>
@@ -111,13 +115,7 @@ const SimpleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                     </Text>
                 </Center>
                 <Center>
-                <Image
-                    w={366.11}
-                    h={349}
-                    opacity={0.8}
-                    source={require("../assets/images/bottom-bubbles.png")}
-                    alt=""
-                />
+                    <Text>Here goes bottom image</Text>
                 </Center>
             </VStack>
         </Center>
