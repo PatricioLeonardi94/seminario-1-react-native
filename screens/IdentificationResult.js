@@ -3,15 +3,15 @@ import React from 'react';
 import { Box, Center, Container } from "native-base";
 import ReciclingAssistantSteps from './ReciclingAssistantSteps';
 import TopBox from '../components/TopBox';
-/*
+
+
 import plasticSteps from './../assets/material-recicling-steps/plastico.json';
 import metalSteps from './../assets/material-recicling-steps/metal.json';
-import paperSteps from './../assets/material-recicling-steps/paper.json';
+import paperSteps from './../assets/material-recicling-steps/papel.json';
 import glassSteps from './../assets/material-recicling-steps/vidrio.json';
 import cartonSteps from './../assets/material-recicling-steps/carton.json';
-*/
 
-const plasticSteps = [
+/*const plasticSteps = [
     {
         "stepName":"Lavar",
         "stepNumber": 1,
@@ -26,22 +26,22 @@ const plasticSteps = [
         "images": [],
         "texts": ["Asegurate de secar bien, para no estropear el reciclado"]
     }
-]
+]*/
 
 const IdentificationResult = ({material,navigation}) => {
 
     const getMaterialReciclingSteps = () => {
         switch (material.toUpperCase()){
             case "PLASTICO":
-                return <ReciclingAssistantSteps steps={plasticSteps} />
-            /*case "VIDRIO":
-                return <ReciclingAssistantSteps steps={glassSteps} />
+                return <ReciclingAssistantSteps nav={navigation} steps={plasticSteps} />
+            case "VIDRIO":
+                return <ReciclingAssistantSteps nav={navigation} steps={glassSteps} />
             case "PAPEL":
-                return <ReciclingAssistantSteps steps={paperSteps} />
+                return <ReciclingAssistantSteps nav={navigation} steps={paperSteps} />
             case "CARTON":
-                return <ReciclingAssistantSteps steps={cartonSteps} />
+                return <ReciclingAssistantSteps nav={navigation} steps={cartonSteps} />
             case "METAL":
-                return <ReciclingAssistantSteps steps={metalSteps} />*/
+                return <ReciclingAssistantSteps nav={navigation} steps={metalSteps} />
         }
     }
 
@@ -49,7 +49,7 @@ const IdentificationResult = ({material,navigation}) => {
         <Box>
             <TopBox />
             <Center>
-                <ReciclingAssistantSteps nav={navigation} steps={plasticSteps} />
+                {getMaterialReciclingSteps()}
             </Center>
         </Box>
         
