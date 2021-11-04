@@ -5,11 +5,11 @@ const DoubleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
     return (
         <Center>
             <VStack alignItems="center">
-                <Center>
+                <Center mt={"5%"}>
                     <Text
                         fontFamily="body"
                         fontWeight={500}
-                        fontSize={24}
+                        fontSize={18}
                         lineHeight={24}
                         display="flex"
                         alignItems="center"
@@ -20,11 +20,11 @@ const DoubleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                         Paso {step.stepNumber}:
                     </Text>
                 </Center>
-                <Center>
+                <Center mt={"7.5%"}>
                     <Text
                         fontFamily="body"
                         fontWeight={500}
-                        fontSize={24}
+                        fontSize={32}
                         lineHeight={24}
                         display="flex"
                         alignItems="center"
@@ -35,11 +35,11 @@ const DoubleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                         {step.stepName}
                     </Text>
                 </Center>
-                <Center>
+                <Center mt={"10%"}>
                     <Text
                         fontFamily="body"
                         fontWeight={500}
-                        fontSize={24}
+                        fontSize={20}
                         lineHeight={24}
                         display="flex"
                         alignItems="center"
@@ -50,12 +50,13 @@ const DoubleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                         {step.texts[0]}
                     </Text>
                 </Center>
-                <Center>
-                    <Text> Ó </Text>
+                <Center mt={"5%"}>
+                    <Text > Ó </Text>
                     <Text
+                        mt={"5%"}
                         fontFamily="body"
                         fontWeight={500}
-                        fontSize={24}
+                        fontSize={20}
                         lineHeight={24}
                         display="flex"
                         alignItems="center"
@@ -69,7 +70,7 @@ const DoubleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                 <Center
                 height={"90px"}
                 width={"180px"}
-                ml={"0%"}
+                mt={"15%"}
                 borderRadius={"8px"}
                 bgColor="#84D31E"
                 >
@@ -90,6 +91,7 @@ const DoubleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                     </Text>
                 </Center>
                 <Center
+                    mt={"15%"}
                 >
                     <Text
                     >

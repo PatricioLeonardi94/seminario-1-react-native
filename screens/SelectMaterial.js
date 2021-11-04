@@ -11,11 +11,11 @@ const SelectMaterial = ({material,setMaterial,navigation}) => {
         <Box>
             <TopBox />
             <VStack alignItems="center">
-                <Center>
+                <Center mt={"5%"} ml={"2%"} mr={"2%"}>
                     <Text
                         fontFamily="body"
                         fontWeight={500}
-                        fontSize={24}
+                        fontSize={20}
                         lineHeight={24}
                         display="flex"
                         alignItems="center"
@@ -26,23 +26,23 @@ const SelectMaterial = ({material,setMaterial,navigation}) => {
                         Selecciona el material del que está hecho tu producto:
                     </Text>
                 </Center>
-                <Center>
+                <Center mt={"5%"} >
                     <Radio.Group
                         accessibilityLabel="Material Selector"
                         value={material}
                         onChange={(newValue) => {handleMaterialChange(newValue)}}
                         >
-                        <Radio value="plastico">Plástico</Radio>
-                        <Radio value="papel">Papel</Radio>
-                        <Radio value="vidrio">Vidrio</Radio>
-                        <Radio value="carton">Carton</Radio>
-                        <Radio value="metal">Metal</Radio>
+                        <Radio color="rgba(0, 0, 0, 0.4)" value="plastico">Plástico</Radio>
+                        <Radio color="rgba(0, 0, 0, 0.4)" value="papel">Papel</Radio>
+                        <Radio color="rgba(0, 0, 0, 0.4)" value="vidrio">Vidrio</Radio>
+                        <Radio color="rgba(0, 0, 0, 0.4)" value="carton">Carton</Radio>
+                        <Radio color="rgba(0, 0, 0, 0.4)" value="metal">Metal</Radio>
                     </Radio.Group>
                 </Center>
                 <Center
                 height={"90px"}
                 width={"180px"}
-                ml={"0%"}
+                mt={"10%"}
                 borderRadius={"8px"}
                 bgColor="#84D31E"
                 >
@@ -62,7 +62,7 @@ const SelectMaterial = ({material,setMaterial,navigation}) => {
                         CONFIRMAR
                     </Text>
                 </Center>
-                <Center>
+                <Center mt={"5%"}>
                     <Text>Here goes bottom image</Text>
                 </Center>
             </VStack>

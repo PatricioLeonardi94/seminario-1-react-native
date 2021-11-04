@@ -5,12 +5,12 @@ const SimpleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
     return (
         <Center>
             <VStack alignItems="center">
-                <Center>
+                <Center mt={"5%"}>
                     <Text
                        
                         fontFamily="body"
                         fontWeight={500}
-                        fontSize={24}
+                        fontSize={18}
                         lineHeight={24}
                         display="flex"
                         alignItems="center"
@@ -21,11 +21,11 @@ const SimpleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                         Paso {step.stepNumber}
                     </Text>
                 </Center>
-                <Center>
+                <Center mt={"7.5%"}>
                     <Text
                         fontFamily="body"
                         fontWeight={500}
-                        fontSize={24}
+                        fontSize={32}
                         lineHeight={24}
                         display="flex"
                         alignItems="center"
@@ -36,11 +36,11 @@ const SimpleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                         {step.stepName}
                     </Text>
                 </Center>
-                <Center>
+                <Center mt={"25%"}>
                     <Text
                         fontFamily="body"
                         fontWeight={500}
-                        fontSize={24}
+                        fontSize={20}
                         lineHeight={24}
                         display="flex"
                         alignItems="center"
@@ -54,7 +54,7 @@ const SimpleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                 <Center
                 height={"90px"}
                 width={"180px"}
-                ml={"0%"}
+                mt={"15%"}
                 borderRadius={"8px"}
                 bgColor="#84D31E"
                 >
@@ -76,7 +76,7 @@ const SimpleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                 <Center
                 height={"90px"}
                 width={"180px"}
-                ml={"0%"}
+                mt={"5%"}
                 borderRadius={"8px"}
                 bgColor="#grey"
                 >
@@ -84,7 +84,7 @@ const SimpleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                         color="black"
                         font="body"
                         fontWeight={500}
-                        fontSize={26}
+                        fontSize={22}
                         lineHeight={30}
                         display="flex"
                         alignItems="center"
@@ -92,10 +92,10 @@ const SimpleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                         letterSpacing={0.16}
                         onPress={()=>handleNegativeStep()}
                     >
-                        No pude hacerlo
+                        NO PUDE HACERLO
                     </Text>
                 </Center>
-                <Center>
+                <Center mt={"15%"}>
                     <Text>Here goes bottom image</Text>
                 </Center>
             </VStack>

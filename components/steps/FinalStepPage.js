@@ -5,11 +5,11 @@ const FinalStepPage = ({nav}) => {
     return (
         <Center>
             <VStack alignItems="center">
-                <Center>
+                <Center mt={"5%"}>
                     <Text
                         fontFamily="body"
                         fontWeight={500}
-                        fontSize={24}
+                        fontSize={28}
                         lineHeight={24}
                         display="flex"
                         alignItems="center"
@@ -20,11 +20,11 @@ const FinalStepPage = ({nav}) => {
                         ¡LISTO!
                     </Text>
                 </Center>
-                <Center>
+                <Center ml={"2.5%"} mr={"2.5%"} mt={"25%"}>
                     <Text
                         fontFamily="body"
                         fontWeight={500}
-                        fontSize={24}
+                        fontSize={18}
                         lineHeight={24}
                         display="flex"
                         alignItems="center"
@@ -38,11 +38,12 @@ const FinalStepPage = ({nav}) => {
                 <Center
                 height={"90px"}
                 width={"180px"}
-                ml={"0%"}
+                mt={"10%"}
                 borderRadius={"8px"}
                 bgColor="#84D31E"
                 >
                     <Text
+                        mt={"15%"}
                         color="white"
                         font="body"
                         fontWeight={500}
@@ -59,6 +60,7 @@ const FinalStepPage = ({nav}) => {
                     </Text>
                 </Center>
                 <Center
+                mt={"15%"}
                 bgColor="#grey"
                 >
                     <Text>

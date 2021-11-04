@@ -5,12 +5,11 @@ const NegativeStepPage = ({stepName,handleReturnToPrevious,nav}) => {
     return (
         <Center>
             <VStack alignItems="center">
-                <Center>
+                <Center mt={"5%"}>
                     <Text
-                       
                         fontFamily="body"
                         fontWeight={500}
-                        fontSize={24}
+                        fontSize={20}
                         lineHeight={24}
                         display="flex"
                         alignItems="center"
@@ -18,10 +17,10 @@ const NegativeStepPage = ({stepName,handleReturnToPrevious,nav}) => {
                         letterSpacing={0.15}
                         color="rgba(0, 0, 0, 0.4)"
                     >
-                        Si no pudiste hacer el paso "{stepName}"
+                        Si no pudiste hacer el paso "{stepName}":
                     </Text>
                 </Center>
-                <Center>
+                <Center mt={"10%"}>
                     <Text
                         fontFamily="body"
                         fontWeight={500}
@@ -36,9 +35,10 @@ const NegativeStepPage = ({stepName,handleReturnToPrevious,nav}) => {
                         Guarda el producto para reciclarlo mas tarde
                     </Text>
                 </Center>
-                <Center>
+                <Center mt={"5%"}>
                     <Text> Ó </Text>
                     <Text
+                        mt={"10%"}
                         fontFamily="body"
                         fontWeight={500}
                         fontSize={24}
@@ -53,6 +53,7 @@ const NegativeStepPage = ({stepName,handleReturnToPrevious,nav}) => {
                     </Text>
                 </Center>
                 <Center
+                mt={"15%"}
                 height={"90px"}
                 width={"180px"}
                 ml={"0%"}
@@ -76,6 +77,7 @@ const NegativeStepPage = ({stepName,handleReturnToPrevious,nav}) => {
                     </Text>
                 </Center>
                 <Center
+                mt={"10%"}
                 height={"90px"}
                 width={"180px"}
                 ml={"0%"}

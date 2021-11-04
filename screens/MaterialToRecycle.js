@@ -7,11 +7,11 @@ const MaterialToRecycle = ({navigation,material}) => {
         <Box>
             <TopBox />
             <VStack alignItems="center">
-                <Center>
+                <Center mt={"5%"}>
                     <Text
                         fontFamily="body"
                         fontWeight={500}
-                        fontSize={24}
+                        fontSize={20}
                         lineHeight={24}
                         display="flex"
                         alignItems="center"
@@ -22,11 +22,11 @@ const MaterialToRecycle = ({navigation,material}) => {
                         El producto que deseas reciclar está hecho de:
                     </Text>
                 </Center>
-                <Center>
+                <Center mt={"12.5%"}>
                     <Text
                         fontFamily="body"
                         fontWeight={500}
-                        fontSize={24}
+                        fontSize={48}
                         lineHeight={24}
                         display="flex"
                         alignItems="center"
@@ -37,11 +37,11 @@ const MaterialToRecycle = ({navigation,material}) => {
                         {material.toUpperCase()}
                     </Text>
                 </Center>
-                <Center>
+                <Center mt={"12.5%"}>
                     <Text
                         fontFamily="body"
                         fontWeight={500}
-                        fontSize={24}
+                        fontSize={20}
                         lineHeight={24}
                         display="flex"
                         alignItems="center"
@@ -51,11 +51,11 @@ const MaterialToRecycle = ({navigation,material}) => {
                     >
                         Seguí los pasos a continuacion para reciclar tu prodcuto!
                     </Text>
-                </Center>
+                </Center >
                 <Center
                 height={"90px"}
                 width={"180px"}
-                ml={"0%"}
+                mt={"17.5%"}
                 borderRadius={"8px"}
                 bgColor="#84D31E"
                 >
@@ -63,7 +63,7 @@ const MaterialToRecycle = ({navigation,material}) => {
                         color="white"
                         font="body"
                         fontWeight={500}
-                        fontSize={26}
+                        fontSize={28}
                         lineHeight={30}
                         display="flex"
                         alignItems="center"
@@ -75,7 +75,7 @@ const MaterialToRecycle = ({navigation,material}) => {
                         RECICLAR
                     </Text>
                 </Center>
-                <Center>
+                <Center mt={"25%"}>
                     <Text>Here goes bottom image</Text>
                 </Center>
             </VStack>
