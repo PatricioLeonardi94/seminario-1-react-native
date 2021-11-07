@@ -1,5 +1,6 @@
 import React from 'react';
 import { Center, Box, Text, VStack, HStack, Stack, Button } from "native-base";
+import BottomImageWithExitButton from "../../components/BottomImageWithExitButton";
 
 const NegativeStepPage = ({stepName,handleReturnToPrevious,nav}) => {
     return (
@@ -9,8 +10,8 @@ const NegativeStepPage = ({stepName,handleReturnToPrevious,nav}) => {
                     <Text
                         fontFamily="body"
                         fontWeight={500}
-                        fontSize={20}
-                        lineHeight={24}
+                        fontSize={16}
+                        lineHeight={18}
                         display="flex"
                         alignItems="center"
                         textAlign="center"
@@ -24,7 +25,7 @@ const NegativeStepPage = ({stepName,handleReturnToPrevious,nav}) => {
                     <Text
                         fontFamily="body"
                         fontWeight={500}
-                        fontSize={24}
+                        fontSize={17}
                         lineHeight={24}
                         display="flex"
                         alignItems="center"
@@ -32,7 +33,7 @@ const NegativeStepPage = ({stepName,handleReturnToPrevious,nav}) => {
                         letterSpacing={0.15}
                         color="#84D31E"
                     >
-                        Guarda el producto para reciclarlo mas tarde
+                        Lo puedes tirar en un tacho negro
                     </Text>
                 </Center>
                 <Center mt={"5%"}>
@@ -41,7 +42,7 @@ const NegativeStepPage = ({stepName,handleReturnToPrevious,nav}) => {
                         mt={"10%"}
                         fontFamily="body"
                         fontWeight={500}
-                        fontSize={24}
+                        fontSize={17}
                         lineHeight={24}
                         display="flex"
                         alignItems="center"
@@ -49,13 +50,13 @@ const NegativeStepPage = ({stepName,handleReturnToPrevious,nav}) => {
                         letterSpacing={0.15}
                         color="rgba(0, 0, 0, 0.4)"
                     >
-                        Arrojalo en un cesto negro de basura
+                        Llevatelo con vos y reciclalo más tarde
                     </Text>
                 </Center>
                 <Center
                 mt={"15%"}
-                height={"90px"}
-                width={"180px"}
+                height={"8.5%"}
+                width={"47.5%"}
                 ml={"0%"}
                 borderRadius={"8px"}
                 bgColor="#84D31E"
@@ -64,8 +65,8 @@ const NegativeStepPage = ({stepName,handleReturnToPrevious,nav}) => {
                         color="white"
                         font="body"
                         fontWeight={500}
-                        fontSize={26}
-                        lineHeight={30}
+                        fontSize={20}
+                        lineHeight={18}
                         display="flex"
                         alignItems="center"
                         textAlign="center"
@@ -73,23 +74,23 @@ const NegativeStepPage = ({stepName,handleReturnToPrevious,nav}) => {
                         onPress={() =>
                             nav.navigate('Welcome')}
                     >
-                        FINALIZAR
+                        VOLVER AL INICIO
                     </Text>
                 </Center>
                 <Center
                 mt={"10%"}
-                height={"90px"}
-                width={"180px"}
+                height={"8.5%"}
+                width={"47.5%"}
                 ml={"0%"}
                 borderRadius={"8px"}
-                bgColor="#grey"
+                bgColor="rgba(0, 0, 0, 0.05)"
                 >
                     <Text
-                        color="black"
+                        color="rgba(0, 0, 0, 0.4)"
                         font="body"
                         fontWeight={500}
-                        fontSize={26}
-                        lineHeight={30}
+                        fontSize={18}
+                        lineHeight={18}
                         display="flex"
                         alignItems="center"
                         textAlign="center"
@@ -99,6 +100,7 @@ const NegativeStepPage = ({stepName,handleReturnToPrevious,nav}) => {
                         VOLVER AL PASO ANTERIOR
                     </Text>
                 </Center>
+                <BottomImageWithExitButton />
             </VStack>
         </Center>
     );

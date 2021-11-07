@@ -1,5 +1,6 @@
 import React from 'react';
 import { Center, Box, Text, VStack, HStack, Stack, Button } from "native-base";
+import BottomImageWithExitButton from "../../components/BottomImageWithExitButton";
 
 const FinalStepPage = ({nav}) => {
     return (
@@ -36,8 +37,8 @@ const FinalStepPage = ({nav}) => {
                     </Text>
                 </Center>
                 <Center
-                height={"90px"}
-                width={"180px"}
+                height={"7.5%"}
+                width={"45%"}
                 mt={"10%"}
                 borderRadius={"8px"}
                 bgColor="#84D31E"
@@ -47,8 +48,8 @@ const FinalStepPage = ({nav}) => {
                         color="white"
                         font="body"
                         fontWeight={500}
-                        fontSize={26}
-                        lineHeight={30}
+                        fontSize={21}
+                        lineHeight={21}
                         display="flex"
                         alignItems="center"
                         textAlign="center"
@@ -59,14 +60,7 @@ const FinalStepPage = ({nav}) => {
                         FINALIZAR
                     </Text>
                 </Center>
-                <Center
-                mt={"15%"}
-                bgColor="#grey"
-                >
-                    <Text>
-                        Here goes image
-                    </Text>
-                </Center>
+                <BottomImageWithExitButton />
             </VStack>
         </Center>
     );

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Radio, Center, Box, Text, VStack, HStack, Stack, Button } from "native-base";
 import TopBox from '../components/TopBox';
+import BottomImageWithExitButton from "../components/BottomImageWithExitButton";
 
 const SelectMaterial = ({material,setMaterial,navigation}) => {
     const handleMaterialChange = (newMaterial) => {
@@ -11,7 +12,7 @@ const SelectMaterial = ({material,setMaterial,navigation}) => {
         <Box>
             <TopBox />
             <VStack alignItems="center">
-                <Center mt={"5%"} ml={"2%"} mr={"2%"}>
+                <Center mt={"7.5%"} ml={"2%"} mr={"2%"}>
                     <Text
                         fontFamily="body"
                         fontWeight={500}
@@ -23,20 +24,21 @@ const SelectMaterial = ({material,setMaterial,navigation}) => {
                         letterSpacing={0.15}
                         color="rgba(0, 0, 0, 0.4)"
                     >
-                        Selecciona el material del que está hecho tu producto:
+                        Indique el material de su producto:
                     </Text>
                 </Center>
-                <Center mt={"5%"} >
+                <Center mt={"7.5%"} >
                     <Radio.Group
                         accessibilityLabel="Material Selector"
                         value={material}
+                        defaultValue={"plastico"}
                         onChange={(newValue) => {handleMaterialChange(newValue)}}
                         >
-                        <Radio color="rgba(0, 0, 0, 0.4)" value="plastico">Plástico</Radio>
-                        <Radio color="rgba(0, 0, 0, 0.4)" value="papel">Papel</Radio>
-                        <Radio color="rgba(0, 0, 0, 0.4)" value="vidrio">Vidrio</Radio>
-                        <Radio color="rgba(0, 0, 0, 0.4)" value="carton">Carton</Radio>
-                        <Radio color="rgba(0, 0, 0, 0.4)" value="metal">Metal</Radio>
+                        <Radio mt={"1.5%"} color="rgba(0, 0, 0, 0.4)" value="plastico" fontSize={20}>Plástico</Radio>
+                        <Radio mt={"1.5%"} color="rgba(0, 0, 0, 0.4)" value="papel" fontSize={20}>Papel</Radio>
+                        <Radio mt={"1.5%"} color="rgba(0, 0, 0, 0.4)" value="vidrio" fontSize={20}>Vidrio</Radio>
+                        <Radio mt={"1.5%"} color="rgba(0, 0, 0, 0.4)" value="carton" fontSize={20}>Carton</Radio>
+                        <Radio mt={"1.5%"} color="rgba(0, 0, 0, 0.4)" value="metal" fontSize={20}>Metal</Radio>
                     </Radio.Group>
                 </Center>
                 <Center
@@ -62,9 +64,7 @@ const SelectMaterial = ({material,setMaterial,navigation}) => {
                         CONFIRMAR
                     </Text>
                 </Center>
-                <Center mt={"5%"}>
-                    <Text>Here goes bottom image</Text>
-                </Center>
+                <BottomImageWithExitButton />
             </VStack>
         </Box>
     );

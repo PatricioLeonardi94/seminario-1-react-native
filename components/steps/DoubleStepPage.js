@@ -1,5 +1,6 @@
 import React from 'react';
 import { Center, Box, Text, VStack, HStack, Stack, Button } from "native-base";
+import BottomImageWithExitButton from "../../components/BottomImageWithExitButton";
 
 const DoubleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
     return (
@@ -57,7 +58,7 @@ const DoubleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                         fontFamily="body"
                         fontWeight={500}
                         fontSize={20}
-                        lineHeight={24}
+                        lineHeight={20}
                         display="flex"
                         alignItems="center"
                         textAlign="center"
@@ -68,8 +69,8 @@ const DoubleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                     </Text>
                 </Center>
                 <Center
-                height={"90px"}
-                width={"180px"}
+                height={"8.5%"}
+                width={"47.5%"}
                 mt={"15%"}
                 borderRadius={"8px"}
                 bgColor="#84D31E"
@@ -78,8 +79,8 @@ const DoubleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                         color="white"
                         font="body"
                         fontWeight={500}
-                        fontSize={26}
-                        lineHeight={30}
+                        fontSize={21}
+                        lineHeight={21}
                         display="flex"
                         alignItems="center"
                         textAlign="center"
@@ -90,14 +91,7 @@ const DoubleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                         SIGUIENTE
                     </Text>
                 </Center>
-                <Center
-                    mt={"15%"}
-                >
-                    <Text
-                    >
-                        Here goes image
-                    </Text>
-                </Center>
+                <BottomImageWithExitButton />
             </VStack>
         </Center>
     );

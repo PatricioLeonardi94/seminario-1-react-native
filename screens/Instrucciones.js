@@ -10,7 +10,7 @@ const Instrucciones = ({navigation}) => {
       <VStack alignItems="center" >
         <VStack>
           <HStack>
-            <Center ml={"10%"} mt={"2.5%"}>
+            <Center ml={"10%"} mt={"4%"}>
               <Text
                 color="#84D31E"
                 w={36}
@@ -26,8 +26,9 @@ const Instrucciones = ({navigation}) => {
                 1.
               </Text>
             </Center>
-            <Center ml={"85px"} mr={"35px"} mt={"35px"} position="absolute">
+            <Center ml={"-2%"} mt={"6.5%"} >
               <Text
+                w={"75.5%"}
                 fontFamily="body"
                 fontWeight={500}
                 fontSize={20}
@@ -42,7 +43,7 @@ const Instrucciones = ({navigation}) => {
             </Center>
           </HStack>
           <HStack>
-            <Center ml={"10%"} mt={"2.5%"}>
+            <Center ml={"10%"} mt={"1.5%"}>
               <Text
                 color="#84D31E"
                 w={36}
@@ -58,8 +59,9 @@ const Instrucciones = ({navigation}) => {
                 2.
               </Text>
             </Center>
-            <Center w={"240px"} ml={"10px"} mt={"15px"} mr={"35px"}>
+            <Center ml={"-5.5%"} mt={"4.5%"} >
               <Text
+                w={"70%"}
                 fontFamily="body"
                 fontWeight={500}
                 fontSize={20}
@@ -75,16 +77,13 @@ const Instrucciones = ({navigation}) => {
           </HStack>
         </VStack>
         <Center
-          pos="absolute"
-          height={90}
-          width={180}
-          ml={"0%"}
-          mt={"10%"}
+          height={"12.5%"}
+          width={"50%"}
+          mt={"12.5%"}
           borderRadius={"8px"}
           bgColor="#84D31E"
         >
           <Text
-            pos="absolute"
             color="white"
             font="body"
             fontWeight={500}

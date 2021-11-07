@@ -1,5 +1,6 @@
 import React from 'react';
 import { Center, Box, Text, VStack, HStack, Stack, Button } from "native-base";
+import BottomImageWithExitButton from "../../components/BottomImageWithExitButton";
 
 const SimpleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
     return (
@@ -52,18 +53,18 @@ const SimpleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                     </Text>
                 </Center>
                 <Center
-                height={"90px"}
-                width={"180px"}
-                mt={"15%"}
-                borderRadius={"8px"}
-                bgColor="#84D31E"
+                    height={"8.5%"}
+                    width={"47.5%"}
+                    mt={"15%"}
+                    borderRadius={"8px"}
+                    bgColor="#84D31E"
                 >
                     <Text
                         color="white"
                         font="body"
                         fontWeight={500}
-                        fontSize={26}
-                        lineHeight={30}
+                        fontSize={21}
+                        lineHeight={18}
                         display="flex"
                         alignItems="center"
                         textAlign="center"
@@ -74,18 +75,18 @@ const SimpleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                     </Text>
                 </Center>
                 <Center
-                height={"90px"}
-                width={"180px"}
+                height={"8.5%"}
+                width={"47.5%"}
                 mt={"5%"}
                 borderRadius={"8px"}
-                bgColor="#grey"
+                bgColor="rgba(0, 0, 0, 0.05)"
                 >
                     <Text
-                        color="black"
+                        color="rgba(0, 0, 0, 0.4)"
                         font="body"
                         fontWeight={500}
-                        fontSize={22}
-                        lineHeight={30}
+                        fontSize={18}
+                        lineHeight={18}
                         display="flex"
                         alignItems="center"
                         textAlign="center"
@@ -95,9 +96,7 @@ const SimpleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                         NO PUDE HACERLO
                     </Text>
                 </Center>
-                <Center mt={"15%"}>
-                    <Text>Here goes bottom image</Text>
-                </Center>
+                <BottomImageWithExitButton />
             </VStack>
         </Center>
     );
