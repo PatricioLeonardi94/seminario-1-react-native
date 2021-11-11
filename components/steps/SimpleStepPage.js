@@ -1,5 +1,5 @@
 import React from 'react';
-import { Center, Box, Text, VStack, HStack, Stack, Button } from "native-base";
+import { Center, Box, Text, VStack, HStack, Stack, Button, Image } from "native-base";
 import BottomImageWithExitButton from "../../components/BottomImageWithExitButton";
 
 const SimpleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
@@ -8,7 +8,6 @@ const SimpleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
             <VStack alignItems="center">
                 <Center mt={"5%"}>
                     <Text
-                       
                         fontFamily="body"
                         fontWeight={500}
                         fontSize={18}
@@ -22,7 +21,7 @@ const SimpleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                         Paso {step.stepNumber}
                     </Text>
                 </Center>
-                <Center mt={"7.5%"}>
+                <Center mt={"5%"}>
                     <Text
                         fontFamily="body"
                         fontWeight={500}
@@ -37,7 +36,16 @@ const SimpleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                         {step.stepName}
                     </Text>
                 </Center>
-                <Center mt={"25%"}>
+                <Center w={"75%"}
+                        h={"22.5%"} mt={"5%"}>
+                    <Image
+                        w={"100%"}
+                        h={"100%"}
+                        source={require("../../assets/images/removeSticker.png")}
+                        alt="Imagen"
+                    />
+                </Center>
+                <Center mt={"5%"}>
                     <Text
                         fontFamily="body"
                         fontWeight={500}
@@ -55,7 +63,7 @@ const SimpleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                 <Center
                     height={"8.5%"}
                     width={"47.5%"}
-                    mt={"15%"}
+                    mt={"7.5%"}
                     borderRadius={"8px"}
                     bgColor="#84D31E"
                 >
@@ -75,12 +83,12 @@ const SimpleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                     </Text>
                 </Center>
                 <Center
-                height={"8.5%"}
-                width={"47.5%"}
-                mt={"5%"}
-                borderRadius={"8px"}
-                bgColor="rgba(0, 0, 0, 0.05)"
-                >
+                    height={"8.5%"}
+                    width={"47.5%"}
+                    mt={"5%"}
+                    borderRadius={"8px"}
+                    bgColor="rgba(0, 0, 0, 0.05)"
+                    >
                     <Text
                         color="rgba(0, 0, 0, 0.4)"
                         font="body"
@@ -96,7 +104,7 @@ const SimpleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                         NO PUDE HACERLO
                     </Text>
                 </Center>
-                <BottomImageWithExitButton />
+                <BottomImageWithExitButton mt={"-10%"}/>
             </VStack>
         </Center>
     );

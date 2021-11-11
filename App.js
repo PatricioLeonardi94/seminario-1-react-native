@@ -4,8 +4,9 @@ import { NativeBaseProvider } from "native-base";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import Instrucciones from "./screens/Instrucciones";
 import Welcome from "./screens/Welcome";
+import Instrucciones from "./screens/Instrucciones";
+import CameraScreen from "./components/Camera";
 import SelectMaterial from "./screens/SelectMaterial";
 import MaterialToRecycle from "./screens/MaterialToRecycle";
 import IdentificationResult from "./screens/IdentificationResult";
@@ -26,6 +27,9 @@ export default function App() {
           <Stack.Screen name="Instrucciones">
             {props => <Instrucciones {...props} />}
           </Stack.Screen>
+          {/*<Stack.Screen name="Camera">
+            {props => <CameraScreen {...props} />}
+          </Stack.Screen>*/}
           <Stack.Screen name="SelectMaterial">
             {props => <SelectMaterial {...props} material={material} setMaterial={(value)=>setMaterial(value)}/>}
           </Stack.Screen>

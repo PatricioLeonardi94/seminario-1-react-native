@@ -26,7 +26,7 @@ const MaterialToRecycle = ({navigation,material}) => {
                 <Center mt={"12.5%"}>
                     <Text
                         fontFamily="body"
-                        fontWeight={500}
+                        fontWeight={"bold"}
                         fontSize={44}
                         lineHeight={44}
                         display="flex"
