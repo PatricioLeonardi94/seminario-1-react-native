@@ -3,11 +3,11 @@ import TopBox from "../components/TopBox";
 import BottomImageWithExitButton from "../components/BottomImageWithExitButton";
 import { Center, Box, Text, VStack, HStack, Stack, Button } from "native-base";
 
-const Instrucciones = ({navigation}) => {
+const Instrucciones = ({ navigation }) => {
   return (
     <Box>
       <TopBox />
-      <VStack alignItems="center" >
+      <VStack alignItems="center">
         <VStack>
           <HStack>
             <Center ml={"10%"} mt={"4%"}>
@@ -26,7 +26,7 @@ const Instrucciones = ({navigation}) => {
                 1.
               </Text>
             </Center>
-            <Center ml={"-2%"} mt={"6.5%"} >
+            <Center ml={"-2%"} mt={"6.5%"}>
               <Text
                 w={"75.5%"}
                 fontFamily="body"
@@ -59,7 +59,7 @@ const Instrucciones = ({navigation}) => {
                 2.
               </Text>
             </Center>
-            <Center ml={"-5.5%"} mt={"4.5%"} >
+            <Center ml={"-5.5%"} mt={"4.5%"}>
               <Text
                 w={"70%"}
                 fontFamily="body"
@@ -93,9 +93,7 @@ const Instrucciones = ({navigation}) => {
             alignItems="center"
             textAlign="center"
             letterSpacing={0.16}
-            onPress={() =>
-              navigation.navigate('SelectMaterial')
-            }
+            onPress={() => navigation.navigate("Camera")}
             bgColor="#84D31E"
           >
             ESCANEAR PRODUCTO
