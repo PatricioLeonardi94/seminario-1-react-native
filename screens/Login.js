@@ -11,7 +11,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 //credentialContext
 import { CredentialsContext } from "./../components/CredentialsContext";
 
-const Login = () => {
+const Login = ({ navigation }) => {
   const [message, setMessage] = useState();
   const [messageType, setMessageType] = useState();
   const [googleSubmitting, setGoogleSubmitting] = useState(false);

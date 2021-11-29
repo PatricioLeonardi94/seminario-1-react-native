@@ -1,23 +1,18 @@
-import * as React from "react";
+import React, { useState, useContext } from "react";
 import { Center, Image, Text, HStack, Box } from "native-base";
 import constants from "../constants/constants";
 import { TouchableHighlight } from "react-native";
-import { NavigationContext } from "@react-navigation/native";
+import { AntDesign } from "@expo/vector-icons";
 
-const TopBox = () => {
-  const navigation = React.useContext(NavigationContext);
-
+const TopBox = ({ navigation }) => {
   return (
     <Box>
       <Center w={"100%"} h={"15%"} bg={"#84D31E"} />
       <HStack h={"64px"} bg="#84D31E" alignItems="center">
         <Center w={"25%"}>
-          <Image
-            w={"17.49px"}
-            h={"12px"}
-            source={require("../assets/icons/menu.png")}
-            alt=""
-          />
+          <TouchableHighlight onPress={() => navigation.navigate("Welcome")}>
+            <AntDesign name="home" size={30} color="white" />
+          </TouchableHighlight>
         </Center>
         <Center w={"50%"}>
           <Text
@@ -35,12 +30,12 @@ const TopBox = () => {
           </Text>
         </Center>
         <Center w={"25%"}>
-          <TouchableHighlight onPress={() => navigation.navigate("Login")}>
+          <TouchableHighlight onPress={() => navigation.navigate("UserScreen")}>
             <Image
               w={"24px"}
               h={"24px"}
               source={require("../assets/icons/account_circle.png")}
-              alt=""
+              alt="User Information"
             />
           </TouchableHighlight>
         </Center>

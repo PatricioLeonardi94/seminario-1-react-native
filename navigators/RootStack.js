@@ -11,6 +11,9 @@ import SelectMaterial from "../screens/SelectMaterial";
 import MaterialToRecycle from "../screens/MaterialToRecycle";
 import IdentificationResult from "../screens/IdentificationResult";
 import Login from "../screens/Login";
+import UserScreen from "../screens/UserScreen";
+
+import TopBox from "../components/TopBox";
 
 //credentialContext
 import { CredentialsContext } from "./../components/CredentialsContext";
@@ -48,6 +51,7 @@ const RootStack = () => {
               <Stack.Screen name="Camera">
                 {(props) => <CameraScreen {...props} />}
               </Stack.Screen>
+
               <Stack.Screen name="SelectMaterial">
                 {(props) => (
                   <SelectMaterial
@@ -57,15 +61,24 @@ const RootStack = () => {
                   />
                 )}
               </Stack.Screen>
+
               <Stack.Screen name="MaterialToRecycle">
                 {(props) => (
                   <MaterialToRecycle {...props} material={material} />
                 )}
               </Stack.Screen>
+
               <Stack.Screen name="IdentificationResult">
                 {(props) => (
                   <IdentificationResult {...props} material={material} />
                 )}
+              </Stack.Screen>
+              <Stack.Screen name="UserScreen">
+                {(props) => <UserScreen {...props} />}
+              </Stack.Screen>
+
+              <Stack.Screen name="TopBox">
+                {(props) => <TopBox {...props} />}
               </Stack.Screen>
             </Stack.Navigator>
           </NativeBaseProvider>

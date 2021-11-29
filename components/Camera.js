@@ -4,7 +4,7 @@ import { Camera } from "expo-camera";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 
-const CameraScreen = ({ navigation: { goBack, navigate } }) => {
+const CameraScreen = ({ navigation }) => {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -43,7 +43,9 @@ const CameraScreen = ({ navigation: { goBack, navigate } }) => {
       if (source) {
         cam.current.resumePreview();
         console.log("\npicture source: ", source);
-        navigation.navigate("Welcome");
+
+        //TODO: hacer la validacion de material para el route enviar el material al MaterialToRecycle
+        navigation.navigate("IdentificationResult");
       }
     }
   };
@@ -82,7 +84,10 @@ const CameraScreen = ({ navigation: { goBack, navigate } }) => {
             }}
           >
             <View>
-              <TouchableOpacity style={styles.button} onPress={() => goBack()}>
+              <TouchableOpacity
+                style={styles.button}
+                onPress={() => navigation.navigate("Welcome")}
+              >
                 <Text style={styles.text}> Go Back </Text>
                 <Ionicons name="arrow-back" size={50} color="white" />
               </TouchableOpacity>

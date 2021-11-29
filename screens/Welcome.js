@@ -13,9 +13,12 @@ const Welcome = ({ navigation }) => {
 
   return (
     <Box>
-      <TopBox />
+      <TopBox navigation={navigation} />
       <VStack alignItems="center">
         <Center>
+          <Text fontFamily="body" fontSize={24} color="rgba(0, 0, 0, 0.4)">
+            {name}
+          </Text>
           <Text
             ml={"13.89%"}
             mr={"13.89%"}
