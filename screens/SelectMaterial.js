@@ -19,7 +19,7 @@ const SelectMaterial = ({ material, setMaterial, navigation }) => {
 
   return (
     <Box>
-      <TopBox navigation={navigation} />
+      <TopBox />
       <VStack alignItems="center">
         <Center mt={"7.5%"} ml={"2%"} mr={"2%"}>
           <Text

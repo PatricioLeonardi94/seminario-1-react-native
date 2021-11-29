@@ -2,8 +2,11 @@ import * as React from "react";
 import { Center, Image, Text, HStack, Box } from "native-base";
 import constants from "../constants/constants";
 import { TouchableHighlight } from "react-native";
+import { NavigationContext } from "@react-navigation/native";
 
-const TopBox = ({ navigation }) => {
+const TopBox = () => {
+  const navigation = React.useContext(NavigationContext);
+
   return (
     <Box>
       <Center w={"100%"} h={"15%"} bg={"#84D31E"} />

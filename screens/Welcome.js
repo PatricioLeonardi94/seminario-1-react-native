@@ -1,16 +1,19 @@
 import TopBox from "../components/TopBox";
 import { Box, Center, Image, Text, VStack } from "native-base";
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 
-const Welcome = ({ navigation, route }) => {
-  // const { name } = route.params;
-  // const userName = route.params.name ? name : "";
-  const [user, setUser] = useState();
+//credentialContext
+import { CredentialsContext } from "../components/CredentialsContext";
+
+const Welcome = ({ navigation }) => {
+  //context
+  const { storedCredentials, setStoredCredentials } =
+    useContext(CredentialsContext);
+  const { email, name, photoUrl } = storedCredentials;
 
   return (
     <Box>
-      <TopBox navigation={navigation} />
-      {/* {userName} */}
+      <TopBox />
       <VStack alignItems="center">
         <Center>
           <Text

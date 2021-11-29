@@ -6,7 +6,7 @@ import { Center, Box, Text, VStack, HStack, Stack, Button } from "native-base";
 const Instrucciones = ({ navigation }) => {
   return (
     <Box>
-      <TopBox navigation={navigation} />
+      <TopBox />
       <VStack alignItems="center">
         <VStack>
           <HStack>

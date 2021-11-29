@@ -2,8 +2,9 @@ import React, { useState, useEffect, useRef } from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { Camera } from "expo-camera";
 import { MaterialIcons } from "@expo/vector-icons";
+import { Ionicons } from "@expo/vector-icons";
 
-const CameraScreen = ({ navigation }) => {
+const CameraScreen = ({ navigation: { goBack, navigate } }) => {
   const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -80,6 +81,12 @@ const CameraScreen = ({ navigation }) => {
               alignItems: "flex-end",
             }}
           >
+            <View>
+              <TouchableOpacity style={styles.button} onPress={() => goBack()}>
+                <Text style={styles.text}> Go Back </Text>
+                <Ionicons name="arrow-back" size={50} color="white" />
+              </TouchableOpacity>
+            </View>
             <View>
               <TouchableOpacity
                 style={styles.button}

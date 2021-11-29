@@ -1,55 +1,51 @@
-import React from "react";
-import { NativeBaseProvider } from "native-base";
+import React, { useState } from "react";
 
-import { NavigationContainer } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import RootStack from "./navigators/RootStack";
+import LoadingScreen from "./screens/LoadingScreen";
+import constants from "./constants/constants";
 
-import Welcome from "./screens/Welcome";
-import Instrucciones from "./screens/Instrucciones";
-import CameraScreen from "./components/Camera";
-import SelectMaterial from "./screens/SelectMaterial";
-import MaterialToRecycle from "./screens/MaterialToRecycle";
-import IdentificationResult from "./screens/IdentificationResult";
-import Login from "./screens/Login";
+//appLoading
+import AppLoading from "expo-app-loading";
 
-const Stack = createNativeStackNavigator();
+//async-storage
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+//credentialContext
+import { CredentialsContext } from "./components/CredentialsContext";
 
 export default function App() {
   const [material, setMaterial] = React.useState("");
+  const [appReady, setAppReady] = useState(false);
+  const [storedCredentials, setStoredCredentials] = useState("");
+
+  const checkLoginCredentials = () => {
+    AsyncStorage.getItem(constants.ASYNC_STORAGE_CREDENTIALS)
+      .then((result) => {
+        if (result !== null) {
+          setStoredCredentials(JSON.parse(result));
+        } else {
+          setStoredCredentials(null);
+        }
+      })
+      .catch((error) => console.log(error));
+  };
+
+  //En el caso de necesitar loading screen previo al inicio https://docs.expo.dev/versions/latest/sdk/app-loading/
+  if (!appReady) {
+    return (
+      <AppLoading
+        startAsync={checkLoginCredentials}
+        onFinish={() => setAppReady(true)}
+        onError={console.warn}
+      />
+    );
+  }
 
   return (
-    <NavigationContainer>
-      <NativeBaseProvider>
-        <Stack.Navigator initialRouteName="Welcome">
-          <Stack.Screen name="Welcome">
-            {(props) => <Welcome {...props} />}
-          </Stack.Screen>
-          <Stack.Screen name="Instrucciones">
-            {(props) => <Instrucciones {...props} />}
-          </Stack.Screen>
-          <Stack.Screen name="Login">
-            {(props) => <Login {...props} />}
-          </Stack.Screen>
-          <Stack.Screen name="Camera">
-            {(props) => <CameraScreen {...props} />}
-          </Stack.Screen>
-          <Stack.Screen name="SelectMaterial">
-            {(props) => (
-              <SelectMaterial
-                {...props}
-                material={material}
-                setMaterial={(value) => setMaterial(value)}
-              />
-            )}
-          </Stack.Screen>
-          <Stack.Screen name="MaterialToRecycle">
-            {(props) => <MaterialToRecycle {...props} material={material} />}
-          </Stack.Screen>
-          <Stack.Screen name="IdentificationResult">
-            {(props) => <IdentificationResult {...props} material={material} />}
-          </Stack.Screen>
-        </Stack.Navigator>
-      </NativeBaseProvider>
-    </NavigationContainer>
+    <CredentialsContext.Provider
+      value={{ storedCredentials, setStoredCredentials }}
+    >
+      <RootStack />
+    </CredentialsContext.Provider>
   );
 }

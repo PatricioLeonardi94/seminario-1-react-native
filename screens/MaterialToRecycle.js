@@ -6,7 +6,7 @@ import BottomImageWithExitButton from "../components/BottomImageWithExitButton";
 const MaterialToRecycle = ({ navigation, material }) => {
   return (
     <Box>
-      <TopBox navigation={navigation} />
+      <TopBox />
       <VStack alignItems="center">
         <Center mt={"7.5%"}>
           <Text

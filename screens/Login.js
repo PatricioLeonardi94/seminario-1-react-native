@@ -1,14 +1,24 @@
-import constants from "../constants/constants";
+import React, { useState, useContext } from "react";
 import * as Google from "expo-google-app-auth";
-import React, { useState } from "react";
+import constants from "../constants/constants";
 import { Box, Button, Text, VStack, View, Image, Center } from "native-base";
 import TopBox from "../components/TopBox";
 import { AntDesign } from "@expo/vector-icons";
 
-const Login = ({ navigation }) => {
+//async-storage
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
+//credentialContext
+import { CredentialsContext } from "./../components/CredentialsContext";
+
+const Login = () => {
   const [message, setMessage] = useState();
   const [messageType, setMessageType] = useState();
   const [googleSubmitting, setGoogleSubmitting] = useState(false);
+
+  //context
+  const { storedCredentials, setStoredCredentials } =
+    useContext(CredentialsContext);
 
   const handleMessage = (message, type = "FAILED") => {
     setMessage(message);
@@ -27,13 +37,9 @@ const Login = ({ navigation }) => {
       .then((result) => {
         const { type, user } = result;
         if (type == "success") {
-          // We make a set of the GoogleUser attributes we will request to the google API https://docs.expo.dev/versions/latest/sdk/google/
+          // We make a set of the Googl eUser attributes we will request to the google API https://docs.expo.dev/versions/latest/sdk/google/
           const { email, name, photoUrl } = user;
-          handleMessage("Google sigin was successful", "SUCCESS");
-          setTimeout(
-            () => navigation.navigate("Welcome", { email, name, photoUrl }),
-            1000
-          );
+          persistLogin({ email, name, photoUrl }, message, "success");
         } else {
           handleMessage("Google sigin was cancelled");
         }
@@ -44,6 +50,29 @@ const Login = ({ navigation }) => {
         handleMessage("An error ocurred. Check you network and try again");
         setGoogleSubmitting(false);
       });
+  };
+
+  const persistLogin = (credentials, message, status) => {
+    AsyncStorage.setItem(
+      constants.ASYNC_STORAGE_CREDENTIALS,
+      JSON.stringify(credentials)
+    )
+      .then(() => {
+        handleMessage(message, status);
+        setStoredCredentials(credentials);
+      })
+      .catch((error) => {
+        console.log(error);
+        handleMessage("Persisting login failed");
+      });
+  };
+
+  const clearLogin = () => {
+    AsyncStorage.removeItem(constants.ASYNC_STORAGE_CREDENTIALS)
+      .then(() => {
+        setStoredCredentials("");
+      })
+      .catch((error) => console.log(error));
   };
 
   return (
