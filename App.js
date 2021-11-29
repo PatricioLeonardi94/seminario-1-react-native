@@ -10,6 +10,7 @@ import CameraScreen from "./components/Camera";
 import SelectMaterial from "./screens/SelectMaterial";
 import MaterialToRecycle from "./screens/MaterialToRecycle";
 import IdentificationResult from "./screens/IdentificationResult";
+import Login from "./screens/Login";
 
 const Stack = createNativeStackNavigator();
 
@@ -25,6 +26,9 @@ export default function App() {
           </Stack.Screen>
           <Stack.Screen name="Instrucciones">
             {(props) => <Instrucciones {...props} />}
+          </Stack.Screen>
+          <Stack.Screen name="Login">
+            {(props) => <Login {...props} />}
           </Stack.Screen>
           <Stack.Screen name="Camera">
             {(props) => <CameraScreen {...props} />}

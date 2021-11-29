@@ -41,7 +41,6 @@ const CameraScreen = ({ navigation }) => {
 
       if (source) {
         cam.current.resumePreview();
-        //console.log("Photo object:" + photo.toString());
         console.log("\npicture source: ", source);
         navigation.navigate("Welcome");
       }

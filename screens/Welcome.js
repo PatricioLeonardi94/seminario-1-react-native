@@ -1,11 +1,16 @@
-import * as React from "react";
 import TopBox from "../components/TopBox";
 import { Box, Center, Image, Text, VStack } from "native-base";
+import React, { useState } from "react";
 
-const Welcome = ({navigation}) => {
+const Welcome = ({ navigation, route }) => {
+  // const { name } = route.params;
+  // const userName = route.params.name ? name : "";
+  const [user, setUser] = useState();
+
   return (
     <Box>
-      <TopBox />
+      <TopBox navigation={navigation} />
+      {/* {userName} */}
       <VStack alignItems="center">
         <Center>
           <Text
@@ -46,9 +51,7 @@ const Welcome = ({navigation}) => {
             alignItems="center"
             textAlign="center"
             letterSpacing={0.16}
-            onPress={() =>
-              navigation.navigate('Instrucciones')
-            }
+            onPress={() => navigation.navigate("Instrucciones")}
           >
             EMPEZAR
           </Text>
