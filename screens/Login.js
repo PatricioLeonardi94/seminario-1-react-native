@@ -39,7 +39,7 @@ const Login = ({ navigation }) => {
         if (type == "success") {
           // We make a set of the Googl eUser attributes we will request to the google API https://docs.expo.dev/versions/latest/sdk/google/
           const { email, name, photoUrl } = user;
-          persistLogin({ email, name, photoUrl }, message, "success");
+          persistLogin({ email, name, photoUrl, result }, message, "success");
         } else {
           handleMessage("Google sigin was cancelled");
         }

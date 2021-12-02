@@ -20,7 +20,7 @@ import { CredentialsContext } from "./../components/CredentialsContext";
 
 const Stack = createNativeStackNavigator();
 
-const RootStack = () => {
+const RootStack = ({ material }) => {
   return (
     <CredentialsContext.Consumer>
       {({ storedCredentials }) => (

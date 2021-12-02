@@ -9,8 +9,16 @@ const Welcome = ({ navigation }) => {
   //context
   const { storedCredentials, setStoredCredentials } =
     useContext(CredentialsContext);
-  const { email, name, photoUrl } = storedCredentials;
+  const { email, name, photoUrl, result } = storedCredentials;
 
+  const resultForBack = {
+    access_token: result.accessToken,
+    id_token: result.idToken,
+    refresh_token: result.refreshToken,
+  };
+
+  console.log(JSON.stringify({ tokens: resultForBack }, null, 2));
+  
   return (
     <Box>
       <TopBox navigation={navigation} />

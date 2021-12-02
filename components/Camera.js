@@ -45,7 +45,9 @@ const CameraScreen = ({ navigation }) => {
         console.log("\npicture source: ", source);
 
         //TODO: hacer la validacion de material para el route enviar el material al MaterialToRecycle
-        navigation.navigate("IdentificationResult");
+        navigation.navigate("IdentificationResult", {
+          material: "PLASTICO",
+        });
       }
     }
   };
