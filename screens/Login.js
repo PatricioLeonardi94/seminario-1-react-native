@@ -62,8 +62,9 @@ const Login = ({ navigation }) => {
 
           axios(config)
             .then(function (response) {
-              const { x_access_token } = response;
+              const { headers } = response;
               const { player } = response.data;
+              const x_access_token = headers["x-access-token"];
               persistLogin(
                 { email, name, photoUrl, x_access_token, player },
                 message,

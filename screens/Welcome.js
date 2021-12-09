@@ -12,7 +12,6 @@ const Welcome = ({ navigation }) => {
   const { email, name, photoUrl, x_access_token, player } = storedCredentials;
 
   console.log(x_access_token);
-  console.log(player);
 
   return (
     <Box>
