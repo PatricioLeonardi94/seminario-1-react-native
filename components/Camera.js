@@ -38,6 +38,8 @@ const CameraScreen = ({ navigation }) => {
       const option = { quality: 0.5, base64: true, skipProcessing: false };
       let photo = await cam.current.takePictureAsync(option);
 
+      console.log("Photo: ")
+      console.log(photo.toString())
       const source = photo.uri;
 
       if (source) {
@@ -81,7 +83,7 @@ const CameraScreen = ({ navigation }) => {
           <View
             style={{
               flexDirection: "row",
-              justifyContent: "space-between",
+              justifyContent: "space-around",
               alignItems: "flex-end",
             }}
           >

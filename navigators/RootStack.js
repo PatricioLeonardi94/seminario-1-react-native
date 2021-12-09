@@ -17,10 +17,12 @@ import TopBox from "../components/TopBox";
 
 //credentialContext
 import { CredentialsContext } from "./../components/CredentialsContext";
+import PicturePreview from "../screens/PicturePreview";
 
 const Stack = createNativeStackNavigator();
 
 const RootStack = ({ material }) => {
+  const picture = "https://picsum.photos/200/300";
   return (
     <CredentialsContext.Consumer>
       {({ storedCredentials }) => (
@@ -50,6 +52,10 @@ const RootStack = ({ material }) => {
 
               <Stack.Screen name="Camera">
                 {(props) => <CameraScreen {...props} />}
+              </Stack.Screen>
+
+              <Stack.Screen name="PicturePreview">
+                {(props) => <PicturePreview picture={picture} {...props} />}
               </Stack.Screen>
 
               <Stack.Screen name="SelectMaterial">
