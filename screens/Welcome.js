@@ -9,23 +9,18 @@ const Welcome = ({ navigation }) => {
   //context
   const { storedCredentials, setStoredCredentials } =
     useContext(CredentialsContext);
-  const { email, name, photoUrl, result } = storedCredentials;
+  const { email, name, photoUrl, x_access_token, player } = storedCredentials;
 
-  const resultForBack = {
-    access_token: result.accessToken,
-    id_token: result.idToken,
-    refresh_token: result.refreshToken,
-  };
+  console.log(x_access_token);
+  console.log(player);
 
-  console.log(JSON.stringify({ tokens: resultForBack }, null, 2));
-  
   return (
     <Box>
       <TopBox navigation={navigation} />
       <VStack alignItems="center">
         <Center>
           <Text fontFamily="body" fontSize={24} color="rgba(0, 0, 0, 0.4)">
-            {name}
+            {player.user.fullname}
           </Text>
           <Text
             ml={"13.89%"}

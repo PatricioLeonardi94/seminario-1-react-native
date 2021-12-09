@@ -4,6 +4,7 @@ import constants from "../constants/constants";
 import { Box, Button, Text, VStack, View, Image, Center } from "native-base";
 import TopBox from "../components/TopBox";
 import { AntDesign } from "@expo/vector-icons";
+import axios from "axios";
 
 //async-storage
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -39,7 +40,39 @@ const Login = ({ navigation }) => {
         if (type == "success") {
           // We make a set of the Googl eUser attributes we will request to the google API https://docs.expo.dev/versions/latest/sdk/google/
           const { email, name, photoUrl } = user;
-          persistLogin({ email, name, photoUrl, result }, message, "success");
+
+          const resultForBack = {
+            access_token: result.accessToken,
+            id_token: result.idToken,
+            refresh_token: result.refreshToken,
+          };
+
+          var tokens = JSON.stringify({ tokens: resultForBack }, null, 2);
+
+          var config = {
+            method: "post",
+            url: "http://glacial-garden-26787.herokuapp.com/api/players/session",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            data: tokens,
+          };
+
+          var axios = require("axios");
+
+          axios(config)
+            .then(function (response) {
+              const { x_access_token } = response;
+              const { player } = response.data;
+              persistLogin(
+                { email, name, photoUrl, x_access_token, player },
+                message,
+                "success"
+              );
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
         } else {
           handleMessage("Google sigin was cancelled");
         }
@@ -67,13 +100,13 @@ const Login = ({ navigation }) => {
       });
   };
 
-  const clearLogin = () => {
-    AsyncStorage.removeItem(constants.ASYNC_STORAGE_CREDENTIALS)
-      .then(() => {
-        setStoredCredentials("");
-      })
-      .catch((error) => console.log(error));
-  };
+  // const clearLogin = () => {
+  //   AsyncStorage.removeItem(constants.ASYNC_STORAGE_CREDENTIALS)
+  //     .then(() => {
+  //       setStoredCredentials("");
+  //     })
+  //     .catch((error) => console.log(error));
+  // };
 
   return (
     <Box>
