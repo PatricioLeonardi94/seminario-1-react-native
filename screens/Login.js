@@ -4,7 +4,6 @@ import constants from "../constants/constants";
 import { Box, Button, Text, VStack, View, Image, Center } from "native-base";
 import TopBox from "../components/TopBox";
 import { AntDesign } from "@expo/vector-icons";
-import axios from "axios";
 
 //async-storage
 import AsyncStorage from "@react-native-async-storage/async-storage";
