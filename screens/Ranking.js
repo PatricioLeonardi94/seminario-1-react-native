@@ -15,7 +15,6 @@ import { TabView, SceneMap } from "react-native-tab-view";
 import { Box, Text, Center } from "native-base";
 
 const Raking = ({ navigation }) => {
-  // Get Ranking
   const [ranking, setRanking] = useState(null);
   const [montlyRanking, setMontlyRanking] = useState(null);
 
@@ -25,7 +24,8 @@ const Raking = ({ navigation }) => {
     }
   });
 
-  function getRanking(value) {
+  // Get Ranking
+  function getRanking() {
     var config = {
       method: "get",
       url: "http://glacial-garden-26787.herokuapp.com/api/players/ranking",
