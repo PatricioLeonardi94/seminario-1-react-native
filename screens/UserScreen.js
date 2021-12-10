@@ -26,7 +26,9 @@ const UserScreen = ({ navigation }) => {
   const { storedCredentials, setStoredCredentials } =
     useContext(CredentialsContext);
 
-  const { email, name, photoUrl } = storedCredentials;
+  const { photoUrl, x_access_token, player } = storedCredentials;
+
+  console.log(player);
 
   const clearLogin = () => {
     if (storedCredentials !== null) {
@@ -60,7 +62,7 @@ const UserScreen = ({ navigation }) => {
             letterSpacing={0.25}
             color="rgba(0, 0, 0, 0.4)"
           >
-            {name}
+            {player.user.fullname}
           </Text>
         </Center>
         <Box>
@@ -80,7 +82,7 @@ const UserScreen = ({ navigation }) => {
               borderRadius="5"
               borderColor="#84D31E"
             >
-              Puntos totales
+              {player.points}
             </Box>
             <Text color="#84D31E" fontSize={20} fontWeight={500}>
               Puntos del mes
@@ -97,7 +99,7 @@ const UserScreen = ({ navigation }) => {
               borderRadius="5"
               borderColor="#84D31E"
             >
-              Puntos del mes
+              {player.month_points}
             </Box>
             <Text color="#FFC700" fontSize={20} fontWeight={500}>
               Monedas
@@ -114,7 +116,7 @@ const UserScreen = ({ navigation }) => {
               borderRadius="5"
               borderColor="#FFC700"
             >
-              Monedas
+              {player.coins}
             </Box>
           </Stack>
         </Box>

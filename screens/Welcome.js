@@ -11,8 +11,6 @@ const Welcome = ({ navigation }) => {
     useContext(CredentialsContext);
   const { email, name, photoUrl, x_access_token, player } = storedCredentials;
 
-  console.log(x_access_token);
-
   return (
     <Box>
       <TopBox navigation={navigation} />
