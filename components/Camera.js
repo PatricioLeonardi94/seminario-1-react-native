@@ -88,7 +88,7 @@ const CameraScreen = ({ navigation }) => {
             <View>
               <TouchableOpacity
                 style={styles.button}
-                onPress={() => navigation.navigate("Welcome")}
+                onPress={() => navigation.navigate("Instrucciones")}
               >
                 <Text style={styles.text}> Go Back </Text>
                 <Ionicons name="arrow-back" size={50} color="white" />

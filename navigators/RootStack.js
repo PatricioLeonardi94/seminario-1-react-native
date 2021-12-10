@@ -12,8 +12,11 @@ import MaterialToRecycle from "../screens/MaterialToRecycle";
 import IdentificationResult from "../screens/IdentificationResult";
 import Login from "../screens/Login";
 import UserScreen from "../screens/UserScreen";
-
+import Raking from "../screens/Ranking";
+import Medals from "../screens/Medals";
+import Exchange from "../screens/Exchange";
 import TopBox from "../components/TopBox";
+import Recycling from "../screens/Recycling";
 
 //credentialContext
 import { CredentialsContext } from "./../components/CredentialsContext";
@@ -44,8 +47,24 @@ const RootStack = ({ material }) => {
                 </>
               )}
 
+              <Stack.Screen name="Recycling">
+                {(props) => <Recycling {...props} />}
+              </Stack.Screen>
+
               <Stack.Screen name="Instrucciones">
                 {(props) => <Instrucciones {...props} />}
+              </Stack.Screen>
+
+              <Stack.Screen name="Raking">
+                {(props) => <Raking {...props} />}
+              </Stack.Screen>
+
+              <Stack.Screen name="Medals">
+                {(props) => <Medals {...props} />}
+              </Stack.Screen>
+
+              <Stack.Screen name="Exchange">
+                {(props) => <Exchange {...props} />}
               </Stack.Screen>
 
               <Stack.Screen name="Camera">
