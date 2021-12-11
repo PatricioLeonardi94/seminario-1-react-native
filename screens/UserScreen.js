@@ -51,7 +51,7 @@ const UserScreen = ({ navigation }) => {
               uri: photoUrl,
             }}
             borderRadius={100}
-            alt="Alternate Text"
+            alt="Image"
             size="xl"
           />
           <Text

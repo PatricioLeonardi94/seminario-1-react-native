@@ -1,7 +1,5 @@
 import TopBox from "../components/TopBox";
-
 import React, { useState, useEffect } from "react";
-
 import {
   View,
   StyleSheet,
@@ -10,9 +8,10 @@ import {
   TouchableOpacity,
   Animated,
   Pressable,
+  ImageBackground,
 } from "react-native";
 import { TabView, SceneMap } from "react-native-tab-view";
-import { Box, Text, Center } from "native-base";
+import { Box, Text, Center, Image, VStack, HStack } from "native-base";
 
 const Raking = ({ navigation }) => {
   const [ranking, setRanking] = useState(null);
@@ -50,20 +49,256 @@ const Raking = ({ navigation }) => {
     if (ranking !== null) {
       if (index == 0) {
         return (
-          <Box>
-            <Text>{JSON.stringify(ranking[0].name)}</Text>
-            <Text>{JSON.stringify(ranking[0].points)}</Text>
-            <Text>{JSON.stringify(ranking[1].name)}</Text>
-            <Text>{JSON.stringify(ranking[1].points)}</Text>
+          <Box p="5">
+            <VStack h="100" alignItems="center">
+              <HStack p="5" space={2}>
+                <Center>
+                  <Image
+                    source={require("../assets/images/ranking/ranking_1.png")}
+                    alt="medal 1"
+                  />
+                </Center>
+                <Center w="30" h="30" />
+                <Center>
+                  <Text
+                    fontSize={20}
+                    lineHeight={30}
+                    opacity={0.4}
+                    letterSpacing={0.16}
+                  >
+                    {JSON.stringify(ranking[0].user.fullname)}
+                  </Text>
+                  <Text
+                    fontSize={20}
+                    lineHeight={30}
+                    opacity={0.4}
+                    letterSpacing={0.16}
+                  >
+                    {JSON.stringify(ranking[0].points)}
+                  </Text>
+                </Center>
+              </HStack>
+              <HStack p="5" space={2}>
+                <Center>
+                  <Text
+                    fontSize={20}
+                    lineHeight={30}
+                    opacity={0.4}
+                    letterSpacing={0.16}
+                  >
+                    {JSON.stringify(ranking[1].user.fullname)}
+                  </Text>
+                  <Text
+                    fontSize={20}
+                    lineHeight={30}
+                    opacity={0.4}
+                    letterSpacing={0.16}
+                  >
+                    {JSON.stringify(ranking[1].points)}
+                  </Text>
+                </Center>
+                <Center w="30" h="30" />
+                <Center>
+                  <Image
+                    source={require("../assets/images/ranking/ranking_2.png")}
+                    alt="medal 2"
+                  />
+                </Center>
+              </HStack>
+              <HStack p="5" space={2}>
+                <Center>
+                  <Image
+                    source={require("../assets/images/ranking/ranking_3.png")}
+                    alt="medal 1"
+                  />
+                </Center>
+                <Center w="30" h="30" />
+                <Center>
+                  <Text
+                    fontSize={20}
+                    lineHeight={30}
+                    opacity={0.4}
+                    letterSpacing={0.16}
+                  >
+                    "Mariana Diaz"
+                  </Text>
+                  <Text
+                    fontSize={20}
+                    lineHeight={30}
+                    opacity={0.4}
+                    letterSpacing={0.16}
+                  >
+                    54
+                  </Text>
+                </Center>
+              </HStack>
+              <HStack space={2}>
+                <Center w="70" h="30" />
+                <Text
+                  fontSize={15}
+                  lineHeight={50}
+                  opacity={0.4}
+                  letterSpacing={0.16}
+                >
+                  20
+                </Text>
+                <Text
+                  fontSize={15}
+                  lineHeight={50}
+                  opacity={0.4}
+                  letterSpacing={0.16}
+                >
+                  "Martin Gomez"
+                </Text>
+              </HStack>
+              <HStack space={2}>
+                <Center w="70" h="30" />
+                <Text
+                  fontSize={15}
+                  lineHeight={50}
+                  opacity={0.4}
+                  letterSpacing={0.16}
+                >
+                  12
+                </Text>
+                <Text
+                  fontSize={15}
+                  lineHeight={50}
+                  opacity={0.4}
+                  letterSpacing={0.16}
+                >
+                  "Javier Garcia"
+                </Text>
+              </HStack>
+            </VStack>
           </Box>
         );
       } else if (index == 1) {
         return (
-          <Box>
-            <Text>{JSON.stringify(montlyRanking[0].name)}</Text>
-            <Text>{JSON.stringify(montlyRanking[0].month_points)}</Text>
-            <Text>{JSON.stringify(montlyRanking[1].name)}</Text>
-            <Text>{JSON.stringify(montlyRanking[1].month_points)}</Text>
+          <Box p="5">
+            <Box>
+              <VStack h="100" alignItems="center">
+                <HStack p="5" space={2}>
+                  <Center>
+                    <Text
+                      fontSize={20}
+                      lineHeight={30}
+                      opacity={0.4}
+                      letterSpacing={0.16}
+                    >
+                      {JSON.stringify(montlyRanking[0].user.fullname)}
+                    </Text>
+                    <Text
+                      fontSize={20}
+                      lineHeight={30}
+                      opacity={0.4}
+                      letterSpacing={0.16}
+                    >
+                      {JSON.stringify(montlyRanking[0].month_points)}
+                    </Text>
+                  </Center>
+                  <Center w="30" h="30" />
+                  <Center>
+                    <Image
+                      source={require("../assets/images/ranking/ranking_1.png")}
+                      alt="medal 1"
+                    />
+                  </Center>
+                </HStack>
+                <HStack p="5" space={2}>
+                  <Center>
+                    <Image
+                      source={require("../assets/images/ranking/ranking_2.png")}
+                      alt="medal 2"
+                    />
+                  </Center>
+                  <Center w="30" h="30" />
+                  <Center>
+                    <Text
+                      fontSize={20}
+                      lineHeight={30}
+                      opacity={0.4}
+                      letterSpacing={0.16}
+                    >
+                      {JSON.stringify(montlyRanking[1].user.fullname)}
+                    </Text>
+                    <Text
+                      fontSize={20}
+                      lineHeight={30}
+                      opacity={0.4}
+                      letterSpacing={0.16}
+                    >
+                      {JSON.stringify(montlyRanking[1].month_points)}
+                    </Text>
+                  </Center>
+                </HStack>
+                <HStack p="5" space={2}>
+                  <Center>
+                    <Text
+                      fontSize={20}
+                      lineHeight={30}
+                      opacity={0.4}
+                      letterSpacing={0.16}
+                    >
+                      "Mariana Diaz"
+                    </Text>
+                    <Text
+                      fontSize={20}
+                      lineHeight={30}
+                      opacity={0.4}
+                      letterSpacing={0.16}
+                    >
+                      54
+                    </Text>
+                  </Center>
+                  <Center w="30" h="30" />
+                  <Center>
+                    <Image
+                      source={require("../assets/images/ranking/ranking_3.png")}
+                      alt="medal 1"
+                    />
+                  </Center>
+                </HStack>
+                <HStack space={2}>
+                  <Text
+                    fontSize={15}
+                    lineHeight={50}
+                    opacity={0.4}
+                    letterSpacing={0.16}
+                  >
+                    20
+                  </Text>
+                  <Text
+                    fontSize={15}
+                    lineHeight={50}
+                    opacity={0.4}
+                    letterSpacing={0.16}
+                  >
+                    "Martin Gomez"
+                  </Text>
+                  <Center w="70" h="30" />
+                </HStack>
+                <HStack space={2}>
+                  <Text
+                    fontSize={15}
+                    lineHeight={50}
+                    opacity={0.4}
+                    letterSpacing={0.16}
+                  >
+                    12
+                  </Text>
+                  <Text
+                    fontSize={15}
+                    lineHeight={50}
+                    opacity={0.4}
+                    letterSpacing={0.16}
+                  >
+                    "Javier Garcia"
+                  </Text>
+                  <Center w="70" h="30" />
+                </HStack>
+              </VStack>
+            </Box>
           </Box>
         );
       } else {
@@ -111,7 +346,7 @@ const Raking = ({ navigation }) => {
               borderColor={borderColor}
               flex={1}
               alignItems="center"
-              p="3"
+              p="2"
             >
               <Pressable
                 onPress={() => {
@@ -139,6 +374,11 @@ const Raking = ({ navigation }) => {
         style={{ marginTop: StatusBar.currentHeight }}
       />
       <Box>{renderInfo()}</Box>
+      {/* <Image
+        source={require("../assets/images/bottom-bubbles.png")}
+        alt="bubbles"
+        opacity={0.7}
+      /> */}
     </Box>
   );
 };
