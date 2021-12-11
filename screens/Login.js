@@ -100,20 +100,12 @@ const Login = ({ navigation }) => {
       });
   };
 
-  // const clearLogin = () => {
-  //   AsyncStorage.removeItem(constants.ASYNC_STORAGE_CREDENTIALS)
-  //     .then(() => {
-  //       setStoredCredentials("");
-  //     })
-  //     .catch((error) => console.log(error));
-  // };
-
   return (
     <Box>
-      <TopBox />
+      <TopBox navigation={navigation} />
       <VStack alignItems="center">
         <Box>
-          <Center>
+          <Center top={15}>
             {!googleSubmitting && (
               <Button
                 size="lg"
