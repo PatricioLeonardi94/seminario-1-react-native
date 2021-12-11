@@ -4,6 +4,7 @@ import React, { useState, useContext } from "react";
 import { TouchableHighlight } from "react-native";
 import MedalsRowWhite from "../components/MedalsRowWhite";
 import MedalsRowGreen from "../components/MedalsRowGreen";
+import BottomImageWithExitButton from "../components/BottomImageWithExitButton";
 
 //credentialContext
 import { CredentialsContext } from "../components/CredentialsContext";
@@ -42,6 +43,7 @@ const Medals = ({ navigation }) => {
         <MedalsRowWhite medal={medalVidrio} />
         <MedalsRowGreen medal={medalPlastico} />
       </VStack>
+      <BottomImageWithExitButton />
     </Box>
   );
 };

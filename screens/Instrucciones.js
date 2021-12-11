@@ -18,10 +18,11 @@ const Instrucciones = ({ navigation }) => {
                 fontFamily="body"
                 fontWeight={500}
                 fontSize={36}
-                lineHeight={24}
+                lineHeight={36}
                 display="flex"
                 alignItems="center"
                 letterSpacing={0.15}
+                top={10}
               >
                 1.
               </Text>
@@ -51,10 +52,11 @@ const Instrucciones = ({ navigation }) => {
                 fontFamily="body"
                 fontWeight={500}
                 fontSize={36}
-                lineHeight={24}
+                lineHeight={36}
                 display="flex"
                 alignItems="center"
                 letterSpacing={0.15}
+                top={10}
               >
                 2.
               </Text>

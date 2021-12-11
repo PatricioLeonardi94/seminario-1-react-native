@@ -6,18 +6,18 @@ const BottomImageWithExitButton = () => {
     <Center>
       <Image
         w={"366.11px"}
-        h={"349px"}
+        h={"380px"}
         source={require("../assets/images/bottom-bubbles.png")}
         alt=""
       />
-      <Image
+      {/* <Image
         position="absolute"
         zIndex={1}
         w={"40px"}
         h={"40px"}
         source={require("../assets/icons/exit.png")}
         alt=""
-      />
+      /> */}
     </Center>
   );
 };
