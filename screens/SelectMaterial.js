@@ -12,7 +12,11 @@ import {
 import TopBox from "../components/TopBox";
 import BottomImageWithExitButton from "../components/BottomImageWithExitButton";
 
-const SelectMaterial = ({ material, setMaterial, navigation }) => {
+import { MaterialContext } from "../components/MaterialContext";
+
+const SelectMaterial = ({ navigation }) => {
+  const {material,setMaterial} = React.useContext(MaterialContext);
+
   const handleMaterialChange = (newMaterial) => {
     setMaterial(newMaterial);
   };

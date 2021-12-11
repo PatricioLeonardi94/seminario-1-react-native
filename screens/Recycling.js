@@ -37,7 +37,7 @@ const Recycling = ({ navigation }) => {
             </Center>
           </TouchableHighlight>
           <TouchableHighlight
-            onPress={() => navigation.navigate("Instrucciones")}
+            onPress={() => navigation.navigate("QRInstructions")}
             underlayColor="#87DA1E"
           >
             <Center

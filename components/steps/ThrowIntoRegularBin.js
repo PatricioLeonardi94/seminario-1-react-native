@@ -7,9 +7,10 @@ import FinalStepPage from './FinalStepPage';
 
 const ThrowIntoRegularBin = ({nav,step}) => {
     const [finalStep,setFinalStep] = React.useState(false)
-    const step = {
+
+    const preStep = {
         "stepName":"Separar",
-        "stepNumber": 5,
+        "stepNumber": step,
         "stepType": 2,
         "images": [],
         "texts": ["Usa bolsa verde para tu producto","Arrojalo en un cesto de reciclables"]
@@ -20,7 +21,7 @@ const ThrowIntoRegularBin = ({nav,step}) => {
             <TopBox navegation={nav}/>
             <Center>
                 {!finalStep? (
-                    <DoubleStepPage step={step}/>
+                    <DoubleStepPage step={preStep} handleNextStep={() => setFinalStep(true)} handleNegativeStep={false}/>
                 ): (
                     <FinalStepPage nav={nav}/>
                 )}

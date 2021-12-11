@@ -26,12 +26,5 @@
         "stepType": 1,
         "images": [],
         "texts": ["Doblalo o aplastalo para que ocupe menos espacio en tu bolsa de reciclables"]
-    },
-    {
-        "stepName":"Separar",
-        "stepNumber": 5,
-        "stepType": 2,
-        "images": [],
-        "texts": ["Usa bolsa verde para tu producto","Arrojalo en un cesto de reciclables"]
     }
 ]

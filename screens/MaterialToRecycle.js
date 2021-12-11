@@ -3,7 +3,11 @@ import TopBox from "../components/TopBox";
 import { Center, Box, Text, VStack } from "native-base";
 import BottomImageWithExitButton from "../components/BottomImageWithExitButton";
 
-const MaterialToRecycle = ({ navigation, material }) => {
+import { MaterialContext } from "../components/MaterialContext";
+
+const MaterialToRecycle = ({navigation}) => {
+  const {material,setMaterial} = React.useContext(MaterialContext);
+
   return (
     <Box>
       <TopBox />

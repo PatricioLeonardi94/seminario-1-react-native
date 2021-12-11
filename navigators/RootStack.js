@@ -20,6 +20,7 @@ import Recycling from "../screens/Recycling";
 
 //credentialContext
 import { CredentialsContext } from "./../components/CredentialsContext";
+import { MaterialContext } from "./../components/MaterialContext";
 import QRInstructions from "../components/steps/QRInstructions";
 import ThrowIntoSmartBin from "../components/steps/ThrowIntoSmartBin";
 import ThrowIntoRegularBin from "../components/steps/ThrowIntoRegularBin";
@@ -27,110 +28,112 @@ import Congratulations from "../components/steps/Congratulations";
 
 const Stack = createNativeStackNavigator();
 
-const RootStack = ({ material }) => {
+const RootStack = () => {
   return (
     <CredentialsContext.Consumer>
       {({ storedCredentials }) => (
-        <NavigationContainer>
-          <NativeBaseProvider>
-            <Stack.Navigator
-              initialRouteName="Welcome"
-              screenOptions={{
-                headerShown: false,
-              }}
-            >
-              {storedCredentials ? (
-                <Stack.Screen name="Welcome">
-                  {(props) => <Welcome {...props} />}
-                </Stack.Screen>
-              ) : (
-                <>
-                  <Stack.Screen name="Login">
-                    {(props) => <Login {...props} />}
+        <MaterialContext.Consumer>
+          {({material, setMaterial}) => (
+          <NavigationContainer>
+            <NativeBaseProvider>
+              <Stack.Navigator
+                initialRouteName="Welcome"
+                screenOptions={{
+                  headerShown: false,
+                }}
+              >
+                {storedCredentials ? (
+                  <Stack.Screen name="Welcome">
+                    {(props) => <Welcome {...props} />}
                   </Stack.Screen>
-                </>
-              )}
-
-              <Stack.Screen name="Recycling">
-                {(props) => <Recycling {...props} />}
-              </Stack.Screen>
-
-              <Stack.Screen name="Instrucciones">
-                {(props) => <Instrucciones {...props} />}
-              </Stack.Screen>
-
-              <Stack.Screen name="Raking">
-                {(props) => <Raking {...props} />}
-              </Stack.Screen>
-
-              <Stack.Screen name="Medals">
-                {(props) => <Medals {...props} />}
-              </Stack.Screen>
-
-              <Stack.Screen name="Exchange">
-                {(props) => <Exchange {...props} />}
-              </Stack.Screen>
-
-              <Stack.Screen name="Camera">
-                {(props) => <CameraScreen {...props} />}
-              </Stack.Screen>
-
-              <Stack.Screen name="SelectMaterial">
-                {(props) => (
-                  <SelectMaterial
-                    {...props}
-                    material={material}
-                    setMaterial={(value) => setMaterial(value)}
-                  />
+                ) : (
+                  <>
+                    <Stack.Screen name="Login">
+                      {(props) => <Login {...props} />}
+                    </Stack.Screen>
+                  </>
                 )}
-              </Stack.Screen>
 
-              <Stack.Screen name="MaterialToRecycle">
-                {(props) => (
-                  <MaterialToRecycle {...props} material={material} />
-                )}
-              </Stack.Screen>
+                <Stack.Screen name="Recycling">
+                  {(props) => <Recycling {...props} />}
+                </Stack.Screen>
 
-              <Stack.Screen name="IdentificationResult">
-                {(props) => (
-                  <IdentificationResult {...props} material={material} />
-                )}
-              </Stack.Screen>
+                <Stack.Screen name="Instrucciones">
+                  {(props) => <Instrucciones {...props} />}
+                </Stack.Screen>
 
-              <Stack.Screen name="QRInstructions">
-                {(props) => (
-                  <QRInstructions {...props} step={step} />
-                )}
-              </Stack.Screen>
+                <Stack.Screen name="Raking">
+                  {(props) => <Raking {...props} />}
+                </Stack.Screen>
 
-              <Stack.Screen name="ThrowIntoSmartBin">
-                {(props) => (
-                  <ThrowIntoSmartBin {...props} step={step} />
-                )}
-              </Stack.Screen>
+                <Stack.Screen name="Medals">
+                  {(props) => <Medals {...props} />}
+                </Stack.Screen>
 
-              <Stack.Screen name="ThrowIntoRegularBin">
-                {(props) => (
-                  <ThrowIntoRegularBin {...props} step={step} />
-                )}
-              </Stack.Screen>
+                <Stack.Screen name="Exchange">
+                  {(props) => <Exchange {...props} />}
+                </Stack.Screen>
 
-              <Stack.Screen name="Congratulations">
-                {(props) => (
-                  <Congratulations {...props} step={step} />
-                )}
-              </Stack.Screen>
+                <Stack.Screen name="Camera">
+                  {(props) => <CameraScreen {...props} />}
+                </Stack.Screen>
 
-              <Stack.Screen name="UserScreen">
-                {(props) => <UserScreen {...props} />}
-              </Stack.Screen>
+                <Stack.Screen name="SelectMaterial">
+                  {(props) => (
+                    <SelectMaterial
+                      {...props}
+                    />
+                  )}
+                </Stack.Screen>
 
-              <Stack.Screen name="TopBox">
-                {(props) => <TopBox {...props} />}
-              </Stack.Screen>
-            </Stack.Navigator>
-          </NativeBaseProvider>
-        </NavigationContainer>
+                <Stack.Screen name="MaterialToRecycle">
+                  {(props) => (
+                    <MaterialToRecycle {...props} />
+                  )}
+                </Stack.Screen>
+
+                <Stack.Screen name="IdentificationResult">
+                  {(props) => (
+                    <IdentificationResult {...props} />
+                  )}
+                </Stack.Screen>
+
+                <Stack.Screen name="QRInstructions">
+                  {(props) => (
+                    <QRInstructions {...props} />
+                  )}
+                </Stack.Screen>
+
+                <Stack.Screen name="ThrowIntoSmartBin">
+                  {(props) => (
+                    <ThrowIntoSmartBin {...props} />
+                  )}
+                </Stack.Screen>
+
+                <Stack.Screen name="ThrowIntoRegularBin">
+                  {(props) => (
+                    <ThrowIntoRegularBin {...props} />
+                  )}
+                </Stack.Screen>
+
+                <Stack.Screen name="Congratulations">
+                  {(props) => (
+                    <Congratulations {...props} />
+                  )}
+                </Stack.Screen>
+
+                <Stack.Screen name="UserScreen">
+                  {(props) => <UserScreen {...props} />}
+                </Stack.Screen>
+
+                <Stack.Screen name="TopBox">
+                  {(props) => <TopBox {...props} />}
+                </Stack.Screen>
+              </Stack.Navigator>
+            </NativeBaseProvider>
+          </NavigationContainer>
+          )}
+          </MaterialContext.Consumer >
       )}
     </CredentialsContext.Consumer>
   );

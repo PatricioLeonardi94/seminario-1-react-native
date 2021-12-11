@@ -12,6 +12,7 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 //credentialContext
 import { CredentialsContext } from "./components/CredentialsContext";
+import { MaterialContext } from "./components/MaterialContext";
 
 export default function App() {
   const [material, setMaterial] = React.useState("PLASTICO");
@@ -45,7 +46,9 @@ export default function App() {
     <CredentialsContext.Provider
       value={{ storedCredentials, setStoredCredentials }}
     >
-      <RootStack material={material} setMaterial={(value) => setMaterial(value)}/>
+      <MaterialContext.Provider value={{material,setMaterial}} >
+        <RootStack />
+      </MaterialContext.Provider>
     </CredentialsContext.Provider>
   );
 }
