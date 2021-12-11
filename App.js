@@ -45,7 +45,7 @@ export default function App() {
     <CredentialsContext.Provider
       value={{ storedCredentials, setStoredCredentials }}
     >
-      <RootStack material={material} />
+      <RootStack material={material} setMaterial={(value) => setMaterial(value)}/>
     </CredentialsContext.Provider>
   );
 }

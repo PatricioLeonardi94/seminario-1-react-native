@@ -70,11 +70,35 @@ const MaterialToRecycle = ({ navigation, material }) => {
             alignItems="center"
             textAlign="center"
             letterSpacing={0.16}
-            onPress={() => navigation.navigate("IdentificationResult")}
+            onPress={() => navigation.navigate("IdentificationResult", {
+              material: "PLASTICO",
+            })}
           >
             RECICLAR
           </Text>
         </Center>
+        <Center
+                height={"8.5%"}
+                width={"47.5%"}
+                mt={"5%"}
+                borderRadius={"8px"}
+                bgColor="rgba(0, 0, 0, 0.05)"
+                >
+                <Text
+                    color="rgba(0, 0, 0, 0.4)"
+                    font="body"
+                    fontWeight={500}
+                    fontSize={18}
+                    lineHeight={18}
+                    display="flex"
+                    alignItems="center"
+                    textAlign="center"
+                    letterSpacing={0.16}
+                    onPress={()=>navigation.navigate("SelectMaterial")}
+                >
+                    NO ES EL MATERIAL
+                </Text>
+            </Center>
         <BottomImageWithExitButton />
       </VStack>
     </Box>

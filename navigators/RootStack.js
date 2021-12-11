@@ -20,6 +20,10 @@ import Recycling from "../screens/Recycling";
 
 //credentialContext
 import { CredentialsContext } from "./../components/CredentialsContext";
+import QRInstructions from "../components/steps/QRInstructions";
+import ThrowIntoSmartBin from "../components/steps/ThrowIntoSmartBin";
+import ThrowIntoRegularBin from "../components/steps/ThrowIntoRegularBin";
+import Congratulations from "../components/steps/Congratulations";
 
 const Stack = createNativeStackNavigator();
 
@@ -92,6 +96,31 @@ const RootStack = ({ material }) => {
                   <IdentificationResult {...props} material={material} />
                 )}
               </Stack.Screen>
+
+              <Stack.Screen name="QRInstructions">
+                {(props) => (
+                  <QRInstructions {...props} step={step} />
+                )}
+              </Stack.Screen>
+
+              <Stack.Screen name="ThrowIntoSmartBin">
+                {(props) => (
+                  <ThrowIntoSmartBin {...props} step={step} />
+                )}
+              </Stack.Screen>
+
+              <Stack.Screen name="ThrowIntoRegularBin">
+                {(props) => (
+                  <ThrowIntoRegularBin {...props} step={step} />
+                )}
+              </Stack.Screen>
+
+              <Stack.Screen name="Congratulations">
+                {(props) => (
+                  <Congratulations {...props} step={step} />
+                )}
+              </Stack.Screen>
+
               <Stack.Screen name="UserScreen">
                 {(props) => <UserScreen {...props} />}
               </Stack.Screen>

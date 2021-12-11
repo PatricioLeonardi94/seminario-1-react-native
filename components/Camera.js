@@ -45,7 +45,7 @@ const CameraScreen = ({ navigation }) => {
         console.log("\npicture source: ", source);
 
         //TODO: hacer la validacion de material para el route enviar el material al MaterialToRecycle
-        navigation.navigate("IdentificationResult", {
+        navigation.navigate("MaterialToRecycle", {
           material: "PLASTICO",
         });
       }
@@ -70,7 +70,7 @@ const CameraScreen = ({ navigation }) => {
   if (hasPermission === false) {
     return (
       <View>
-        <Text>No ahas concedido acceso a la camera</Text>
+        <Text>No has concedido acceso a la camera</Text>
       </View>
     );
   }
@@ -81,7 +81,7 @@ const CameraScreen = ({ navigation }) => {
           <View
             style={{
               flexDirection: "row",
-              justifyContent: "space-between",
+              justifyContent: "space-around",
               alignItems: "flex-end",
             }}
           >

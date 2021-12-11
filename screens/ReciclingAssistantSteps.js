@@ -8,6 +8,7 @@ import ForkStepPage from '../components/steps/ForkStepPage';
 import NegativeStepPage from '../components/steps/NegativeStepPage';
 import SimpleStepPage from '../components/steps/SimpleStepPage';
 import FinalStepPage from '../components/steps/FinalStepPage';
+import QRInstructions from '../components/steps/QRInstructions';
 
 const ReciclingAssistantSteps = ({nav,steps}) => {
     const [currentStep, setCurrentStep] = useState(steps[0])
@@ -47,7 +48,7 @@ const ReciclingAssistantSteps = ({nav,steps}) => {
                     displayStep(currentStep.stepType) :
                     <NegativeStepPage stepName={currentStep.stepName} handleReturnToPrevious={() => handleReturnToPrevious()} nav={nav}/>
                 ) : 
-                <FinalStepPage nav={nav}/>
+                <QRInstructions nav={nav} step={steps.length+1} />
             }
         </Box>
     );

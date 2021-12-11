@@ -30,7 +30,7 @@ const IdentificationResult = ({ material, navigation }) => {
 
   return (
     <Box>
-      <TopBox />
+      <TopBox navigation={navigation}/>
       <Center>{getMaterialReciclingSteps()}</Center>
     </Box>
   );

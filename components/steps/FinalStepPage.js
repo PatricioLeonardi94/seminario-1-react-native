@@ -72,7 +72,6 @@ const FinalStepPage = ({nav}) => {
             </VStack>
         </Center>
     );
-
 }
 
 export default FinalStepPage;
