@@ -10,22 +10,43 @@ import BottomImageWithExitButton from "../components/BottomImageWithExitButton";
 import { CredentialsContext } from "../components/CredentialsContext";
 
 const medalPlastico = {
-  name: "General Vidrio",
+  name: "General Plastico",
   target_points: 80,
   points: 20,
   material: "PLASTICO",
   is_granted: true,
   coins: 10,
-  badge: "../assets/images/badges/badge_3.png",
+  badge: require("../assets/images/badges/badge_1.png"),
 };
 
 const medalVidrio = {
-  name: "Mariscal Novato",
+  name: "Mariscal Vidrio",
   target_points: 100,
   points: 84,
   material: "VIDRIO",
   is_granted: false,
   coins: 6,
+  badge: require("../assets/images/badges/badge_3.png"),
+};
+
+const medalMetal = {
+  name: "Comandante Metal",
+  target_points: 150,
+  points: 75,
+  material: "METAL",
+  is_granted: false,
+  coins: 20,
+  badge: require("../assets/images/badges/badge_4.png"),
+};
+
+const medalCarton = {
+  name: "Cadete Carton",
+  target_points: 50,
+  points: 10,
+  material: "CARTON",
+  is_granted: false,
+  coins: 5,
+  badge: require("../assets/images/badges/badge_2.png"),
 };
 
 const Medals = ({ navigation }) => {
@@ -40,8 +61,8 @@ const Medals = ({ navigation }) => {
       <VStack space={2}>
         <MedalsRowWhite medal={medalPlastico} />
         <MedalsRowGreen medal={medalVidrio} />
-        <MedalsRowWhite medal={medalVidrio} />
-        <MedalsRowGreen medal={medalPlastico} />
+        <MedalsRowWhite medal={medalMetal} />
+        <MedalsRowGreen medal={medalCarton} />
       </VStack>
       <BottomImageWithExitButton />
     </Box>

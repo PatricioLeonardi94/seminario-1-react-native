@@ -3,7 +3,8 @@ import { Box, Center, Image, Text, VStack, HStack } from "native-base";
 import * as Progress from "react-native-progress";
 
 const MedalsRow = ({ medal }) => {
-  const { name, target_points, points, material, is_granted, coins } = medal;
+  const { name, target_points, points, material, is_granted, coins, badge } =
+    medal;
   var progress = points / target_points;
 
   return (
@@ -20,13 +21,16 @@ const MedalsRow = ({ medal }) => {
       <VStack space={4} alignItems="center">
         <HStack alignItems="center" space={1}>
           <Image
+            left={1}
             top="1"
             w="20"
             h="20"
-            source={require("../assets/images/badges/badge_1.png")}
+            source={badge}
             alt="plastic bin"
+            right={2}
           />
           <Text
+            width={160}
             top="1"
             color="#84D31E"
             fontFamily="body"
