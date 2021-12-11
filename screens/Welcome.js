@@ -15,7 +15,7 @@ const Welcome = ({ navigation }) => {
   return (
     <Box>
       <TopBox navigation={navigation} />
-      <Center>
+      <Center top={10}>
         <Text
           fontFamily="body"
           fontWeight={500}
@@ -30,7 +30,7 @@ const Welcome = ({ navigation }) => {
           Bienvenido a tu asistente de reciclado
         </Text>
       </Center>
-      <Box p="10">
+      <Box p="20">
         <VStack space={10} alignItems="center">
           <HStack space={10} alignItems="center">
             <TouchableHighlight

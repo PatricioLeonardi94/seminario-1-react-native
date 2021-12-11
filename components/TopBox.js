@@ -7,7 +7,7 @@ import { AntDesign } from "@expo/vector-icons";
 const TopBox = ({ navigation }) => {
   return (
     <Box>
-      <Center w={"100%"} h={"15%"} bg={"#84D31E"} />
+      <Center w={"100%"} h={"30px"} bg={"#84D31E"} />
       <HStack h={"64px"} bg="#84D31E" alignItems="center">
         <Center w={"25%"}>
           <TouchableHighlight onPress={() => navigation.navigate("Welcome")}>
