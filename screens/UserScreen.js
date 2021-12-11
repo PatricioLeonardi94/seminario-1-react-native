@@ -11,6 +11,7 @@ import {
   Center,
   Stack,
   Divider,
+  HStack,
 } from "native-base";
 import TopBox from "../components/TopBox";
 import { AntDesign } from "@expo/vector-icons";
@@ -45,7 +46,7 @@ const UserScreen = ({ navigation }) => {
     <Box>
       <TopBox navigation={navigation} />
       <Flex alignItems="center">
-        <Center mb="2.5">
+        <Center mb="2.5" top={5}>
           <Image
             source={{
               uri: photoUrl,
@@ -61,28 +62,34 @@ const UserScreen = ({ navigation }) => {
             lineHeight={24}
             letterSpacing={0.25}
             color="rgba(0, 0, 0, 0.4)"
+            top={3}
           >
             {player.user.fullname}
           </Text>
         </Center>
-        <Box>
+        <Box top={10}>
           <Stack mb="3.5" mt="1.5" direction="column" space={3}>
             <Text color="#84D31E" fontSize={20} fontWeight={500}>
               Puntos totales
             </Text>
             <Box
+              width={"310px"}
+              height={"50px"}
               bg="#FFFFFF"
               rounded="sm"
               _text={{
                 color: "#84D31E",
                 fontWeight: "medium",
+                fontSize: "25px",
               }}
               shadow={"3"}
               borderWidth="5"
               borderRadius="5"
               borderColor="#84D31E"
             >
-              {player.points}
+              <Text color="#84D31E" fontWeight={500} fontSize={26} left={3}>
+                {player.points}
+              </Text>
             </Box>
             <Text color="#84D31E" fontSize={20} fontWeight={500}>
               Puntos del mes
@@ -90,16 +97,15 @@ const UserScreen = ({ navigation }) => {
             <Box
               bg="#FFFFFF"
               rounded="sm"
-              _text={{
-                color: "#84D31E",
-                fontWeight: "medium",
-              }}
               shadow={"3"}
               borderWidth="5"
               borderRadius="5"
               borderColor="#84D31E"
+              height={"50px"}
             >
-              {player.month_points}
+              <Text color="#84D31E" fontWeight={500} fontSize={26} left={3}>
+                {player.month_points}
+              </Text>
             </Box>
             <Text color="#FFC700" fontSize={20} fontWeight={500}>
               Monedas
@@ -107,21 +113,29 @@ const UserScreen = ({ navigation }) => {
             <Box
               bg="#FFFFFF"
               rounded="sm"
-              _text={{
-                color: "#FFC700",
-                fontWeight: "medium",
-              }}
               shadow={"3"}
               borderWidth="5"
               borderRadius="5"
               borderColor="#FFC700"
+              height={"50px"}
             >
-              {player.coins}
+              <HStack>
+                <Image
+                  w="10"
+                  h="10"
+                  source={require("../assets/images/dollar_coin.png")}
+                  alt="dollar coin"
+                  left={1}
+                />
+                <Text color="#FFC700" fontWeight={500} fontSize={26} left={3}>
+                  {player.coins}
+                </Text>
+              </HStack>
             </Box>
           </Stack>
         </Box>
         <Box>
-          <Center>
+          <Center top={100}>
             <Button
               size="lg"
               colorScheme="red"
