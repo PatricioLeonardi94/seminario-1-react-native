@@ -16,7 +16,8 @@ const CameraScreen = ({ navigation }) => {
       flex: 1,
       backgroundColor: "transparent",
       flexDirection: "row",
-      margin: 20,
+      justifyContent: 'space-around',
+      margin: 30,
     },
     button: {
       flex: 0.1,
