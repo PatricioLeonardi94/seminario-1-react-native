@@ -2,9 +2,14 @@ import React from 'react';
 import { Center, Box, Text, VStack, HStack, Stack, Button, Image } from "native-base";
 import BottomImageWithExitButton from "../../components/BottomImageWithExitButton";
 
-const ThrowIntoSmartBin = ({nav, step}) => {
+import { MaterialContext } from "../MaterialContext";
+import TopBox from '../TopBox';
+
+const ThrowIntoSmartBin = ({navigation, step}) => {
+    const {material,setMaterial} = React.useContext(MaterialContext);
     return(
         <Box>
+            <TopBox navigation={navigation}/>
             <Center>
                 <VStack alignItems="center">
                     <Center mt={"5%"}>
@@ -79,7 +84,7 @@ const ThrowIntoSmartBin = ({nav, step}) => {
                                 textAlign="center"
                                 letterSpacing={0.16}
                                 onPress={() =>
-                                    nav.navigate('Congratulations')}
+                                    navigation.navigate('Congratulations')}
                             >
                                 FINALIZAR
                             </Text>

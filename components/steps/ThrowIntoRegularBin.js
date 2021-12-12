@@ -5,7 +5,7 @@ import TopBox from '../TopBox';
 import DoubleStepPage from './DoubleStepPage';
 import FinalStepPage from './FinalStepPage';
 
-const ThrowIntoRegularBin = ({nav,step}) => {
+const ThrowIntoRegularBin = ({navigation,step}) => {
     const [finalStep,setFinalStep] = React.useState(false)
 
     const preStep = {
@@ -18,12 +18,12 @@ const ThrowIntoRegularBin = ({nav,step}) => {
 
     return(
         <>
-            <TopBox navigation={nav}/>
+            <TopBox navigation={navigation}/>
             <Center>
                 {!finalStep? (
                     <DoubleStepPage step={preStep} handleNextStep={() => setFinalStep(true)} handleNegativeStep={false}/>
                 ): (
-                    <FinalStepPage nav={nav}/>
+                    <FinalStepPage nav={navigation}/>
                 )}
             </Center>
 
