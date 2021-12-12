@@ -18,6 +18,7 @@ import Exchange from "../screens/Exchange";
 import TopBox from "../components/TopBox";
 import Recycling from "../screens/Recycling";
 import CameraQR from "../components/CameraQR";
+import QRSender from "../components/QRSender";
 
 //credentialContext
 import { CredentialsContext } from "./../components/CredentialsContext";
@@ -109,6 +110,10 @@ const RootStack = () => {
 
                   <Stack.Screen name="CameraQR">
                     {(props) => <CameraQR {...props} />}
+                  </Stack.Screen>
+
+                  <Stack.Screen name="QRSender">
+                    {(props) => <QRSender {...props} />}
                   </Stack.Screen>
 
                   <Stack.Screen name="UserScreen">
