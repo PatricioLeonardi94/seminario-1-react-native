@@ -90,6 +90,9 @@ const CameraQR = ({ navigation, step }) => {
       })
       .catch(function (error) {
         console.log(error);
+        navigation.navigate("Welcome", {
+          step: step,
+        });
       });
   };
 
