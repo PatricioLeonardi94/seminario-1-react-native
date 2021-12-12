@@ -27,15 +27,29 @@ const UserScreen = ({ navigation }) => {
   const { storedCredentials, setStoredCredentials } =
     useContext(CredentialsContext);
 
-  const { photoUrl, x_access_token, player } = storedCredentials;
+  if (storedCredentials !== null) {
+    var { photoUrl, name, x_access_token, player } = storedCredentials;
+  }
 
-  console.log(player);
+  var playerImage;
+  var playerName;
+  var playerPoints;
+  var playerMontlhyPoints;
+  var playerCoins;
+
+  if (storedCredentials !== null && player !== null && photoUrl !== null) {
+    playerImage = photoUrl;
+    playerName = name;
+    playerPoints = player.points;
+    playerMontlhyPoints = player.month_points;
+    playerCoins = player.coins;
+  }
 
   const clearLogin = () => {
     if (storedCredentials !== null) {
       AsyncStorage.removeItem(constants.ASYNC_STORAGE_CREDENTIALS)
         .then(() => {
-          setStoredCredentials("");
+          setStoredCredentials(null);
           navigation.navigate("Login");
         })
         .catch((error) => console.log(error));
@@ -49,10 +63,10 @@ const UserScreen = ({ navigation }) => {
         <Center mb="2.5" top={5}>
           <Image
             source={{
-              uri: photoUrl,
+              uri: playerImage,
             }}
             borderRadius={100}
-            alt="Image"
+            alt="Avatar"
             size="xl"
           />
           <Text
@@ -64,7 +78,7 @@ const UserScreen = ({ navigation }) => {
             color="rgba(0, 0, 0, 0.4)"
             top={3}
           >
-            {player.user.fullname}
+            {playerName}
           </Text>
         </Center>
         <Box top={10}>
@@ -88,7 +102,7 @@ const UserScreen = ({ navigation }) => {
               borderColor="#84D31E"
             >
               <Text color="#84D31E" fontWeight={500} fontSize={26} left={3}>
-                {player.points}
+                {playerPoints}
               </Text>
             </Box>
             <Text color="#84D31E" fontSize={20} fontWeight={500}>
@@ -104,7 +118,7 @@ const UserScreen = ({ navigation }) => {
               height={"50px"}
             >
               <Text color="#84D31E" fontWeight={500} fontSize={26} left={3}>
-                {player.month_points}
+                {playerMontlhyPoints}
               </Text>
             </Box>
             <Text color="#FFC700" fontSize={20} fontWeight={500}>
@@ -128,7 +142,7 @@ const UserScreen = ({ navigation }) => {
                   left={1}
                 />
                 <Text color="#FFC700" fontWeight={500} fontSize={26} left={3}>
-                  {player.coins}
+                  {playerCoins}
                 </Text>
               </HStack>
             </Box>
@@ -154,12 +168,12 @@ const UserScreen = ({ navigation }) => {
             </Button>
           </Center>
         </Box>
-        <Image
+        {/* <Image
           w={366.11}
           h={349}
           opacity={0.8}
           source={require("../assets/images/bottom-bubbles.png")}
-        />
+        /> */}
       </Flex>
     </Box>
   );
