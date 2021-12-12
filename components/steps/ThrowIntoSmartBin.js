@@ -12,10 +12,80 @@ import {
 import BottomImageWithExitButton from "../../components/BottomImageWithExitButton";
 
 import { MaterialContext } from "../MaterialContext";
+import { CredentialsContext } from "../CredentialsContext";
 import TopBox from "../TopBox";
 
-const ThrowIntoSmartBin = ({ navigation, step }) => {
+// El tacho te espera 1:30 desde que iniciaste la coneccion
+// En esta pantalla, el usuario debe tirar 
+// EL tacho, cuando detecta el diferencial, pasa la sesion a "cerrada" y guarda los datos calculados
+
+const ThrowIntoSmartBin = ({ navigation, step, connectionId }) => {
   const { material, setMaterial } = React.useContext(MaterialContext);
+  const { storedCredentials, setStoredCredentials } = useContext(CredentialsContext);
+  const { x_access_token } = storedCredentials;
+
+  // Ni bien se monta, empezar a escuchar el HEAD de conexiones cerradas (con el id de coneccion) 
+  // Una vez que se detecto cerrada, se llama al endpoint de conexiones cerradas para obtener sus detalles y cerrar el proceso
+
+  const listenToClosedConection = (connectionId) => {
+  
+      const urlConnection =
+        `http://glacial-garden-26787.herokuapp.com/api/bins/connections/${connectionId}/ended`;
+  
+      var config = {
+        method: "head",
+        url: urlConnection,
+        headers: {
+          "x-access-token": x_access_token,
+        }
+      };
+  
+      var axios = require("axios");
+  
+      axios(config)
+        .then(function (response) {
+          let status = response.status;
+          if(status !== 200){
+              listenToClosedConection(connectionId);
+          }
+          else{
+            getConnectionDetails(connectionId);
+          }
+        })
+        .catch(function (error) {
+          console.log(error);
+          navigation.navigate("Welcome", {
+            step: step,
+          });
+        });
+  }
+
+  const getConnectionDetails = (connectionId) => {
+    const urlConnection =
+    `http://glacial-garden-26787.herokuapp.com//api/bins/connections/${connection_id}/ended`;
+
+    var config = {
+        method: "get",
+        url: urlConnection,
+        headers: {
+        "x-access-token": x_access_token,
+        }
+    };
+
+    var axios = require("axios");
+
+    axios(config)
+        .then(function (response) {
+        
+        })
+        .catch(function (error) {
+            console.log(error);
+            navigation.navigate("Welcome", {
+                step: step,
+            });
+        });
+    }
+  
   return (
     <Box>
       <TopBox navigation={navigation} />

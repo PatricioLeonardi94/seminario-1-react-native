@@ -37,10 +37,10 @@ const UserScreen = ({ navigation }) => {
   var playerMontlhyPoints;
   var playerCoins;
 
-  if (storedCredentials !== null && player !== null && photoUrl !== null) {
+  if (storedCredentials && player && photoUrl) {
     playerImage = photoUrl;
     playerName = name;
-    playerPoints = player.points;
+    playerPoints = player.month_points;
     playerMontlhyPoints = player.month_points;
     playerCoins = player.coins;
   }

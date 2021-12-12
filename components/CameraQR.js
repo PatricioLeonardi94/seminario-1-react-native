@@ -54,6 +54,8 @@ const CameraQR = ({ navigation, step }) => {
   }
 
   const handleBinConnection = () => {
+    // el escaneo del QR nos devuelve el conection code => lo dejamos hardcodeado mientras
+
     const binData = {
       connection_code: 123,
       flow_points: step + 1,
@@ -61,14 +63,7 @@ const CameraQR = ({ navigation, step }) => {
     };
 
     const urlConnection =
-      "http://glacial-garden-26787.herokuapp.com/api/bins/connections" +
-      "?" +
-      "connection_code=" +
-      binData.connection_code +
-      "max_resultsflow_points=" +
-      binData.flow_points +
-      "material=" +
-      binData.material;
+      "http://glacial-garden-26787.herokuapp.com/api/bins/connections";
 
     var config = {
       method: "post",
@@ -76,6 +71,9 @@ const CameraQR = ({ navigation, step }) => {
       headers: {
         "x-access-token": x_access_token,
       },
+      body: {
+        binData,
+      }
     };
 
     var axios = require("axios");
@@ -98,13 +96,10 @@ const CameraQR = ({ navigation, step }) => {
 
   const checkConnection = (connectionId) => {
     const urlConnection =
-      "http://glacial-garden-26787.herokuapp.com/api/bins/connections/dffbcc61-41cb-4c19-a332-9490d2e4113e/accepted" +
-      "?" +
-      "connection_id=" +
-      connectionId;
+      `http://glacial-garden-26787.herokuapp.com/api/bins/connections/${connectionId}/accepted`;
 
     var config = {
-      method: "get",
+      method: "head",
       url: urlConnection,
       headers: {
         "x-access-token": x_access_token,
@@ -115,14 +110,19 @@ const CameraQR = ({ navigation, step }) => {
 
     axios(config)
       .then(function (response) {
-        navigation.navigate("ThrowIntoSmartBin", {
-          step: step,
-        });
+        let status = response.status;
+        if(status !== 200){
+          checkConnection(connectionId);
+        }
+        else{
+          navigation.navigate("ThrowIntoSmartBin", {
+            step: step,
+            connectionId: connectionId,
+          });
+        }
       })
       .catch(function (error) {
-        navigation.navigate("Welcome", {
-          step: step,
-        });
+        navigation.navigate("Welcome");
       });
   };
 
