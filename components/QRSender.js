@@ -22,7 +22,7 @@ const QRSender = ({ navigation }) => {
     const binData = {
       connection_code: 123,
       flow_points: 5,
-      material: "plastico",
+      material: "plastic",
     };
 
     const urlConnection =
