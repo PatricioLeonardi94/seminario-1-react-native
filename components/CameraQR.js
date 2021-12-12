@@ -14,8 +14,8 @@ import { Text, View, StyleSheet, Button } from "react-native";
 import { BarCodeScanner } from "expo-barcode-scanner";
 
 //credentialContext
-import { CredentialsContext } from "./../components/CredentialsContext";
-import { MaterialContext } from "../MaterialContext";
+import { CredentialsContext } from "./CredentialsContext";
+import { MaterialContext } from "./MaterialContext";
 import { QRContext } from "./Contexts/QRContext";
 
 const CameraQR = ({ navigation, step }) => {
