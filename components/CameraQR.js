@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import TopBox from "../components/TopBox";
 import { Text, View, StyleSheet, Button } from "react-native";
 // import {
@@ -117,7 +117,7 @@ const CameraQR = ({ navigation, step }) => {
         });
       })
       .catch(function (error) {
-        navigation.navigate("CameraQR", {
+        navigation.navigate("Welcome", {
           step: step,
         });
       });

@@ -4,7 +4,7 @@ import BottomImageWithExitButton from "../BottomImageWithExitButton";
 import { Center, Box, Text, VStack, HStack, Stack, Button } from "native-base";
 
 const QRInstructions = ({ navigation, step }) => {
-  let nextStep = step + 1;
+  let nextStep = step? step + 1 : 1;
   return (
     <Box>
       <TopBox navigation={navigation} />
@@ -22,7 +22,7 @@ const QRInstructions = ({ navigation, step }) => {
               letterSpacing={0.15}
               color="rgba(0, 0, 0, 0.4)"
             >
-              Paso {step}
+              Paso {step?step:1}
             </Text>
           </Center>
           <Center mt={"5%"}>
@@ -165,7 +165,7 @@ const QRInstructions = ({ navigation, step }) => {
             textAlign="center"
             letterSpacing={0.16}
             onPress={() =>
-              navigation.navigate("CamaraQR", {
+              navigation.navigate("CameraQR", {
                 step: nextStep,
               })
             }
