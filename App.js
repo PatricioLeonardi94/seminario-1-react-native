@@ -13,11 +13,13 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 //credentialContext
 import { CredentialsContext } from "./components/CredentialsContext";
 import { MaterialContext } from "./components/MaterialContext";
+import { QRContext } from "./components/Contexts/QRContext";
 
 export default function App() {
   const [material, setMaterial] = React.useState("PLASTICO");
   const [appReady, setAppReady] = useState(false);
   const [storedCredentials, setStoredCredentials] = useState("");
+  const [binConnection, setBinConnection] = useState("");
 
   const checkLoginCredentials = () => {
     AsyncStorage.getItem(constants.ASYNC_STORAGE_CREDENTIALS)
@@ -46,8 +48,10 @@ export default function App() {
     <CredentialsContext.Provider
       value={{ storedCredentials, setStoredCredentials }}
     >
-      <MaterialContext.Provider value={{material,setMaterial}} >
-        <RootStack />
+      <MaterialContext.Provider value={{ material, setMaterial }}>
+        <QRContext.Provider value={{ binConnection, setBinConnection }}>
+          <RootStack />
+        </QRContext.Provider>
       </MaterialContext.Provider>
     </CredentialsContext.Provider>
   );

@@ -7,6 +7,7 @@ import { CredentialsContext } from "./../components/CredentialsContext";
 
 const QRSender = ({ navigation }) => {
   const [binConnection, setBinConnection] = useState(null);
+  const [binConnectionInfo, setBinConnectionInfo] = useState(null);
 
   const { storedCredentials, setStoredCredentials } =
     useContext(CredentialsContext);
@@ -49,6 +50,32 @@ const QRSender = ({ navigation }) => {
       .then(function (response) {
         console.log(JSON.stringify(response.data));
         setBinConnection(true);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
+
+  const getBinConnectionInfo = () => {
+    const urlConnection =
+      "http://glacial-garden-26787.herokuapp.com/api/bins/connections/dffbcc61-41cb-4c19-a332-9490d2e4113e/ended ";
+
+    var config = {
+      method: "get",
+      url: urlConnection,
+      headers: {
+        "x-access-token": x_access_token,
+      },
+    };
+
+    var axios = require("axios");
+
+    //Deberiamos primero ver el head del mismo para ver si tiene el 200
+
+    axios(config)
+      .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        setBinConnectionInfo(true);
       })
       .catch(function (error) {
         console.log(error);
