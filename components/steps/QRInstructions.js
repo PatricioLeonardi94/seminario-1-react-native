@@ -3,11 +3,11 @@ import TopBox from "../TopBox";
 import BottomImageWithExitButton from "../BottomImageWithExitButton";
 import { Center, Box, Text, VStack, HStack, Stack, Button } from "native-base";
 
-const QRInstructions = ({navegation,step}) => {
+const QRInstructions = ({navigation,step}) => {
     let nextStep = step+1;
     return (
         <Box>
-            <TopBox navigation={navegation}/>
+            <TopBox navigation={navigation}/>
             <Center>
                 <VStack alignItems="center">
                     <Center mt={"5%"}>
@@ -164,7 +164,7 @@ const QRInstructions = ({navegation,step}) => {
                 alignItems="center"
                 textAlign="center"
                 letterSpacing={0.16}
-                onPress={() => navegation.navigate("ThrowIntoSmartBin", {
+                onPress={() => navigation.navigate("ThrowIntoSmartBin", {
                     step: nextStep, 
                 })}
                 bgColor="#84D31E"
@@ -189,7 +189,7 @@ const QRInstructions = ({navegation,step}) => {
                     alignItems="center"
                     textAlign="center"
                     letterSpacing={0.16}
-                    onPress={()=>navegation.navigate("ThrowIntoRegularBin")}
+                    onPress={()=>navigation.navigate("ThrowIntoRegularBin")}
                 >
                     NO TENGO UN CESTO INTELIGENTE CERCA
                 </Text>

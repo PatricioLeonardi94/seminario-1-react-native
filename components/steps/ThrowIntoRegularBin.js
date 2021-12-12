@@ -18,7 +18,7 @@ const ThrowIntoRegularBin = ({nav,step}) => {
 
     return(
         <>
-            <TopBox navegation={nav}/>
+            <TopBox navigation={nav}/>
             <Center>
                 {!finalStep? (
                     <DoubleStepPage step={preStep} handleNextStep={() => setFinalStep(true)} handleNegativeStep={false}/>
