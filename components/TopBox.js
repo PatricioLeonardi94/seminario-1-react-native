@@ -11,7 +11,7 @@ const TopBox = ({ navigation }) => {
       <HStack h={"64px"} bg="#84D31E" alignItems="center">
         <Center w={"25%"}>
           <TouchableHighlight onPress={() => navigation.navigate("Welcome")}>
-            <AntDesign name="home" size={30} color="white" />
+            <AntDesign name="home" size={30} color="white" alt="Home" />
           </TouchableHighlight>
         </Center>
         <Center w={"50%"}>
