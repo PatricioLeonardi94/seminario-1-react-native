@@ -53,11 +53,7 @@ const UserScreen = ({ navigation }) => {
   // }
 
   useEffect(() => {
-    console.log(userStatus);
-    if (userStatus === null) {
-      getUserInfo();
-      console.log("Inside getUserInfo");
-    }
+    getUserInfo();
   }, []);
 
   const getUserInfo = () => {
