@@ -56,33 +56,40 @@ const CameraQR = ({ navigation, step }) => {
   const handleBinConnection = () => {
     // el escaneo del QR nos devuelve el conection code => lo dejamos hardcodeado mientras
 
-    const binData = {
-      connection_code: 123,
-      flow_points: step + 1,
-      material: translateMaterial(material),
-    };
+    // for future material: translateMaterial(material)
 
-    const urlConnection =
-      "http://glacial-garden-26787.herokuapp.com/api/bins/connections";
+    if (isNaN(step)) {
+      step = 1;
+    } else {
+      step += 1;
+    }
+
+    var qs = require("qs");
+
+    var data = qs.stringify({
+      connection_code: "123",
+      max_resultsflow_points: step,
+      material: "metal",
+    });
+
+    console.log(data);
 
     var config = {
       method: "post",
-      url: urlConnection,
+      url: "http://glacial-garden-26787.herokuapp.com/api/bins/connections",
       headers: {
         "x-access-token": x_access_token,
+        "Content-Type": "application/x-www-form-urlencoded",
       },
-      body: {
-        binData,
-      }
+      data: data,
     };
 
     var axios = require("axios");
 
     axios(config)
       .then(function (response) {
-        console.log(JSON.stringify(response.data));
         const { data } = response.data;
-        console.log("Inside post" ,data);
+        console.log("Inside post", data);
         setBinConnection(data.connection_id);
         checkConnection(data.connection_id);
       })
@@ -95,8 +102,9 @@ const CameraQR = ({ navigation, step }) => {
   };
 
   const checkConnection = (connectionId) => {
-    const urlConnection =
-      `http://glacial-garden-26787.herokuapp.com/api/bins/connections/${connectionId}/accepted`;
+    console.log("Inside checkConnection");
+
+    const urlConnection = `http://glacial-garden-26787.herokuapp.com/api/bins/connections/${connectionId}/accepted`;
 
     var config = {
       method: "head",
@@ -108,13 +116,16 @@ const CameraQR = ({ navigation, step }) => {
 
     var axios = require("axios");
 
+    //Tenemos que verificar el head de la conexion. Esto del status no funciona porquie tira error y vuelve a welcome
     axios(config)
       .then(function (response) {
         let status = response.status;
-        if(status !== 200){
-          checkConnection(connectionId);
-        }
-        else{
+        if (status !== 200) {
+          setTimeout(() => {
+            checkConnection(connectionId);
+          }, 1000);
+        } else {
+          console.log("Connection with bin is OK");
           navigation.navigate("ThrowIntoSmartBin", {
             step: step,
             connectionId: connectionId,
@@ -122,6 +133,7 @@ const CameraQR = ({ navigation, step }) => {
         }
       })
       .catch(function (error) {
+        console.log(error);
         navigation.navigate("Welcome");
       });
   };
