@@ -82,7 +82,7 @@ const CameraQR = ({ navigation, step }) => {
       .then(function (response) {
         console.log(JSON.stringify(response.data));
         const { data } = response.data;
-        console.log(data);
+        console.log("Inside post" ,data);
         setBinConnection(data.connection_id);
         checkConnection(data.connection_id);
       })

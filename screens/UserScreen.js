@@ -40,7 +40,7 @@ const UserScreen = ({ navigation }) => {
   if (storedCredentials && player && photoUrl) {
     playerImage = photoUrl;
     playerName = name;
-    playerPoints = player.month_points;
+    playerPoints = player.points;
     playerMontlhyPoints = player.month_points;
     playerCoins = player.coins;
   }
