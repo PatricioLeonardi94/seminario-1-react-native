@@ -24,61 +24,62 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { CredentialsContext } from "./../components/CredentialsContext";
 
 const UserScreen = ({ navigation }) => {
-  const [userStatus, setUserStatus] = useState(false);
+  const [userStatus, setUserStatus] = useState(null);
+  const [userInfo, setUserInfo] = useState({
+    user: {
+      fullname: "Patricio L",
+    },
+    photo:
+      "https://lh3.googleusercontent.com/a-/AOh14GjRaMM2KgUli3sxH76vrs1QFRuOZnLi3KxdWuKLzw=s100",
+    month_points: "0",
+    points: "0",
+    coins: "0",
+  });
 
   //context
   const { storedCredentials, setStoredCredentials } =
     useContext(CredentialsContext);
 
   if (storedCredentials !== null) {
-    var { photoUrl, name, x_access_token, player } = storedCredentials;
+    var { x_access_token } = storedCredentials;
   }
 
-  var playerImage;
-  var playerName;
-  var playerPoints;
-  var playerMontlhyPoints;
-  var playerCoins;
-
-  if (storedCredentials && player && photoUrl) {
-    playerImage = photoUrl;
-    playerName = name;
-    playerPoints = player.points;
-    playerMontlhyPoints = player.month_points;
-    playerCoins = player.coins;
-  }
+  // if (storedCredentials && player && photoUrl) {
+  //   playerImage = player.user.photo;
+  //   playerName = player.user.fullname;
+  //   playerPoints = player.points;
+  //   playerMontlhyPoints = player.month_points;
+  //   playerCoins = player.coins;
+  // }
 
   useEffect(() => {
-    if (userStatus === false) {
+    console.log(userStatus);
+    if (userStatus === null) {
       getUserInfo();
+      console.log("Inside getUserInfo");
     }
   }, []);
 
-  const getUserInfo = async () => {
-    const urlConnection = `http://glacial-garden-26787.herokuapp.com/api/players/me/profile`;
-
-    var axios = require("axios");
-
-    const response = await axios({
-      method: "GET ",
-      url: urlConnection,
+  const getUserInfo = () => {
+    var config = {
+      method: "get",
+      url: "http://glacial-garden-26787.herokuapp.com/api/players/me/profile",
       headers: {
         "x-access-token": x_access_token,
       },
-    }).catch((err) => {
-      if (err.response.status !== 200) {
-        throw new Error(
-          `API call failed with status code: ${err.response.status}`
-        );
-      }
-    });
+    };
 
-    if (response.status === 200) {
-      console.log(response.data);
-      setUserStatus(true);
-      const { data } = response.data;
-      setStoredCredentials.player = data;
-    }
+    var axios = require("axios");
+
+    axios(config)
+      .then(function (response) {
+        setUserStatus(true);
+        var { player } = response.data;
+        setUserInfo(player);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   const clearLogin = () => {
@@ -99,7 +100,7 @@ const UserScreen = ({ navigation }) => {
         <Center mb="2.5" top={5}>
           <Image
             source={{
-              uri: playerImage,
+              uri: userInfo.photo,
             }}
             borderRadius={100}
             alt="Avatar"
@@ -114,7 +115,7 @@ const UserScreen = ({ navigation }) => {
             color="rgba(0, 0, 0, 0.4)"
             top={3}
           >
-            {playerName}
+            {userInfo.user.fullname}
           </Text>
         </Center>
         <Box top={10}>
@@ -138,7 +139,7 @@ const UserScreen = ({ navigation }) => {
               borderColor="#84D31E"
             >
               <Text color="#84D31E" fontWeight={500} fontSize={26} left={3}>
-                {playerPoints}
+                {userInfo.points}
               </Text>
             </Box>
             <Text color="#84D31E" fontSize={20} fontWeight={500}>
@@ -154,7 +155,7 @@ const UserScreen = ({ navigation }) => {
               height={"50px"}
             >
               <Text color="#84D31E" fontWeight={500} fontSize={26} left={3}>
-                {playerMontlhyPoints}
+                {userInfo.month_points}
               </Text>
             </Box>
             <Text color="#FFC700" fontSize={20} fontWeight={500}>
@@ -178,7 +179,7 @@ const UserScreen = ({ navigation }) => {
                   left={1}
                 />
                 <Text color="#FFC700" fontWeight={500} fontSize={26} left={3}>
-                  {playerCoins}
+                  {userInfo.coins}
                 </Text>
               </HStack>
             </Box>
