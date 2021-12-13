@@ -12,6 +12,7 @@ import { Text, View, StyleSheet, Button } from "react-native";
 //   Image,
 // } from "native-base";
 import { BarCodeScanner } from "expo-barcode-scanner";
+import axiosRetry from "axios-retry";
 
 //credentialContext
 import { CredentialsContext } from "./CredentialsContext";
@@ -68,11 +69,11 @@ const CameraQR = ({ navigation, step }) => {
 
     var data = qs.stringify({
       connection_code: "123",
-      max_resultsflow_points: step,
-      material: "metal",
+      flow_points: step,
+      material: "plastic",
     });
 
-    console.log(data);
+    // console.log(data);
 
     var config = {
       method: "post",
@@ -91,7 +92,7 @@ const CameraQR = ({ navigation, step }) => {
         const { data } = response.data;
         console.log("Inside post", data);
         setBinConnection(data.connection_id);
-        checkConnection(data.connection_id);
+        checkConnectionRetry(data.connection_id);
       })
       .catch(function (error) {
         console.log(error);
@@ -101,41 +102,42 @@ const CameraQR = ({ navigation, step }) => {
       });
   };
 
-  const checkConnection = (connectionId) => {
-    console.log("Inside checkConnection");
-
+  const checkConnectionRetry = async (connectionId) => {
     const urlConnection = `http://glacial-garden-26787.herokuapp.com/api/bins/connections/${connectionId}/accepted`;
 
-    var config = {
-      method: "head",
+    var axios = require("axios");
+    const axiosRetry = require("axios-retry");
+
+    axiosRetry(axios, {
+      retries: 100, // number of retries
+      retryDelay: (retryCount) => {
+        return retryCount * 2000; // time interval between retries
+      },
+      retryCondition: (error) => {
+        // if retry condition is not specified, by default idempotent requests are retried
+        return error.response.status === 404;
+      },
+    });
+    const response = await axios({
+      method: "HEAD",
       url: urlConnection,
       headers: {
         "x-access-token": x_access_token,
       },
-    };
+    }).catch((err) => {
+      if (err.response.status !== 200) {
+        throw new Error(
+          `API call failed with status code: ${err.response.status} after 3 retry attempts`
+        );
+      }
+    });
 
-    var axios = require("axios");
-
-    //Tenemos que verificar el head de la conexion. Esto del status no funciona porquie tira error y vuelve a welcome
-    axios(config)
-      .then(function (response) {
-        let status = response.status;
-        if (status !== 200) {
-          setTimeout(() => {
-            checkConnection(connectionId);
-          }, 1000);
-        } else {
-          console.log("Connection with bin is OK");
-          navigation.navigate("ThrowIntoSmartBin", {
-            step: step,
-            connectionId: connectionId,
-          });
-        }
-      })
-      .catch(function (error) {
-        console.log(error);
-        navigation.navigate("Welcome");
+    if (response.status === 200) {
+      console.log("We move to thow into smart bin");
+      navigation.navigate("ThrowIntoSmartBin", {
+        step: step,
       });
+    }
   };
 
   useEffect(() => {

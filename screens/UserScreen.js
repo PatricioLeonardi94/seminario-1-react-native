@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import * as Google from "expo-google-app-auth";
 import constants from "../constants/constants";
 import {
@@ -15,6 +15,7 @@ import {
 } from "native-base";
 import TopBox from "../components/TopBox";
 import { AntDesign } from "@expo/vector-icons";
+import axiosRetry from "axios-retry";
 
 //async-storage
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -23,6 +24,8 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { CredentialsContext } from "./../components/CredentialsContext";
 
 const UserScreen = ({ navigation }) => {
+  const [userStatus, setUserStatus] = useState(false);
+
   //context
   const { storedCredentials, setStoredCredentials } =
     useContext(CredentialsContext);
@@ -44,6 +47,39 @@ const UserScreen = ({ navigation }) => {
     playerMontlhyPoints = player.month_points;
     playerCoins = player.coins;
   }
+
+  useEffect(() => {
+    if (userStatus === false) {
+      getUserInfo();
+    }
+  }, []);
+
+  const getUserInfo = async () => {
+    const urlConnection = `http://glacial-garden-26787.herokuapp.com/api/players/me/profile`;
+
+    var axios = require("axios");
+
+    const response = await axios({
+      method: "GET ",
+      url: urlConnection,
+      headers: {
+        "x-access-token": x_access_token,
+      },
+    }).catch((err) => {
+      if (err.response.status !== 200) {
+        throw new Error(
+          `API call failed with status code: ${err.response.status}`
+        );
+      }
+    });
+
+    if (response.status === 200) {
+      console.log(response.data);
+      setUserStatus(true);
+      const { data } = response.data;
+      setStoredCredentials.player = data;
+    }
+  };
 
   const clearLogin = () => {
     if (storedCredentials !== null) {

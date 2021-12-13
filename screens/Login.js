@@ -100,6 +100,32 @@ const Login = ({ navigation }) => {
       });
   };
 
+  const getUserInfo = async (x_access_token) => {
+    const urlConnection = `http://glacial-garden-26787.herokuapp.com/api/players/me/profile`;
+
+    var axios = require("axios");
+
+    const response = await axios({
+      method: "GET ",
+      url: urlConnection,
+      headers: {
+        "x-access-token": x_access_token,
+      },
+    }).catch((err) => {
+      if (err.response.status !== 200) {
+        throw new Error(
+          `API call failed with status code: ${err.response.status}`
+        );
+      }
+    });
+
+    if (response.status === 200) {
+      console.log(response.data);
+      const { data } = response.data;
+      setStoredCredentials = data;
+    }
+  };
+
   return (
     <Box>
       <TopBox navigation={navigation} />
