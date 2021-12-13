@@ -6,39 +6,27 @@ const DoubleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
     return (
         <Center>
             <VStack alignItems="center">
-                <Center mt={"5%"}>
+                <Center mt={"12.5%"}>
                     <Text
                         fontFamily="body"
                         fontWeight={500}
                         fontSize={18}
-                        lineHeight={24}
+                        lineHeight={18}
                         display="flex"
                         alignItems="center"
                         textAlign="center"
                         letterSpacing={0.15}
                         color="rgba(0, 0, 0, 0.4)"
                     >
-                        Paso {step.stepNumber}:
+                        Paso {step.stepNumber?step.stepNumber:2}:
                     </Text>
                 </Center>
-                <Center mt={"7.5%"}>
-                    {/*<HStack mr={"35%"}>
-                        <Center w={"100%"}
-                                h={"100%"} mt={"5%"}>
-                            <Image
-                                w={"100%"}
-                                h={"100%"}
-                                source={require("../../assets/images/logo.png")}
-                                alt="Imagen"
-                            />
-                        </Center>
-                    </HStack>*/}
-                    <HStack w={"45%"}
-                        h={"25%"}>
+                <HStack>
+                    <Center mt={"10%"} w={'45%'} mr={'5%'}>
                         <Text
                             fontFamily="body"
                             fontWeight={500}
-                            fontSize={20}
+                            fontSize={17}
                             lineHeight={24}
                             display="flex"
                             alignItems="center"
@@ -48,17 +36,34 @@ const DoubleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                         >
                             {step.texts[0]}
                         </Text>
-                    </HStack>
+                    </Center>
+                    <Center mt={'5%'} w={'40%'} h={'100px'} >
+                        <Image
+                            w={"140px"}
+                            h={"100px"}
+                            source={require('../../assets/images/removeSticker.png')}
+                            alt="Imagen"
+                            style={{borderRadius: '8px'}} />
+                    </Center>
+                </HStack>
+                <Center mt={'7.5%'}>
+                    <Text color="#84D31E"> Ó </Text>
                 </Center>
-                <Center mt={"5%"}>
-                    <Text > Ó </Text>
-                </Center>
-                <Center mt={"10%"}>
-                    <HStack >
+                <HStack mt={'5%'}>
+                    <Center w={'40%'} h={'100px'}  mt={'5%'}>
+                    <Image
+                            w={"140px"}
+                            h={"100px"}
+                            source={require('../../assets/images/removeSticker.png')}
+                            alt="Imagen"
+                            style={{borderRadius: '8px'}} />
+                    </Center>
+                    <Center mt={"5%"} ml={'5%'} w={'45%'}>
                         <Text
+                            mt={"10%"}
                             fontFamily="body"
                             fontWeight={500}
-                            fontSize={20}
+                            fontSize={17}
                             lineHeight={24}
                             display="flex"
                             alignItems="center"
@@ -66,24 +71,13 @@ const DoubleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                             letterSpacing={0.15}
                             color="#84D31E"
                         >
-                            {step.texts[1]}
+                           {step.texts[1]}
                         </Text>
-                    </HStack>
-                    {/*<HStack ml={"15%"}>
-                        <Center w={"100%"}
-                                h={"100%"} mt={"5%"}>
-                            <Image
-                                w={"100%"}
-                                h={"100%"}
-                                source={require("../../assets/images/logo.png")}
-                                alt="Imagen"
-                            />
-                        </Center>
-                </HStack>*/}
-                </Center>
+                    </Center>
+                </HStack>
                 <Center
                     height={"8.5%"}
-                    width={"47.5%"}
+                    width={"200px"}
                     mt={"15%"}
                     borderRadius={"8px"}
                     bgColor="#84D31E"

@@ -4,7 +4,7 @@ import BottomImageWithExitButton from "../BottomImageWithExitButton";
 import { Center, Box, Text, VStack, HStack, Stack, Button } from "native-base";
 
 const QRInstructions = ({ navigation, step }) => {
-  let nextStep = step? step + 1 : 1;
+  let nextStep = step? step + 1 : 2;
   return (
     <Box>
       <TopBox navigation={navigation} />
@@ -15,7 +15,7 @@ const QRInstructions = ({ navigation, step }) => {
               fontFamily="body"
               fontWeight={500}
               fontSize={18}
-              lineHeight={24}
+              lineHeight={18}
               display="flex"
               alignItems="center"
               textAlign="center"
@@ -30,7 +30,7 @@ const QRInstructions = ({ navigation, step }) => {
               fontFamily="body"
               fontWeight={500}
               fontSize={32}
-              lineHeight={24}
+              lineHeight={32}
               display="flex"
               alignItems="center"
               textAlign="center"
@@ -45,7 +45,7 @@ const QRInstructions = ({ navigation, step }) => {
       <VStack alignItems="center">
         <VStack>
           <HStack>
-            <Center ml={"10%"} mt={"4%"}>
+            <Center ml={"12.5%"}>
               <Text
                 color="#84D31E"
                 w={36}
@@ -62,9 +62,9 @@ const QRInstructions = ({ navigation, step }) => {
                 1.
               </Text>
             </Center>
-            <Center ml={"-2%"} mt={"6.5%"}>
+            <Center ml={"-8.5%"} mt={"6.5%"}>
               <Text
-                w={"75.5%"}
+                w={"70%"}
                 fontFamily="body"
                 fontWeight={500}
                 fontSize={20}
@@ -74,12 +74,12 @@ const QRInstructions = ({ navigation, step }) => {
                 letterSpacing={0.15}
                 color="rgba(0, 0, 0, 0.4)"
               >
-                Acercate al cesto y escanea su QR
+                Acercate al cesto y escanea su código QR
               </Text>
             </Center>
           </HStack>
           <HStack>
-            <Center ml={"10%"} mt={"1.5%"}>
+            <Center ml={"12.5%"} mt={"1.5%"}>
               <Text
                 color="#84D31E"
                 w={36}
@@ -96,9 +96,9 @@ const QRInstructions = ({ navigation, step }) => {
                 2.
               </Text>
             </Center>
-            <Center ml={"-5.5%"} mt={"4.5%"}>
+            <Center ml={"5%"} mt={"4.5%"}>
               <Text
-                w={"70%"}
+                w={"100%"}
                 fontFamily="body"
                 fontWeight={500}
                 fontSize={20}
@@ -113,7 +113,7 @@ const QRInstructions = ({ navigation, step }) => {
             </Center>
           </HStack>
           <HStack>
-            <Center ml={"10%"} mt={"1.5%"}>
+            <Center ml={"13.5%"} mt={"1.5%"}>
               <Text
                 color="#84D31E"
                 w={36}
@@ -130,9 +130,9 @@ const QRInstructions = ({ navigation, step }) => {
                 3.
               </Text>
             </Center>
-            <Center ml={"-5.5%"} mt={"4.5%"}>
+            <Center ml={"5%"} mt={"4.5%"}>
               <Text
-                w={"70%"}
+                w={"100%"}
                 fontFamily="body"
                 fontWeight={500}
                 fontSize={20}
@@ -148,9 +148,9 @@ const QRInstructions = ({ navigation, step }) => {
           </HStack>
         </VStack>
         <Center
-          height={"12.5%"}
-          width={"50%"}
-          mt={"12.5%"}
+          height={"8.5%"}
+          width={"55%"}
+          mt={"5.5%"}
           borderRadius={"8px"}
           bgColor="#84D31E"
         >
@@ -176,7 +176,7 @@ const QRInstructions = ({ navigation, step }) => {
         </Center>
         <Center
           height={"8.5%"}
-          width={"47.5%"}
+          width={"55.5%"}
           mt={"5%"}
           borderRadius={"8px"}
           bgColor="rgba(0, 0, 0, 0.05)"

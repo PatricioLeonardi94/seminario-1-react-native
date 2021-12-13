@@ -143,7 +143,7 @@ const Login = ({ navigation }) => {
           w={366.11}
           h={349}
           opacity={0.8}
-          mt={"40%"}
+          mt={"30%"}
           source={require("../assets/images/bottom-bubbles.png")}
         />
       </VStack>
