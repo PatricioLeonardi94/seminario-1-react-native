@@ -15,8 +15,8 @@ const ReciclingAssistantSteps = ({nav,steps}) => {
     const handleNextStep = () => {
         if(currentStep.stepNumber==steps.length){
             nav.navigate("QRInstructions", {
-                step: steps.length + 1
-            })
+                step: currentStep.stepNumber+1,
+            });
         }
         else{
             setCurrentStep(steps[currentStep.stepNumber]);

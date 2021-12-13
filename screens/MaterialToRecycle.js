@@ -42,7 +42,7 @@ const MaterialToRecycle = ({navigation}) => {
             {material.toUpperCase()}
           </Text>
         </Center>
-        <Center mt={"12.5%"} ml={"2.5%"} mr={"2.5%"}>
+        <Center mt={"10%"} ml={"2.5%"} mr={"2.5%"}>
           <Text
             fontFamily="body"
             fontWeight={500}
@@ -59,8 +59,8 @@ const MaterialToRecycle = ({navigation}) => {
         </Center>
         <Center
           height={"8.5%"}
-          width={"50%"}
-          mt={"17.5%"}
+          width={"200px"}
+          mt={"12.5%"}
           borderRadius={"8px"}
           bgColor="#84D31E"
         >
@@ -68,8 +68,8 @@ const MaterialToRecycle = ({navigation}) => {
             color="white"
             font="body"
             fontWeight={500}
-            fontSize={21}
-            lineHeight={21}
+            fontSize={24}
+            lineHeight={24}
             display="flex"
             alignItems="center"
             textAlign="center"
@@ -83,7 +83,7 @@ const MaterialToRecycle = ({navigation}) => {
         </Center>
         <Center
                 height={"8.5%"}
-                width={"47.5%"}
+                width={"200px"}
                 mt={"5%"}
                 borderRadius={"8px"}
                 bgColor="rgba(0, 0, 0, 0.05)"

@@ -59,10 +59,11 @@ const Congratulations = ({navigation}) => {
                     <Center w={"75%"}
                             h={"22.5%"} mt={"5%"}>
                         <Image
-                            w={"100%"}
-                            h={"100%"}
+                            w={"220px"}
+                            h={"180px"}
                             source={require("../../assets/images/logo.png")}
                             alt="Imagen"
+                            style={{borderRadius: '15px'}}
                         />
                     </Center>
                     <Center ml={"2.5%"} mr={"2.5%"} mt={"7.55%"}>

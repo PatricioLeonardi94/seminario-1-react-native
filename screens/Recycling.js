@@ -2,13 +2,14 @@ import TopBox from "../components/TopBox";
 import { Box, Center, Image, Text, VStack, HStack } from "native-base";
 import React, { useState, useContext } from "react";
 import { TouchableHighlight } from "react-native";
+import BottomImageWithExitButton from "../components/BottomImageWithExitButton";
 
 const Recycling = ({ navigation }) => {
   return (
-    <Box>
+    <Box >
       <TopBox navigation={navigation} />
-      <Box p="10">
-        <VStack space={100} alignItems="center">
+      <Box p="10" mt={"35%"} >
+        <VStack space={100} alignItems="center" >
           <TouchableHighlight
             onPress={() => navigation.navigate("Instrucciones")}
             underlayColor="#87DA1E"
