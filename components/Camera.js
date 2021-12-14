@@ -1,10 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
-import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import { ActivityIndicator, StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import { Camera } from "expo-camera";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 
+import {MaterialContext} from './MaterialContext';
+
 const CameraScreen = ({ navigation }) => {
+  const [isLoading, setIsLoading] = React.useState(false)
+  const {material,setMaterial} = React.useContext(MaterialContext);
+
   const styles = StyleSheet.create({
     container: {
       flex: 1,
@@ -32,6 +37,63 @@ const CameraScreen = ({ navigation }) => {
   const [hasPermission, setHasPermission] = useState(null);
   const [type, setType] = useState(Camera.Constants.Type.back);
 
+  const mapIdentifiedValue = (material) => {
+    switch(material.toLowerCase()){
+      case "battery":
+      case "metal":
+        return "METAL";
+        break;
+      case "brown-glass":
+      case "green-glass":
+      case "white-glass":
+        return "VIDRIO";
+        break;
+      case "cardboard":
+        return "CARTON";
+        break;
+      case "plastic":
+        return "PLASTICO";
+        break;
+      case "trash":
+        return "PAPEL";
+        break;
+      default:
+        return "PLASTICO";
+        break;
+    }
+  }
+
+  const identifyProduct = (image) => {
+    setIsLoading(true);
+    var config = {
+      method: "post",
+      url: "https://seminario1-api.herokuapp.com/predict/",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      data: {
+        b64: image
+      },
+    };
+
+    var axios = require("axios");
+
+    axios(config)
+      .then(function (response) {
+        console.log("response: " + response.data);
+        const material = response.data[0];
+        let identifiedMaterial = mapIdentifiedValue(material);
+        setMaterial(identifiedMaterial);
+        setIsLoading(false);
+        navigation.navigate("MaterialToRecycle")
+      })
+      .catch(function (error) {
+        console.log(error.toString());
+        setIsLoading(false);
+        navigation.navigate("Instrucciones");
+      });
+  };
+
   const cam = useRef();
 
   const _takePicture = async () => {
@@ -44,11 +106,7 @@ const CameraScreen = ({ navigation }) => {
       if (source) {
         cam.current.resumePreview();
         console.log("\npicture source: ", source);
-
-        //TODO: hacer la validacion de material para el route enviar el material al MaterialToRecycle
-        navigation.navigate("MaterialToRecycle", {
-          material: "PLASTICO",
-        });
+        identifyProduct(source);
       }
     }
   };
@@ -78,6 +136,10 @@ const CameraScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Camera style={styles.camera} type={type} ref={cam}>
+          {isLoading?(
+            <ActivityIndicator size="large" color="#00ff00" />
+          ):
+          <></>}
         <View style={styles.buttonContainer}>
           <View
             style={{
