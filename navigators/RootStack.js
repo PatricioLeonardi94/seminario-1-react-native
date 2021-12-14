@@ -116,6 +116,10 @@ const RootStack = () => {
                     {(props) => <QRSender {...props} />}
                   </Stack.Screen>
 
+                  <Stack.Screen name="ReciclingAssistantSteps">
+                    {(props) => <ReciclingAssistantSteps {...props} />}
+                  </Stack.Screen>
+
                   <Stack.Screen name="UserScreen">
                     {(props) => <UserScreen {...props} />}
                   </Stack.Screen>
