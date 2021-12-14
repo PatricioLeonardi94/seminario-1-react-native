@@ -7,10 +7,6 @@ import RootStack from "./navigators/RootStack";
 import LoadingScreen from "./screens/LoadingScreen";
 import constants from "./constants/constants";
 
-import { LogBox } from "react-native";
-LogBox.ignoreLogs(["Warning: ..."]); // Ignore log notification by message
-LogBox.ignoreAllLogs(); //Ignore all log notifications
-
 //appLoading
 import AppLoading from "expo-app-loading";
 

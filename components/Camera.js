@@ -1,18 +1,25 @@
 import React, { useState, useEffect, useRef } from "react";
-import { ActivityIndicator, StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
+import {
+  ActivityIndicator,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  TouchableOpacity,
+} from "react-native";
 import { Camera } from "expo-camera";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 
-import * as FileSystem from 'expo-file-system';
+import * as FileSystem from "expo-file-system";
 import axios from "axios";
-import {MaterialContext} from './MaterialContext';
+import { MaterialContext } from "./MaterialContext";
 
 const CameraScreen = ({ navigation }) => {
-  const [isLoading, setIsLoading] = React.useState(false)
+  const [isLoading, setIsLoading] = React.useState(false);
   const [error, setError] = React.useState(false);
   const [success, setSuccess] = React.useState(false);
-  const {material,setMaterial} = React.useContext(MaterialContext);
+  const { material, setMaterial } = React.useContext(MaterialContext);
 
   const styles = StyleSheet.create({
     container: {
@@ -25,7 +32,7 @@ const CameraScreen = ({ navigation }) => {
       flex: 1,
       backgroundColor: "transparent",
       flexDirection: "row",
-      justifyContent: 'space-around',
+      justifyContent: "space-around",
       margin: 30,
     },
     button: {
@@ -42,7 +49,7 @@ const CameraScreen = ({ navigation }) => {
   const [type, setType] = useState(Camera.Constants.Type.back);
 
   const mapIdentifiedValue = (material) => {
-    switch(material.toLowerCase()){
+    switch (material.toLowerCase()) {
       case "battery":
       case "metal":
         return "METAL";
@@ -65,19 +72,23 @@ const CameraScreen = ({ navigation }) => {
         return "PLASTICO";
         break;
     }
-  }
+  };
 
   const identifyProduct = (image) => {
+    var qs = require("qs");
+
+    var data = qs.stringify({
+      b64: image,
+    });
+
     var config = {
       method: "post",
       url: "https://seminario1-api.herokuapp.com/predict/",
-      /*headers: {
+      headers: {
         "Content-Type": "application/x-www-form-urlencoded",
-      },*/
-      data: {
-        b64: image
       },
-    }
+      data: data,
+    };
 
     axios(config)
       .then(function (response) {
@@ -86,14 +97,14 @@ const CameraScreen = ({ navigation }) => {
         let identifiedMaterial = mapIdentifiedValue(material);
         setMaterial(identifiedMaterial);
         setIsLoading(false);
-        setError(false)
+        setError(false);
         setSuccess(true);
-        navigation.navigate("MaterialToRecycle")
+        navigation.navigate("MaterialToRecycle");
       })
       .catch(function (error) {
         console.log(error.toString());
         setIsLoading(false);
-        setSuccess(false)
+        setSuccess(false);
         setError(true);
         navigation.navigate("Instrucciones");
       });
@@ -119,15 +130,16 @@ const CameraScreen = ({ navigation }) => {
             identifyProduct(image);
           }
         });*/
-        try{
+        try {
           setIsLoading(true);
-          const base64 = await FileSystem.readAsStringAsync(source, { encoding: 'base64' });
+          const base64 = await FileSystem.readAsStringAsync(source, {
+            encoding: "base64",
+          });
           console.log("imagen leida");
           identifyProduct(base64);
-        }
-        catch(err){
+        } catch (err) {
           console.log(err.toString());
-          setError(true)
+          setError(true);
           setIsLoading(false);
           setSuccess(false);
         }
@@ -160,16 +172,25 @@ const CameraScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Camera style={styles.camera} type={type} ref={cam}>
-        <View style={{
-              marginTop:'40%',
-              flexDirection: "row",
-              justifyContent: "center",
-              alignItems: "center",
-            }}>
-          {isLoading?(
+        <View
+          style={{
+            marginTop: "40%",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          {isLoading ? (
             <ActivityIndicator size="large" color="#00ff00" />
-          ):
-          <>{error?'Ocurrió un error al identificar tu producto':success?'Identificacion Exitosa!':{}}</>}
+          ) : (
+            <Text>
+              {error
+                ? "Ocurrió un error al identificar tu producto"
+                : success
+                ? "Identificacion Exitosa!"
+                : ""}
+            </Text>
+          )}
         </View>
         <View style={styles.buttonContainer}>
           <View
