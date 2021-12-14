@@ -87,6 +87,10 @@ const ThrowIntoSmartBin = ({ navigation, step }) => {
       .then(function (response) {
         console.log("GET bin connection ended info", response.data);
         const { data } = response.data;
+        navigation.navigate("Congratulations", {
+          step: step,
+          
+        });
       })
       .catch(function (error) {
         console.log("Error trying to get bin ended information", error);
@@ -174,7 +178,7 @@ const ThrowIntoSmartBin = ({ navigation, step }) => {
               FINALIZAR
             </Text>
           </Center>
-          {/* <BottomImageWithExitButton /> */}
+          <BottomImageWithExitButton />
         </VStack>
       </Center>
     </Box>

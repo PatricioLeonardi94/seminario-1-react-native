@@ -44,14 +44,6 @@ const UserScreen = ({ navigation }) => {
     var { x_access_token } = storedCredentials;
   }
 
-  // if (storedCredentials && player && photoUrl) {
-  //   playerImage = player.user.photo;
-  //   playerName = player.user.fullname;
-  //   playerPoints = player.points;
-  //   playerMontlhyPoints = player.month_points;
-  //   playerCoins = player.coins;
-  // }
-
   useEffect(() => {
     getUserInfo();
   }, []);
