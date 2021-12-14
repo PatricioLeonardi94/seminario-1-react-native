@@ -4,10 +4,14 @@ import { Camera } from "expo-camera";
 import { MaterialIcons } from "@expo/vector-icons";
 import { Ionicons } from "@expo/vector-icons";
 
+import * as FileSystem from 'expo-file-system';
+import axios from "axios";
 import {MaterialContext} from './MaterialContext';
 
 const CameraScreen = ({ navigation }) => {
   const [isLoading, setIsLoading] = React.useState(false)
+  const [error, setError] = React.useState(false);
+  const [success, setSuccess] = React.useState(false);
   const {material,setMaterial} = React.useContext(MaterialContext);
 
   const styles = StyleSheet.create({
@@ -64,19 +68,16 @@ const CameraScreen = ({ navigation }) => {
   }
 
   const identifyProduct = (image) => {
-    setIsLoading(true);
     var config = {
       method: "post",
       url: "https://seminario1-api.herokuapp.com/predict/",
-      headers: {
+      /*headers: {
         "Content-Type": "application/x-www-form-urlencoded",
-      },
+      },*/
       data: {
         b64: image
       },
-    };
-
-    var axios = require("axios");
+    }
 
     axios(config)
       .then(function (response) {
@@ -85,11 +86,15 @@ const CameraScreen = ({ navigation }) => {
         let identifiedMaterial = mapIdentifiedValue(material);
         setMaterial(identifiedMaterial);
         setIsLoading(false);
+        setError(false)
+        setSuccess(true);
         navigation.navigate("MaterialToRecycle")
       })
       .catch(function (error) {
         console.log(error.toString());
         setIsLoading(false);
+        setSuccess(false)
+        setError(true);
         navigation.navigate("Instrucciones");
       });
   };
@@ -100,13 +105,32 @@ const CameraScreen = ({ navigation }) => {
     if (cam.current) {
       const option = { quality: 0.5, base64: true, skipProcessing: false };
       let photo = await cam.current.takePictureAsync(option);
-
       const source = photo.uri;
-
       if (source) {
         cam.current.resumePreview();
         console.log("\npicture source: ", source);
-        identifyProduct(source);
+        //console.log("REQUIRE: " + require(source));
+        /*fs.readFile(source, (err, data) => {
+          if(err) {
+            console.log('error: ', err);
+            return;
+          } else {
+            const image = data.toString("base64");
+            identifyProduct(image);
+          }
+        });*/
+        try{
+          setIsLoading(true);
+          const base64 = await FileSystem.readAsStringAsync(source, { encoding: 'base64' });
+          console.log("imagen leida");
+          identifyProduct(base64);
+        }
+        catch(err){
+          console.log(err.toString());
+          setError(true)
+          setIsLoading(false);
+          setSuccess(false);
+        }
       }
     }
   };
@@ -136,10 +160,17 @@ const CameraScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Camera style={styles.camera} type={type} ref={cam}>
+        <View style={{
+              marginTop:'40%',
+              flexDirection: "row",
+              justifyContent: "center",
+              alignItems: "center",
+            }}>
           {isLoading?(
             <ActivityIndicator size="large" color="#00ff00" />
           ):
-          <></>}
+          <>{error?'Ocurrió un error al identificar tu producto':success?'Identificacion Exitosa!':{}}</>}
+        </View>
         <View style={styles.buttonContainer}>
           <View
             style={{
