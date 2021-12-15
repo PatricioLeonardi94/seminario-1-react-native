@@ -12,9 +12,35 @@ import {
 import { StyleSheet } from "react-native";
 import BottomImageWithExitButton from "../../components/BottomImageWithExitButton";
 
-import * as image from "../../assets/images/removeSticker.png";
+
+ 
 
 const SimpleStepPage = ({ step, handleNextStep, handleNegativeStep }) => {
+    const getImageUrl = (stepNumber) => {
+        switch(stepNumber){
+            case 1:
+                const image1 = require("../../assets/images/removeSticker.png");
+                return image1;
+                break;
+            case 2:
+                const image2 = require("../../assets/images/wash.png");
+                return image2;
+                break;
+            case 3:
+                const image3 = require("../../assets/images/dry.png");
+                return image3;
+                break;
+            case 4:
+                const image4 = require("../../assets/images/compress.png");
+                return image4;
+                break;
+            default:
+                const logo = require("../../assets/images/logo.png");
+                return logo;
+                break;
+        }
+    }
+
   return (
     <Center>
       <VStack alignItems="center">
@@ -81,7 +107,7 @@ const SimpleStepPage = ({ step, handleNextStep, handleNegativeStep }) => {
           <Image
             w={"220px"}
             h={"180px"}
-            source={require("../../assets/images/removeSticker.png")}
+            source={getImageUrl(step.stepNumber)}
             alt="Imagen"
           />
         </Center>

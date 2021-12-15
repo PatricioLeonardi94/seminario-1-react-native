@@ -12,7 +12,7 @@ const ThrowIntoRegularBin = ({navigation,step}) => {
         "stepName":"Separar",
         "stepNumber": step,
         "stepType": 2,
-        "images": [],
+        "images": ["../../assets/images/greenBag.png","../../assets/images/greenBin.png"],
         "texts": ["Usa bolsa verde para tu producto","Arrojalo en un cesto de reciclables"]
     }
 

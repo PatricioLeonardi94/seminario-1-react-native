@@ -24,8 +24,7 @@ import TopBox from "../TopBox";
 
 const ThrowIntoSmartBin = ({ navigation, step }) => {
   const { material, setMaterial } = React.useContext(MaterialContext);
-  const { storedCredentials, setStoredCredentials } =
-    useContext(CredentialsContext);
+  const { storedCredentials, setStoredCredentials } = useContext(CredentialsContext);
   const { x_access_token } = storedCredentials;
   const { binConnection, setBinConnection } = useContext(QRContext);
 
@@ -87,9 +86,9 @@ const ThrowIntoSmartBin = ({ navigation, step }) => {
       .then(function (response) {
         console.log("GET bin connection ended info", response.data);
         const { data } = response.data;
+        const puntosGanados = data.points;
         navigation.navigate("Congratulations", {
-          step: step,
-          
+          points: puntosGanados,
         });
       })
       .catch(function (error) {
@@ -122,7 +121,7 @@ const ThrowIntoSmartBin = ({ navigation, step }) => {
               fontFamily="body"
               fontWeight={500}
               fontSize={32}
-              lineHeight={24}
+              lineHeight={32}
               display="flex"
               alignItems="center"
               textAlign="center"
@@ -134,9 +133,10 @@ const ThrowIntoSmartBin = ({ navigation, step }) => {
           </Center>
           <Center w={"75%"} h={"22.5%"} mt={"5%"}>
             <Image
-              w={"100%"}
-              h={"100%"}
-              source={require("../../assets/images/logo.png")}
+              w={"220px"}
+              h={"180px"}
+              style={{borderRadius: '8opx'}}
+              source={require("../../assets/images/deposit.png")}
               alt="Imagen"
             />
           </Center>
@@ -158,7 +158,7 @@ const ThrowIntoSmartBin = ({ navigation, step }) => {
           </Center>
           <Center
             height={"7.5%"}
-            width={"45%"}
+            width={"200px"}
             mt={"10%"}
             borderRadius={"8px"}
             bgColor="#84D31E"

@@ -6,7 +6,7 @@ const DoubleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
     return (
         <Center>
             <VStack alignItems="center">
-                <Center mt={"12.5%"}>
+                <Center mt={"15%"}>
                     <Text
                         fontFamily="body"
                         fontWeight={500}
@@ -21,7 +21,7 @@ const DoubleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                         Paso {step.stepNumber?step.stepNumber:2}:
                     </Text>
                 </Center>
-                <HStack>
+                <HStack mt={'5%'}>
                     <Center mt={"10%"} w={'45%'} mr={'5%'}>
                         <Text
                             fontFamily="body"
@@ -41,7 +41,7 @@ const DoubleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                         <Image
                             w={"140px"}
                             h={"100px"}
-                            source={require('../../assets/images/removeSticker.png')}
+                            source={require("../../assets/images/greenBag.png")}
                             alt="Imagen"
                             style={{borderRadius: '8px'}} />
                     </Center>
@@ -54,7 +54,7 @@ const DoubleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                     <Image
                             w={"140px"}
                             h={"100px"}
-                            source={require('../../assets/images/removeSticker.png')}
+                            source={require("../../assets/images/greenBin.png")}
                             alt="Imagen"
                             style={{borderRadius: '8px'}} />
                     </Center>
@@ -76,7 +76,7 @@ const DoubleStepPage = ({step,handleNextStep,handleNegativeStep}) => {
                     </Center>
                 </HStack>
                 <Center
-                    height={"8.5%"}
+                    height={"7.5%"}
                     width={"200px"}
                     mt={"15%"}
                     borderRadius={"8px"}

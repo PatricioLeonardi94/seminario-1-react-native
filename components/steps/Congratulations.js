@@ -1,22 +1,67 @@
-import React from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import { Center, Box, Text, VStack, HStack, Stack, Button, Image } from "native-base";
 import BottomImageWithExitButton from "../../components/BottomImageWithExitButton";
 import TopBox from '../TopBox';
 
-const Congratulations = ({navigation}) => {
-    const puntos = 253;
+import {CredentialsContext} from '../CredentialsContext';
+
+const Congratulations = ({navigation, points}) => {
+    const [userInfo, setUserInfo] = useState({
+      user: {
+        fullname: "Patricio L",
+      },
+      photo:
+        "https://lh3.googleusercontent.com/a-/AOh14GjRaMM2KgUli3sxH76vrs1QFRuOZnLi3KxdWuKLzw=s100",
+      month_points: "0",
+      points: "0",
+      coins: "0",
+    });
+  
+    //context
+    const { storedCredentials, setStoredCredentials } =
+      useContext(CredentialsContext);
+  
+    if (storedCredentials !== null) {
+      var { x_access_token } = storedCredentials;
+    }
+  
+    useEffect(() => {
+      getUserInfo();
+    }, []);
+  
+    const getUserInfo = () => {
+      var config = {
+        method: "get",
+        url: "http://glacial-garden-26787.herokuapp.com/api/players/me/profile",
+        headers: {
+          "x-access-token": x_access_token,
+        },
+      };
+  
+      var axios = require("axios");
+  
+      axios(config)
+        .then(function (response) {
+          setUserStatus(true);
+          var { player } = response.data;
+          setUserInfo(player);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    };
 
     return (
         <Box>
             <TopBox navigation={navigation}/>
             <Center>
                 <VStack alignItems="center">
-                    <Center mt={"5%"}>
+                    <Center mt={"7.55%"}>
                         <Text
                             fontFamily="body"
                             fontWeight={500}
                             fontSize={28}
-                            lineHeight={24}
+                            lineHeight={28}
                             display="flex"
                             alignItems="center"
                             textAlign="center"
@@ -38,7 +83,7 @@ const Congratulations = ({navigation}) => {
                             letterSpacing={0.15}
                             color="rgba(0, 0, 0, 0.4)"
                         >
-                            HAS COMPLETADO EL PROCESO DE RECICLADO, OBTIENES 3 PUNTOS EXTRA.
+                            ¡HAS COMPLETADO EL PROCESO DE RECICLADO!
                         </Text>
                     </Center>
                     <Center mt={"5%"}>
@@ -53,7 +98,7 @@ const Congratulations = ({navigation}) => {
                             letterSpacing={0.15}
                             color="#84D31E"
                         >
-                            +5 PUNTOS
+                            +{points?points:7} PUNTOS
                         </Text>
                     </Center>
                     <Center w={"75%"}
@@ -78,12 +123,12 @@ const Congratulations = ({navigation}) => {
                             letterSpacing={0.15}
                             color="rgba(0, 0, 0, 0.4)"
                         >
-                            Total de Puntos: {puntos}
+                            Total de Puntos: {userInfo.points?userInfo.points:253}
                         </Text>
                     </Center>
                     <Center
                     height={"7.5%"}
-                    width={"45%"}
+                    width={"200px"}
                     mt={"10%"}
                     borderRadius={"8px"}
                     bgColor="#84D31E"

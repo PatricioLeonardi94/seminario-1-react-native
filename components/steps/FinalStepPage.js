@@ -28,7 +28,7 @@ const FinalStepPage = ({nav}) => {
                             w={"220px"}
                             h={"180"}
                             style={{borderRadius:'25px'}}
-                            source={require("../../assets/images/logo.png")}
+                            source={require("../../assets/images/done.png")}
                             alt="Imagen"
                         />
                     </Center>
