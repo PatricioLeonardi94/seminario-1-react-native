@@ -98,7 +98,7 @@ const Congratulations = ({navigation, route}) => {
                             letterSpacing={0.15}
                             color="#84D31E"
                         >
-                            +{flowPoints?(points+flowPoints):5} PUNTOS
+                            +{flowPoints?(points):5} PUNTOS
                         </Text>
                     </Center>
                     <Center w={"75%"}

@@ -48,7 +48,7 @@ const ThrowIntoSmartBin = ({ navigation, route }) => {
     axiosRetry(axios, {
       retries: 100, // number of retries
       retryDelay: (retryCount) => {
-        return retryCount * 2000; // time interval between retries
+        return retryCount * 750; // time interval between retries
       },
       retryCondition: (error) => {
         // if retry condition is not specified, by default idempotent requests are retried
@@ -171,6 +171,28 @@ const ThrowIntoSmartBin = ({ navigation, route }) => {
               “FINALIZAR” para obtener tus puntos!
             </Text>
           </Center>
+          <Center>
+                <View
+                style={{
+                    marginTop: "5%",
+                    flexDirection: "row",
+                    justifyContent: "center",
+                    alignItems: "center",
+                }}
+                >
+                {isLoading ? (
+                    <ActivityIndicator size="large" color="#00ff00" />
+                ) : (
+                    <Text>
+                    {error
+                        ? "Ocurrió un error al validar el producto arrojado"
+                        : success
+                        ? "Validación Exitosa!"
+                        : ""}
+                    </Text>
+                )}
+                </View>
+            </Center>
           <Center
             height={"7.5%"}
             width={"200px"}
@@ -192,26 +214,6 @@ const ThrowIntoSmartBin = ({ navigation, route }) => {
             >
               FINALIZAR
             </Text>
-            <View
-            style={{
-                marginTop: "5%",
-                flexDirection: "row",
-                justifyContent: "center",
-                alignItems: "center",
-            }}
-            >
-            {isLoading ? (
-                <ActivityIndicator size="large" color="#00ff00" />
-            ) : (
-                <Text>
-                {error
-                    ? "Ocurrió un error al validar el producto arrojado"
-                    : success
-                    ? "Validación Exitosa!"
-                    : ""}
-                </Text>
-            )}
-            </View>
           </Center>
           <BottomImageWithExitButton />
         </VStack>
