@@ -12,9 +12,13 @@ import {
 import TopBox from "../components/TopBox";
 import BottomImageWithExitButton from "../components/BottomImageWithExitButton";
 
-const SelectMaterial = ({ material, setMaterial, navigation }) => {
+import { MaterialContext } from "../components/MaterialContext";
+
+const SelectMaterial = ({ navigation }) => {
+  const {material,setMaterial} = React.useContext(MaterialContext);
+
   const handleMaterialChange = (newMaterial) => {
-    setMaterial(newMaterial);
+    setMaterial(newMaterial.toUpperCase());
   };
 
   return (
@@ -40,7 +44,7 @@ const SelectMaterial = ({ material, setMaterial, navigation }) => {
           <Radio.Group
             accessibilityLabel="Material Selector"
             value={material}
-            defaultValue={"plastico"}
+            defaultValue={material}
             onChange={(newValue) => {
               handleMaterialChange(newValue);
             }}
@@ -48,7 +52,7 @@ const SelectMaterial = ({ material, setMaterial, navigation }) => {
             <Radio
               mt={"1.5%"}
               color="rgba(0, 0, 0, 0.4)"
-              value="plastico"
+              value="PLASTICO"
               fontSize={20}
             >
               Plástico
@@ -56,7 +60,7 @@ const SelectMaterial = ({ material, setMaterial, navigation }) => {
             <Radio
               mt={"1.5%"}
               color="rgba(0, 0, 0, 0.4)"
-              value="papel"
+              value="PAPEL"
               fontSize={20}
             >
               Papel
@@ -64,7 +68,7 @@ const SelectMaterial = ({ material, setMaterial, navigation }) => {
             <Radio
               mt={"1.5%"}
               color="rgba(0, 0, 0, 0.4)"
-              value="vidrio"
+              value="VIDRIO"
               fontSize={20}
             >
               Vidrio
@@ -72,7 +76,7 @@ const SelectMaterial = ({ material, setMaterial, navigation }) => {
             <Radio
               mt={"1.5%"}
               color="rgba(0, 0, 0, 0.4)"
-              value="carton"
+              value="CARTON"
               fontSize={20}
             >
               Carton
@@ -80,7 +84,7 @@ const SelectMaterial = ({ material, setMaterial, navigation }) => {
             <Radio
               mt={"1.5%"}
               color="rgba(0, 0, 0, 0.4)"
-              value="metal"
+              value="METAL"
               fontSize={20}
             >
               Metal

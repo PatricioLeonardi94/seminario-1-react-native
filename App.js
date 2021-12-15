@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+import { LogBox } from "react-native";
+LogBox.ignoreLogs(["Warning: ..."]); // Ignore log notification by message
+LogBox.ignoreAllLogs(); //Ignore all log notifications
 
 import RootStack from "./navigators/RootStack";
 import LoadingScreen from "./screens/LoadingScreen";
@@ -12,11 +15,14 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 
 //credentialContext
 import { CredentialsContext } from "./components/CredentialsContext";
+import { MaterialContext } from "./components/MaterialContext";
+import { QRContext } from "./components/Contexts/QRContext";
 
 export default function App() {
   const [material, setMaterial] = React.useState("PLASTICO");
   const [appReady, setAppReady] = useState(false);
   const [storedCredentials, setStoredCredentials] = useState("");
+  const [binConnection, setBinConnection] = useState("");
 
   const checkLoginCredentials = () => {
     AsyncStorage.getItem(constants.ASYNC_STORAGE_CREDENTIALS)
@@ -45,7 +51,11 @@ export default function App() {
     <CredentialsContext.Provider
       value={{ storedCredentials, setStoredCredentials }}
     >
-      <RootStack material={material} />
+      <MaterialContext.Provider value={{ material, setMaterial }}>
+        <QRContext.Provider value={{ binConnection, setBinConnection }}>
+          <RootStack />
+        </QRContext.Provider>
+      </MaterialContext.Provider>
     </CredentialsContext.Provider>
   );
 }

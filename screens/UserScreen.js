@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext, useEffect } from "react";
 import * as Google from "expo-google-app-auth";
 import constants from "../constants/constants";
 import {
@@ -15,6 +15,7 @@ import {
 } from "native-base";
 import TopBox from "../components/TopBox";
 import { AntDesign } from "@expo/vector-icons";
+import axiosRetry from "axios-retry";
 
 //async-storage
 import AsyncStorage from "@react-native-async-storage/async-storage";
@@ -23,27 +24,51 @@ import AsyncStorage from "@react-native-async-storage/async-storage";
 import { CredentialsContext } from "./../components/CredentialsContext";
 
 const UserScreen = ({ navigation }) => {
+  const [userStatus, setUserStatus] = useState(null);
+  const [userInfo, setUserInfo] = useState({
+    user: {
+      fullname: "Patricio L",
+    },
+    photo:
+      "https://lh3.googleusercontent.com/a-/AOh14GjRaMM2KgUli3sxH76vrs1QFRuOZnLi3KxdWuKLzw=s100",
+    month_points: "0",
+    points: "0",
+    coins: "0",
+  });
+
   //context
   const { storedCredentials, setStoredCredentials } =
     useContext(CredentialsContext);
 
   if (storedCredentials !== null) {
-    var { photoUrl, name, x_access_token, player } = storedCredentials;
+    var { x_access_token } = storedCredentials;
   }
 
-  var playerImage;
-  var playerName;
-  var playerPoints;
-  var playerMontlhyPoints;
-  var playerCoins;
+  useEffect(() => {
+    getUserInfo();
+  }, []);
 
-  if (storedCredentials !== null && player !== null && photoUrl !== null) {
-    playerImage = photoUrl;
-    playerName = name;
-    playerPoints = player.points;
-    playerMontlhyPoints = player.month_points;
-    playerCoins = player.coins;
-  }
+  const getUserInfo = () => {
+    var config = {
+      method: "get",
+      url: "http://glacial-garden-26787.herokuapp.com/api/players/me/profile",
+      headers: {
+        "x-access-token": x_access_token,
+      },
+    };
+
+    var axios = require("axios");
+
+    axios(config)
+      .then(function (response) {
+        setUserStatus(true);
+        var { player } = response.data;
+        setUserInfo(player);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
 
   const clearLogin = () => {
     if (storedCredentials !== null) {
@@ -63,7 +88,7 @@ const UserScreen = ({ navigation }) => {
         <Center mb="2.5" top={5}>
           <Image
             source={{
-              uri: playerImage,
+              uri: userInfo.photo,
             }}
             borderRadius={100}
             alt="Avatar"
@@ -78,7 +103,7 @@ const UserScreen = ({ navigation }) => {
             color="rgba(0, 0, 0, 0.4)"
             top={3}
           >
-            {playerName}
+            {userInfo.user.fullname}
           </Text>
         </Center>
         <Box top={10}>
@@ -102,7 +127,7 @@ const UserScreen = ({ navigation }) => {
               borderColor="#84D31E"
             >
               <Text color="#84D31E" fontWeight={500} fontSize={26} left={3}>
-                {playerPoints}
+                {userInfo.points}
               </Text>
             </Box>
             <Text color="#84D31E" fontSize={20} fontWeight={500}>
@@ -118,7 +143,7 @@ const UserScreen = ({ navigation }) => {
               height={"50px"}
             >
               <Text color="#84D31E" fontWeight={500} fontSize={26} left={3}>
-                {playerMontlhyPoints}
+                {userInfo.month_points}
               </Text>
             </Box>
             <Text color="#FFC700" fontSize={20} fontWeight={500}>
@@ -142,7 +167,7 @@ const UserScreen = ({ navigation }) => {
                   left={1}
                 />
                 <Text color="#FFC700" fontWeight={500} fontSize={26} left={3}>
-                  {playerCoins}
+                  {userInfo.coins}
                 </Text>
               </HStack>
             </Box>

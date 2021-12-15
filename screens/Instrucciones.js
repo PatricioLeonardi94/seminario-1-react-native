@@ -10,7 +10,7 @@ const Instrucciones = ({ navigation }) => {
       <VStack alignItems="center">
         <VStack>
           <HStack>
-            <Center ml={"10%"} mt={"4%"}>
+            <Center ml={"17.5%"} mt={"4%"}>
               <Text
                 color="#84D31E"
                 w={36}
@@ -44,7 +44,7 @@ const Instrucciones = ({ navigation }) => {
             </Center>
           </HStack>
           <HStack>
-            <Center ml={"10%"} mt={"1.5%"}>
+            <Center ml={"17.5%"} mt={"1.5%"}>
               <Text
                 color="#84D31E"
                 w={36}

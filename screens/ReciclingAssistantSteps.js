@@ -7,16 +7,16 @@ import DoubleStepPage from '../components/steps/DoubleStepPage';
 import ForkStepPage from '../components/steps/ForkStepPage';
 import NegativeStepPage from '../components/steps/NegativeStepPage';
 import SimpleStepPage from '../components/steps/SimpleStepPage';
-import FinalStepPage from '../components/steps/FinalStepPage';
 
 const ReciclingAssistantSteps = ({nav,steps}) => {
     const [currentStep, setCurrentStep] = useState(steps[0])
     const [negativeStep, setNegativeStep] = useState(false);
-    const [finalStep, setFinalStep] = useState(false);
     
     const handleNextStep = () => {
         if(currentStep.stepNumber==steps.length){
-            setFinalStep(true);
+            nav.navigate("QRInstructions", {
+                step: currentStep.stepNumber+1,
+            });
         }
         else{
             setCurrentStep(steps[currentStep.stepNumber]);
@@ -42,12 +42,9 @@ const ReciclingAssistantSteps = ({nav,steps}) => {
 
     return(
         <Box mt={"2%"}>
-            {!finalStep ?
-                (!negativeStep ?
-                    displayStep(currentStep.stepType) :
-                    <NegativeStepPage stepName={currentStep.stepName} handleReturnToPrevious={() => handleReturnToPrevious()} nav={nav}/>
-                ) : 
-                <FinalStepPage nav={nav}/>
+            {!negativeStep ?
+                displayStep(currentStep.stepType) :
+                <NegativeStepPage stepName={currentStep.stepName} handleReturnToPrevious={() => handleReturnToPrevious()} nav={nav}/>
             }
         </Box>
     );

@@ -3,35 +3,28 @@
         "stepName":"Retirar Etiqueta",
         "stepNumber": 1,
         "stepType": 1,
-        "images": [],
+        "images": ["../../assets/images/removeSticker.png"],
         "texts": ["Despegá las etiquetas del producto y separalas para reciclarlas también"]
     },
     {
         "stepName":"Lavar",
         "stepNumber": 2,
         "stepType": 1,
-        "images": [],
+        "images": ["../../assets/images/wash.png"],
         "texts": ["Asegurate de que no queden restos de comida ni suciedad en el producto"]
     },
     {
         "stepName":"Secar",
         "stepNumber": 3,
         "stepType": 1,
-        "images": [],
+        "images": ["../../assets/images/dry.png"],
         "texts": ["El producto no debe estar mojado ni húmedo"]
     },
     {
         "stepName":"Comprimir",
         "stepNumber": 4,
         "stepType": 1,
-        "images": [],
+        "images": ["../../assets/images/compress.png"],
         "texts": ["Doblalo o aplastalo para que ocupe menos espacio en tu bolsa de reciclables"]
-    },
-    {
-        "stepName":"Separar",
-        "stepNumber": 5,
-        "stepType": 2,
-        "images": [],
-        "texts": ["Usa bolsa verde para tu producto","Arrojalo en un cesto de reciclables"]
     }
 ]

@@ -7,11 +7,6 @@ import { TouchableHighlight } from "react-native";
 import { CredentialsContext } from "../components/CredentialsContext";
 
 const Welcome = ({ navigation }) => {
-  //context
-  const { storedCredentials, setStoredCredentials } =
-    useContext(CredentialsContext);
-  const { email, name, photoUrl, x_access_token, player } = storedCredentials;
-
   return (
     <Box>
       <TopBox navigation={navigation} />

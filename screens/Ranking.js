@@ -244,7 +244,7 @@ const Raking = ({ navigation }) => {
                   opacity={0.4}
                   letterSpacing={0.16}
                 >
-                  "Mariana Diaz"
+                  "Marta Gomez"
                 </Text>
                 <Text
                   fontSize={20}
@@ -252,7 +252,7 @@ const Raking = ({ navigation }) => {
                   opacity={0.4}
                   letterSpacing={0.16}
                 >
-                  54
+                  22
                 </Text>
               </Center>
               <Center w="30" h="30" />

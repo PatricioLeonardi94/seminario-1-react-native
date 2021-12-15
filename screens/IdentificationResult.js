@@ -10,7 +10,11 @@ import paperSteps from "./../assets/material-recicling-steps/papel.json";
 import glassSteps from "./../assets/material-recicling-steps/vidrio.json";
 import cartonSteps from "./../assets/material-recicling-steps/carton.json";
 
-const IdentificationResult = ({ material, navigation }) => {
+import { MaterialContext } from "../components/MaterialContext";
+
+const IdentificationResult = ({ navigation }) => {
+  const {material,setMaterial} = React.useContext(MaterialContext);
+  
   const getMaterialReciclingSteps = () => {
     switch (material.toUpperCase()) {
       case "PLASTICO":
@@ -30,7 +34,7 @@ const IdentificationResult = ({ material, navigation }) => {
 
   return (
     <Box>
-      <TopBox />
+      <TopBox navigation={navigation}/>
       <Center>{getMaterialReciclingSteps()}</Center>
     </Box>
   );

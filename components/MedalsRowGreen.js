@@ -2,9 +2,16 @@ import React, { useState, useContext } from "react";
 import { Box, Center, Image, Text, VStack, HStack } from "native-base";
 import * as Progress from "react-native-progress";
 
-const MedalsRow = ({ medal }) => {
-  const { name, target_points, points, material, is_granted, coins, badge } =
-    medal;
+const MedalsRow = ({ medal, image }) => {
+  const {
+    name,
+    target_points,
+    points,
+    material,
+    is_granted,
+    coins_reward,
+    badge,
+  } = medal;
   var progress = points / target_points;
   return (
     <Box
@@ -35,7 +42,7 @@ const MedalsRow = ({ medal }) => {
             alignItems="center"
             color="#FFC700"
           >
-            {coins}
+            {coins_reward}
           </Text>
           <Text
             width={160}
@@ -57,7 +64,7 @@ const MedalsRow = ({ medal }) => {
             top="1"
             w="20"
             h="20"
-            source={badge}
+            source={image}
             alt="plastic bin"
           />
         </HStack>

@@ -21,42 +21,64 @@ const NegativeStepPage = ({stepName,handleReturnToPrevious,nav}) => {
                         Si no pudiste hacer el paso "{stepName}":
                     </Text>
                 </Center>
-                <Center mt={"10%"}>
-                    <Text
-                        fontFamily="body"
-                        fontWeight={500}
-                        fontSize={17}
-                        lineHeight={24}
-                        display="flex"
-                        alignItems="center"
-                        textAlign="center"
-                        letterSpacing={0.15}
-                        color="#84D31E"
-                    >
-                        Lo puedes tirar en un tacho negro
-                    </Text>
-                </Center>
-                <Center mt={"5%"}>
+                <HStack>
+                    <Center mt={"10%"} w={'45%'} mr={'5%'}>
+                        <Text
+                            fontFamily="body"
+                            fontWeight={500}
+                            fontSize={17}
+                            lineHeight={24}
+                            display="flex"
+                            alignItems="center"
+                            textAlign="center"
+                            letterSpacing={0.15}
+                            color="rgba(0, 0, 0, 0.4)"
+                        >
+                            Lo puedes tirar en un tacho negro
+                        </Text>
+                    </Center>
+                    <Center mt={'5%'} w={'40%'} h={'100px'} style={{backgroundColor: 'rgba(0, 0, 0, 0.1)'}}>
+                        <Image
+                            w={"140px"}
+                            h={"100px"}
+                            source={require('../../assets/images/removeSticker.png')}
+                            alt="Imagen"
+                            style={{borderRadius: '8px'}} />
+                    </Center>
+                </HStack>
+                <Center mt={'7.5%'}>
                     <Text> Ó </Text>
-                    <Text
-                        mt={"10%"}
-                        fontFamily="body"
-                        fontWeight={500}
-                        fontSize={17}
-                        lineHeight={24}
-                        display="flex"
-                        alignItems="center"
-                        textAlign="center"
-                        letterSpacing={0.15}
-                        color="rgba(0, 0, 0, 0.4)"
-                    >
-                        Llevatelo con vos y reciclalo más tarde
-                    </Text>
                 </Center>
+                <HStack mt={'5%'}>
+                    <Center w={'40%'} h={'100px'}  mt={'5%'} style={{backgroundColor: 'rgba(0, 0, 0, 0.1)'}}>
+                        <Image
+                            w={"140px"}
+                            h={"100px"}
+                            source={require('../../assets/images/removeSticker.png')}
+                            alt="Imagen"
+                            style={{borderRadius: '8px'}} />
+                    </Center>
+                    <Center mt={"5%"} ml={'5%'} w={'45%'}>
+                        <Text
+                            mt={"10%"}
+                            fontFamily="body"
+                            fontWeight={500}
+                            fontSize={17}
+                            lineHeight={24}
+                            display="flex"
+                            alignItems="center"
+                            textAlign="center"
+                            letterSpacing={0.15}
+                            color="#84D31E"
+                        >
+                            Llevatelo con vos y reciclalo más tarde
+                        </Text>
+                    </Center>
+                </HStack>
                 <Center
                 mt={"15%"}
                 height={"8.5%"}
-                width={"47.5%"}
+                width={"200px"}
                 ml={"0%"}
                 borderRadius={"8px"}
                 bgColor="#84D31E"
@@ -65,8 +87,8 @@ const NegativeStepPage = ({stepName,handleReturnToPrevious,nav}) => {
                         color="white"
                         font="body"
                         fontWeight={500}
-                        fontSize={20}
-                        lineHeight={18}
+                        fontSize={21}
+                        lineHeight={21}
                         display="flex"
                         alignItems="center"
                         textAlign="center"
@@ -80,7 +102,7 @@ const NegativeStepPage = ({stepName,handleReturnToPrevious,nav}) => {
                 <Center
                 mt={"10%"}
                 height={"8.5%"}
-                width={"47.5%"}
+                width={"200px"}
                 ml={"0%"}
                 borderRadius={"8px"}
                 bgColor="rgba(0, 0, 0, 0.05)"
@@ -90,7 +112,7 @@ const NegativeStepPage = ({stepName,handleReturnToPrevious,nav}) => {
                         font="body"
                         fontWeight={500}
                         fontSize={18}
-                        lineHeight={18}
+                        lineHeight={21}
                         display="flex"
                         alignItems="center"
                         textAlign="center"
