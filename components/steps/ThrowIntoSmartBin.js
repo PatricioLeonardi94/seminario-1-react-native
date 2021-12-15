@@ -9,6 +9,7 @@ import {
   Button,
   Image,
 } from "native-base";
+import {View, ActivityIndicator} from 'react-native';
 import BottomImageWithExitButton from "../../components/BottomImageWithExitButton";
 import axiosRetry from "axios-retry";
 

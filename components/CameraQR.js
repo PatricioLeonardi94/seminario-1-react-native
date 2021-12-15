@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import TopBox from "../components/TopBox";
-import { Text, View, StyleSheet, Button } from "react-native";
+import {ActivityIndicator, Text, View, StyleSheet, Button } from "react-native";
 // import {
 //   Center,
 //   Box,
@@ -66,17 +66,11 @@ const CameraQR = ({ navigation, route }) => {
 
     // for future material: translateMaterial(material)
 
-    if (isNaN(step)) {
-      step = 1;
-    } else {
-      step += 1;
-    }
-
     var qs = require("qs");
 
     var data = qs.stringify({
       connection_code: "123",
-      flow_points: step,
+      flow_points: step+2,
       material: "plastic",
     });
 
