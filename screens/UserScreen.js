@@ -28,8 +28,8 @@ const UserScreen = ({ navigation }) => {
   const [userInfo, setUserInfo] = useState({
     user: {
       fullname: "",
+      photo: "",
     },
-    photo: "",
     month_points: "0",
     points: "0",
     coins: "0",
