@@ -28,7 +28,7 @@ const UserScreen = ({ navigation }) => {
   const [userInfo, setUserInfo] = useState({
     user: {
       fullname: "",
-      photo: "",
+      photo: "https://lh3.googleusercontent.com/a-/AOh14GjQtTDKNGWBmLwpW92BtCaUKitpRT4UvswhYajr=s100",
     },
     month_points: "0",
     points: "0",

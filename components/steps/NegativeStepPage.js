@@ -1,5 +1,5 @@
 import React from 'react';
-import { Center, Box, Text, VStack, HStack, Stack, Button } from "native-base";
+import { Center, Box, Text, VStack, HStack, Stack, Button, Image } from "native-base";
 import BottomImageWithExitButton from "../../components/BottomImageWithExitButton";
 
 const NegativeStepPage = ({stepName,handleReturnToPrevious,nav}) => {
@@ -37,11 +37,11 @@ const NegativeStepPage = ({stepName,handleReturnToPrevious,nav}) => {
                             Lo puedes tirar en un tacho negro
                         </Text>
                     </Center>
-                    <Center mt={'5%'} w={'40%'} h={'100px'} style={{backgroundColor: 'rgba(0, 0, 0, 0.1)'}}>
+                    <Center mt={'5%'} w={'40%'} h={'100px'}>
                         <Image
                             w={"140px"}
                             h={"100px"}
-                            source={require('../../assets/images/removeSticker.png')}
+                            source={require('../../assets/images/blackBag.png')}
                             alt="Imagen"
                             style={{borderRadius: '8px'}} />
                     </Center>
@@ -50,11 +50,11 @@ const NegativeStepPage = ({stepName,handleReturnToPrevious,nav}) => {
                     <Text> Ó </Text>
                 </Center>
                 <HStack mt={'5%'}>
-                    <Center w={'40%'} h={'100px'}  mt={'5%'} style={{backgroundColor: 'rgba(0, 0, 0, 0.1)'}}>
+                    <Center w={'40%'} h={'100px'}  mt={'5%'}>
                         <Image
                             w={"140px"}
                             h={"100px"}
-                            source={require('../../assets/images/removeSticker.png')}
+                            source={require('../../assets/images/takeWithYou.png')}
                             alt="Imagen"
                             style={{borderRadius: '8px'}} />
                     </Center>
