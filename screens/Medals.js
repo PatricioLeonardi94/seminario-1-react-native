@@ -15,7 +15,24 @@ const Medals = ({ navigation }) => {
   const { player, x_access_token } = storedCredentials;
   // var { medals } = player;
 
-  const [badge, setBadge] = useState([]);
+  const [badge, setBadge] = useState([
+    {
+      coins_reward: 5,
+      is_granted: false,
+      material: "plastic",
+      name: "Subteniente Plastico",
+      points: 22,
+      target_points: 100,
+    },
+    {
+      coins_reward: 20,
+      is_granted: false,
+      material: "generic",
+      name: "Reciclador Novato",
+      points: 180,
+      target_points: 200,
+    },
+  ]);
 
   useEffect(() => {
     getUserBadges();
@@ -37,6 +54,7 @@ const Medals = ({ navigation }) => {
         const { player } = response.data;
         const { medals } = player;
         setBadge(medals);
+        console.log(medals);
       })
       .catch(function (error) {
         console.log(error);

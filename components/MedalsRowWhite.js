@@ -26,6 +26,7 @@ const MedalsRow = ({ medal, image }) => {
             w="20"
             h="20"
             source={image}
+            key={material}
             alt="plastic bin"
             right={2}
           />

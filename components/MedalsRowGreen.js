@@ -31,6 +31,7 @@ const MedalsRow = ({ medal, image }) => {
             w="10"
             h="10"
             source={require("../assets/images/dollar_coin.png")}
+            key={material}
             alt="dollar coin"
           />
           <Text
