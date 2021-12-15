@@ -63,9 +63,6 @@ const ThrowIntoSmartBin = ({ navigation, route }) => {
       },
     }).catch((err) => {
       if (err.response.status !== 200) {
-          setIsLoading(false);
-          setError(true);
-          setSuccess(false);
         throw new Error(
           `API call failed with status code: ${err.response.status} after 3 retry attempts`
         );
@@ -73,9 +70,6 @@ const ThrowIntoSmartBin = ({ navigation, route }) => {
     });
 
     if (response.status === 200) {
-        setIsLoading(false);
-        setError(false);
-        setSuccess(true);
       // Devolvio 200 la conexion de el tacho en ended
       console.log(response.status);
       getConnectionDetails();
@@ -100,12 +94,18 @@ const ThrowIntoSmartBin = ({ navigation, route }) => {
         console.log("GET bin connection ended info", response.data);
         const { data } = response.data;
         const puntosGanados = data.points;
+        setIsLoading(false);
+        setError(false);
+        setSuccess(true);
         navigation.navigate("Congratulations", {
           points: puntosGanados,
           flowPoints: step,
         });
       })
       .catch(function (error) {
+        setIsLoading(false);
+        setError(true);
+        setSuccess(false);
         console.log("Error trying to get bin ended information", error);
       });
   };
