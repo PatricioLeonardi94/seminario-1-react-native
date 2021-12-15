@@ -62,6 +62,7 @@ const UserScreen = ({ navigation }) => {
       .then(function (response) {
         setUserStatus(true);
         var { player } = response.data;
+        console.log(player);
         setUserInfo(player);
       })
       .catch(function (error) {
@@ -87,7 +88,7 @@ const UserScreen = ({ navigation }) => {
         <Center mb="2.5" top={5}>
           <Image
             source={{
-              uri: userInfo.photo,
+              uri: userInfo.user.photo,
             }}
             borderRadius={100}
             alt="Avatar"
