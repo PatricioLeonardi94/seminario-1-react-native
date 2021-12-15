@@ -22,7 +22,8 @@ import TopBox from "../TopBox";
 // En esta pantalla, el usuario debe tirar
 // EL tacho, cuando detecta el diferencial, pasa la sesion a "cerrada" y guarda los datos calculados
 
-const ThrowIntoSmartBin = ({ navigation, step }) => {
+const ThrowIntoSmartBin = ({ navigation, route }) => {
+    const {step} = route.params;
   const { material, setMaterial } = React.useContext(MaterialContext);
   const { storedCredentials, setStoredCredentials } = useContext(CredentialsContext);
   const { x_access_token } = storedCredentials;
@@ -89,6 +90,7 @@ const ThrowIntoSmartBin = ({ navigation, step }) => {
         const puntosGanados = data.points;
         navigation.navigate("Congratulations", {
           points: puntosGanados,
+          flowPoints: step,
         });
       })
       .catch(function (error) {

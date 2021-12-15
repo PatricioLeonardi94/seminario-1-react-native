@@ -19,7 +19,8 @@ import { CredentialsContext } from "./CredentialsContext";
 import { MaterialContext } from "./MaterialContext";
 import { QRContext } from "./Contexts/QRContext";
 
-const CameraQR = ({ navigation, step }) => {
+const CameraQR = ({ navigation, route }) => {
+  const {step} = route.params;
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
 

@@ -5,13 +5,13 @@ import TopBox from '../TopBox';
 
 import {CredentialsContext} from '../CredentialsContext';
 
-const Congratulations = ({navigation, points}) => {
+const Congratulations = ({navigation, route}) => {
+    const {points, flowPoints} = route.params;
     const [userInfo, setUserInfo] = useState({
       user: {
-        fullname: "Patricio L",
+        fullname: '',
+        photo: "",
       },
-      photo:
-        "https://lh3.googleusercontent.com/a-/AOh14GjRaMM2KgUli3sxH76vrs1QFRuOZnLi3KxdWuKLzw=s100",
       month_points: "0",
       points: "0",
       coins: "0",
@@ -26,7 +26,8 @@ const Congratulations = ({navigation, points}) => {
     }
   
     useEffect(() => {
-      getUserInfo();
+        console.log(x_access_token);
+        getUserInfo();
     }, []);
   
     const getUserInfo = () => {
@@ -42,7 +43,6 @@ const Congratulations = ({navigation, points}) => {
   
       axios(config)
         .then(function (response) {
-          setUserStatus(true);
           var { player } = response.data;
           setUserInfo(player);
         })
@@ -98,7 +98,7 @@ const Congratulations = ({navigation, points}) => {
                             letterSpacing={0.15}
                             color="#84D31E"
                         >
-                            +{points?points:7} PUNTOS
+                            +{flowPoints?(points+flowPoints):5} PUNTOS
                         </Text>
                     </Center>
                     <Center w={"75%"}

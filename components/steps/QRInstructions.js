@@ -3,7 +3,8 @@ import TopBox from "../TopBox";
 import BottomImageWithExitButton from "../BottomImageWithExitButton";
 import { Center, Box, Text, VStack, HStack, Stack, Button } from "native-base";
 
-const QRInstructions = ({ navigation, step }) => {
+const QRInstructions = ({ navigation, route }) => {
+    const {step} = route.params;
   let nextStep = step? step + 1 : 2;
   return (
     <Box>
