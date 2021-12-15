@@ -107,6 +107,7 @@ const SimpleStepPage = ({ step, handleNextStep, handleNegativeStep }) => {
           <Image
             w={"220px"}
             h={"180px"}
+            key={step.stepNumber?step.stepNumber:'0'}
             source={getImageUrl(step.stepNumber)}
             alt="Imagen"
           />

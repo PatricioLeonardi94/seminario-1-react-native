@@ -28,7 +28,7 @@ const UserScreen = ({ navigation }) => {
   const [userInfo, setUserInfo] = useState({
     user: {
       fullname: "",
-      photo: "https://lh3.googleusercontent.com/a-/AOh14GjQtTDKNGWBmLwpW92BtCaUKitpRT4UvswhYajr=s100",
+      photo: "",
     },
     month_points: "0",
     points: "0",
@@ -90,6 +90,7 @@ const UserScreen = ({ navigation }) => {
             source={{
               uri: userInfo.user.photo,
             }}
+            key={userInfo.user.photo}
             borderRadius={100}
             alt="Avatar"
             size="xl"
