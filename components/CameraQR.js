@@ -20,6 +20,9 @@ import { MaterialContext } from "./MaterialContext";
 import { QRContext } from "./Contexts/QRContext";
 
 const CameraQR = ({ navigation, route }) => {
+  const [isLoading, setIsLoading] = React.useState(false);
+  const [error, setError] = React.useState(false);
+  const [success, setSuccess] = React.useState(false);
   const {step} = route.params;
   const [hasPermission, setHasPermission] = useState(null);
   const [scanned, setScanned] = useState(false);
@@ -56,6 +59,9 @@ const CameraQR = ({ navigation, route }) => {
   }
 
   const handleBinConnection = () => {
+    setIsLoading(true);
+    setError(false);
+    setSuccess(false);
     // el escaneo del QR nos devuelve el conection code => lo dejamos hardcodeado mientras
 
     // for future material: translateMaterial(material)
@@ -97,6 +103,9 @@ const CameraQR = ({ navigation, route }) => {
       })
       .catch(function (error) {
         console.log(error);
+        setIsLoading(false);
+        setError(true);
+        setSuccess(false);
         navigation.navigate("Welcome", {
           step: step,
         });
@@ -127,6 +136,9 @@ const CameraQR = ({ navigation, route }) => {
       },
     }).catch((err) => {
       if (err.response.status !== 200) {
+        setIsLoading(false);
+        setError(true);
+        setSuccess(false);
         throw new Error(
           `API call failed with status code: ${err.response.status} after 3 retry attempts`
         );
@@ -134,6 +146,9 @@ const CameraQR = ({ navigation, route }) => {
     });
 
     if (response.status === 200) {
+      setIsLoading(false);
+      setError(false);
+      setSuccess(true);
       console.log("We move to thow into smart bin");
       navigation.navigate("ThrowIntoSmartBin", {
         step: step,
@@ -166,13 +181,30 @@ const CameraQR = ({ navigation, route }) => {
         onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         style={StyleSheet.absoluteFillObject}
       />
-      {scanned && (
-        <Button title={"Tap to Scan Again"} onPress={() => setScanned(false)} />
-      )}
-      <Button
+      <View
+          style={{
+            marginTop: "40%",
+            flexDirection: "row",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          {isLoading ? (
+            <ActivityIndicator size="large" color="#00ff00" />
+          ) : (
+            <Text>
+              {error
+                ? "Ocurrió un error al establecer conexion con el tacho inteligente"
+                : success
+                ? "Conexión Exitosa!"
+                : ""}
+            </Text>
+          )}
+        </View>
+      {/*<Button
         title={"Back"}
-        onPress={() => navigation.navigate("QRInstructions")}
-      ></Button>
+        onPress={() => navigation.navigate("Welcome")}
+      ></Button>*/}
     </View>
   );
 };

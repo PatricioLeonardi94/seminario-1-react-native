@@ -23,16 +23,22 @@ import TopBox from "../TopBox";
 // EL tacho, cuando detecta el diferencial, pasa la sesion a "cerrada" y guarda los datos calculados
 
 const ThrowIntoSmartBin = ({ navigation, route }) => {
+    const [isLoading, setIsLoading] = React.useState(false);
+    const [error, setError] = React.useState(false);
+    const [success, setSuccess] = React.useState(false);
     const {step} = route.params;
-  const { material, setMaterial } = React.useContext(MaterialContext);
-  const { storedCredentials, setStoredCredentials } = useContext(CredentialsContext);
-  const { x_access_token } = storedCredentials;
-  const { binConnection, setBinConnection } = useContext(QRContext);
+    const { material, setMaterial } = React.useContext(MaterialContext);
+    const { storedCredentials, setStoredCredentials } = useContext(CredentialsContext);
+    const { x_access_token } = storedCredentials;
+    const { binConnection, setBinConnection } = useContext(QRContext);
 
   // Ni bien se monta, empezar a escuchar el HEAD de conexiones cerradas (con el id de coneccion)
   // Una vez que se detecto cerrada, se llama al endpoint de conexiones cerradas para obtener sus detalles y cerrar el proceso
 
   const listenToClosedConection = async () => {
+    setIsLoading(true);
+    setError(false);
+    setSuccess(false);
     const urlConnection = `http://glacial-garden-26787.herokuapp.com/api/bins/connections/${binConnection}/ended`;
 
     var axios = require("axios");
@@ -57,6 +63,9 @@ const ThrowIntoSmartBin = ({ navigation, route }) => {
       },
     }).catch((err) => {
       if (err.response.status !== 200) {
+          setIsLoading(false);
+          setError(true);
+          setSuccess(false);
         throw new Error(
           `API call failed with status code: ${err.response.status} after 3 retry attempts`
         );
@@ -64,6 +73,9 @@ const ThrowIntoSmartBin = ({ navigation, route }) => {
     });
 
     if (response.status === 200) {
+        setIsLoading(false);
+        setError(false);
+        setSuccess(true);
       // Devolvio 200 la conexion de el tacho en ended
       console.log(response.status);
       getConnectionDetails();
@@ -179,6 +191,26 @@ const ThrowIntoSmartBin = ({ navigation, route }) => {
             >
               FINALIZAR
             </Text>
+            <View
+            style={{
+                marginTop: "5%",
+                flexDirection: "row",
+                justifyContent: "center",
+                alignItems: "center",
+            }}
+            >
+            {isLoading ? (
+                <ActivityIndicator size="large" color="#00ff00" />
+            ) : (
+                <Text>
+                {error
+                    ? "Ocurrió un error al validar el producto arrojado"
+                    : success
+                    ? "Validación Exitosa!"
+                    : ""}
+                </Text>
+            )}
+            </View>
           </Center>
           <BottomImageWithExitButton />
         </VStack>
